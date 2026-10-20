@@ -1,10 +1,10 @@
 # 실험·핸즈온
 
-실험별로 폴더 하나에 설명과 코드를 모읍니다. 아직 등록된 실험은 없습니다.
+실험별로 폴더 하나에 설명과 코드를 모읍니다.
 
 | 실험 | 담당자 | 상태 | 자료 |
 | --- | --- | --- | --- |
-| OT에서 선정 예정 | 미정 | 주제 선정 전 | — |
+| [01. Comfy API vs Runpod Serverless — 같은 H3 워크플로 비교](01-comfy-api-vs-runpod-h3/README.md) | 김진의 | 완료 | [발표 PDF](01-comfy-api-vs-runpod-h3/slides.pdf) · [블로그](https://runpod-korea-ug-community.static.hf.space/articles/comfy-api-vs-runpod-h3/index.html) |
 
 [핸즈온 양식](../templates/hands-on.md)을 복사해 시작하세요. 한 실험을 여러 명이 함께 진행하거나, 앞선 결과를 다른 조건으로 재현해도 좋습니다.
 
