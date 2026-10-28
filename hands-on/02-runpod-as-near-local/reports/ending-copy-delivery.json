@@ -1,0 +1,18 @@
+{
+  "slides": 42,
+  "main_slides": 35,
+  "appendix_slides": 7,
+  "ending_subtitle": "그래서 빌렸고, 궁금한 건 직접 재봤습니다",
+  "live_slide_ending_verified": true,
+  "live_blog_ending_verified": true,
+  "slide_35_overflow": false,
+  "desktop_copy_verified": true,
+  "sha256": {
+    "blog.html": "056fc01fc34ec0005277bdcd26382bf82e7a6c86bb6b4374a519cc9715a14fe4",
+    "slides.html": "aad1b67f6696373c18a25c9f28b2975d0559ad360fcc912386cf231d85c27e59"
+  },
+  "site_source_commit": "20a55b09be4c8a492b08453db87d27b0fd8adf5c",
+  "site_deployment_status": "succeeded",
+  "site_owner_only": true,
+  "preview_server_stopped": true
+}

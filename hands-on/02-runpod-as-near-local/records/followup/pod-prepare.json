@@ -1,0 +1,17 @@
+{
+  "label": "prepare",
+  "at_utc": "2026-10-24T02:09:21.105998+00:00",
+  "pod_id": "gp6slhhb81kghl",
+  "ssh_seconds": 27.484000000054948,
+  "selected": {
+    "gpu_type": "NVIDIA L4",
+    "data_center": "EU-RO-1",
+    "usd_per_gpu_hour": 0.59,
+    "stock_at_fetch": "Low"
+  },
+  "live_quote": {
+    "uninterruptablePrice": 0.59,
+    "stockStatus": "Low"
+  },
+  "hourly_usd": 0.59
+}

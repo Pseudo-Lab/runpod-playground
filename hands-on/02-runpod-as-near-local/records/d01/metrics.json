@@ -1,0 +1,23 @@
+{
+  "run_id": "d01",
+  "started_at_utc": "2026-10-17T15:53:46.263186+00:00",
+  "gpu": {
+    "gpu_type": "NVIDIA GeForce RTX 3090",
+    "data_center": "EU-CZ-1",
+    "usd_per_gpu_hour": 0.5,
+    "stock_at_fetch": "Low"
+  },
+  "image": "runpod/pytorch@sha256:cb154fcca15d1d6ce858cfa672b76505e30861ef981d28ec94bd44168767d853",
+  "result": "failed",
+  "hold_seconds": 0,
+  "price_ceiling_usd_per_hour": 1.19,
+  "timing_seconds": {
+    "delete_confirm": 1.0939999999827705,
+    "total_including_delete": 2.3439999999827705
+  },
+  "error": "RuntimeError: Runpod POST pods: HTTP 500: {\"error\":\"create pod: There are no instances currently available\",\"status\":500}\n",
+  "estimated_cost_usd": 0,
+  "billed_cost_usd": null,
+  "resource_created": false,
+  "cost_note": "No instance was allocated; create API returned no availability and list confirmed no matching Pod"
+}

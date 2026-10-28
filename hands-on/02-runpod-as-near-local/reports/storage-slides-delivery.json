@@ -1,0 +1,51 @@
+{
+  "slides": 30,
+  "main_slides": 23,
+  "appendix_slides": 7,
+  "changed_slides_visually_verified": [
+    13,
+    14,
+    19,
+    29,
+    30
+  ],
+  "changed_slide_geometry": [
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "Ceph는 저장 기반과 접근 방식을 나눈다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "RunPod S3는 같은 파일에 접근하는 또 다른 문"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "음악을 받은 뒤 쉬고, 다음 곡을 요청했다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "실제 GPU 보유 기록을 자세히 보면"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "숫자가 수상할 때 볼 곳"
+    }
+  ],
+  "site_source_commit": "0b8a315efd92c8086ebcdc553e82399ed1992d1a",
+  "site_deployment_status": "succeeded",
+  "site_owner_only": true,
+  "live_ceph_and_request_example_verified": true,
+  "desktop_copy_verified": true,
+  "desktop_path": "C:\\Users\\cools\\OneDrive\\바탕 화면\\5090은 안 샀습니다.html",
+  "sha256": {
+    "blog.html": "166911fcab892393a720a2b4266fa5a2f5314b1d4532fe970ea87fce1af2ce84",
+    "slides.html": "2a138cacf7b639aeffd491a9571817a1ae5445557af0107fd1a957d1a1ca29ff"
+  },
+  "blog_unchanged": true,
+  "request_example_uses_actual_policy_records": true
+}

@@ -1,0 +1,10 @@
+{
+  "rfilename": "model.safetensors",
+  "blobId": "9127f71e7314df0064f469223749e5f237e06463",
+  "size": 3087467144,
+  "lfs": {
+    "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+    "size": 3087467144,
+    "pointerSize": 135
+  }
+}

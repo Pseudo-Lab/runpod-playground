@@ -1,0 +1,12 @@
+{
+  "at_utc": "2026-10-24T02:30:13.604271+00:00",
+  "error": null,
+  "account_pod_count": 0,
+  "account_network_volume_count": 0,
+  "account_current_spend_per_hour": 0,
+  "pod_runtime_cost_estimate_usd": 0.20851176687810155,
+  "network_volume_estimate_usd": 0.000691944001486272,
+  "observed_account_balance_decrease_usd": 0.20529134349999367,
+  "billing_finalized": false,
+  "all_owned_deleted": true
+}

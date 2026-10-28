@@ -1,0 +1,14 @@
+{
+  "pair": 3,
+  "policy": "ephemeral",
+  "pattern": "synthetic_300s",
+  "run_ids": [
+    "c3e1",
+    "c3e2"
+  ],
+  "success_count": 2,
+  "estimated_cost_usd": 0.03961629422638151,
+  "complete_seconds": 538.7810000000172,
+  "second_call_seconds": 125.78099999995902,
+  "resident_model_reused": false
+}

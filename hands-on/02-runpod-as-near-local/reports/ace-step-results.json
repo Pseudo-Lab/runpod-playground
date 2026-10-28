@@ -1,0 +1,206 @@
+{
+  "at_utc": "2026-10-24T08:14:09.902469+00:00",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "data_center": "EU-RO-1",
+  "gpu_hourly_usd": 1.19,
+  "source_commit": "ca1e85fe9430179831e6bc6be790c332190a3866",
+  "main_model_revision": "19671f406d603126926c1b7e2adc169acbcade22",
+  "lm4b_revision": "0a3ec94b557aea7d508da38b31cfe7341f6ff737",
+  "model": "ACE-Step 1.5 turbo 2B DiT + 4B 5Hz LM",
+  "duration_seconds": 60,
+  "batch_size": 1,
+  "seed": 42,
+  "used_weight_bytes": 14695997544,
+  "downloaded_checkpoint_artifact_bytes": 18518187939,
+  "unused_default_lm_17b_was_downloaded": true,
+  "network_volume_allocated_gb": 60,
+  "cold_intent_to_collected_seconds": 728.265999999945,
+  "cold_bootstrap": {
+    "install_seconds": 213.03980603499804,
+    "download_seconds": 39.57929663301911,
+    "total_bootstrap_seconds": 253.28223444201285,
+    "checkpoint_bytes": 18518187939
+  },
+  "cached_intent_to_collected_seconds": [
+    201.7970000000205,
+    165.89000000001397,
+    178.60900000005495
+  ],
+  "cached_median_seconds": 178.60900000005495,
+  "cached_worker_ready_median_seconds": 159.75,
+  "cached_generation_seconds": [
+    13.051766328979284,
+    12.906414096010849,
+    12.972928719012998
+  ],
+  "cached_generation_median_seconds": 12.972928719012998,
+  "resident_generation_seconds": [
+    6.986594620975666,
+    6.940046608098783,
+    6.948605495970696
+  ],
+  "resident_generation_median_seconds": 6.948605495970696,
+  "resident_roundtrip_median_seconds": 11.016000000061467,
+  "backend_by_load": [
+    "vllm",
+    "vllm",
+    "vllm",
+    "vllm"
+  ],
+  "torch_by_load": [
+    "2.10.0+cu128",
+    "2.10.0+cu128",
+    "2.10.0+cu128",
+    "2.10.0+cu128"
+  ],
+  "peak_cuda_allocated_bytes": 17820958720,
+  "weight_hashes_match_hf_revisions": true,
+  "audio_comparisons": [
+    {
+      "label": "cold",
+      "file_sha256": "267d38471812c0710963143da36a13b3713eeeb161846e04fbb0806a29338d00",
+      "pcm_sha256": "7460abab7b2b6a7dac708889829dbb9e884356d6eae44b6b73eec0d1daf01bd9",
+      "same_pcm_as_cold": true,
+      "pcm_rmse_vs_cold": 0.0,
+      "duration_seconds": 60.0,
+      "sample_rate": 48000,
+      "channels": 2,
+      "rms": 0.1466756788871243,
+      "peak": 0.891265869140625
+    },
+    {
+      "label": "cached-1",
+      "file_sha256": "267d38471812c0710963143da36a13b3713eeeb161846e04fbb0806a29338d00",
+      "pcm_sha256": "7460abab7b2b6a7dac708889829dbb9e884356d6eae44b6b73eec0d1daf01bd9",
+      "same_pcm_as_cold": true,
+      "pcm_rmse_vs_cold": 0.0,
+      "duration_seconds": 60.0,
+      "sample_rate": 48000,
+      "channels": 2,
+      "rms": 0.1466756788871243,
+      "peak": 0.891265869140625
+    },
+    {
+      "label": "cached-2",
+      "file_sha256": "267d38471812c0710963143da36a13b3713eeeb161846e04fbb0806a29338d00",
+      "pcm_sha256": "7460abab7b2b6a7dac708889829dbb9e884356d6eae44b6b73eec0d1daf01bd9",
+      "same_pcm_as_cold": true,
+      "pcm_rmse_vs_cold": 0.0,
+      "duration_seconds": 60.0,
+      "sample_rate": 48000,
+      "channels": 2,
+      "rms": 0.1466756788871243,
+      "peak": 0.891265869140625
+    },
+    {
+      "label": "cached-3",
+      "file_sha256": "0d6842914deca485832996bc439364c4ff27e68a8a6b89959acd618390e5f292",
+      "pcm_sha256": "f597ca34b6e510cc05ace6c63ab8fc9a2b2f36ff0e22ef23c21a16fad0c07740",
+      "same_pcm_as_cold": false,
+      "pcm_rmse_vs_cold": 0.19555764964046599,
+      "duration_seconds": 60.0,
+      "sample_rate": 48000,
+      "channels": 2,
+      "rms": 0.15185742239922506,
+      "peak": 0.891265869140625
+    }
+  ],
+  "cached_pod_ids": [
+    "uck3t6ppv4pa5f",
+    "x2t2hgnzgu32dk",
+    "oq0rzm8mcdws2z"
+  ],
+  "four_distinct_pod_ids": true,
+  "policies": {
+    "keep": {
+      "label": "상시 보존",
+      "requests": 4,
+      "allocated_seconds": 297.75,
+      "gpu_estimate_usd": 0.09842291666666667,
+      "session_seconds": 297.75,
+      "mean_latency_seconds": 12.628999999986263,
+      "max_latency_seconds": 18.48499999998603,
+      "restarts": 0
+    },
+    "delete": {
+      "label": "즉시 반납",
+      "requests": 4,
+      "allocated_seconds": 605.1559999998426,
+      "gpu_estimate_usd": 0.20003767777772577,
+      "session_seconds": 842.765999999945,
+      "mean_latency_seconds": 149.42574999999488,
+      "max_latency_seconds": 207.2970000000205,
+      "restarts": 3
+    },
+    "fixed20": {
+      "label": "고정 20초",
+      "requests": 4,
+      "allocated_seconds": 515.4370000000345,
+      "gpu_estimate_usd": 0.17038056388890027,
+      "session_seconds": 689.75,
+      "mean_latency_seconds": 111.18350000001374,
+      "max_latency_seconds": 209.06299999996554,
+      "restarts": 2
+    },
+    "predict": {
+      "label": "예측 TTL",
+      "requests": 4,
+      "allocated_seconds": 365.51599999994505,
+      "gpu_estimate_usd": 0.12082334444442627,
+      "session_seconds": 483.5,
+      "mean_latency_seconds": 59.117250000010245,
+      "max_latency_seconds": 195.73499999998603,
+      "restarts": 1
+    }
+  },
+  "policy_order": [
+    "fixed20",
+    "keep",
+    "delete",
+    "predict"
+  ],
+  "think_time_gaps_seconds": [
+    5.0,
+    25.0,
+    180.0
+  ],
+  "policy_arrival_model": "closed-loop, after previous response",
+  "policy_requests_per_session": 4,
+  "policy_audio_files_locally_decoded_and_verified": 16,
+  "total_music_generations": 23,
+  "all_music_files_locally_decoded_and_pcm_hash_verified": 23,
+  "allocator_snapshot_note": "frozen-config.json is the legacy allocator input; only image is used by that helper. Actual ACE inference is fixed by preregistered ace_worker.py.",
+  "cleanup": {
+    "at_utc": "2026-10-24T08:13:40.803731+00:00",
+    "error": null,
+    "account_pod_count": 0,
+    "account_network_volume_count": 0,
+    "current_spend_per_hour": 0,
+    "gpu_lifetime_estimate_usd": 1.2555580528597035,
+    "all_owned_deleted": true,
+    "billing_finalized": false
+  },
+  "container_disk_estimate_usd": 0.0029308077797845556,
+  "network_volume_continuous_estimate_usd": 0.007716962375353884,
+  "total_resource_estimate_usd": 1.2662058230148419,
+  "storage_month_scenario_usd": 4.2,
+  "gpu_and_storage_month_scenario_usd": 12.768,
+  "audio_demo": {
+    "flac": "reports/audio/ace-step/ace-step-60s.flac",
+    "mp3": "reports/audio/ace-step/ace-step-60s.mp3",
+    "original_flac_sha256": "267d38471812c0710963143da36a13b3713eeeb161846e04fbb0806a29338d00",
+    "mp3_sha256": "86fb9849c2b328633c23ba257e7d10b67617858850bb7fdd873deda63f5bd400",
+    "alternate_mp3": "reports/audio/ace-step/ace-step-cached3.mp3",
+    "alternate_original_flac_sha256": "0d6842914deca485832996bc439364c4ff27e68a8a6b89959acd618390e5f292",
+    "alternate_mp3_sha256": "94d2a5e2402670fa064299c8bedd035c850f22b3ec5cc9f31eb71c5332e8d544"
+  },
+  "limitations": [
+    "One cold preparation and three fresh cached Pods.",
+    "One run per policy; not a population tail benchmark.",
+    "Closed-loop ACE sessions differ from old open-loop Qwen trace.",
+    "No flash-attn, no torch.compile; actual backend captured.",
+    "Provider/OS caches and physical host assignment uncontrolled.",
+    "PCM equality observed separately; audio validity is not a blind quality rating.",
+    "Allocation proxy includes API and deletion confirmation; not exact invoice billing."
+  ]
+}

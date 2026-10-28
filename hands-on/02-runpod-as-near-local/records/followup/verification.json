@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-10-24T02:35:04.543119+00:00",
+  "registered_sources_match": true,
+  "verified_local_backup_files": 15,
+  "full_recovery_seeds_exact_match": 3,
+  "public_artifact_credential_scan": "passed",
+  "report_links": "passed",
+  "account_pod_count": 0,
+  "account_network_volume_count": 0,
+  "account_current_spend_per_hour": 0
+}

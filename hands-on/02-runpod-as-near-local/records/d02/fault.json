@@ -1,0 +1,10 @@
+{
+  "run_id": "d02",
+  "status": "passed",
+  "controller_exit_code": 87,
+  "cleanup_after_fault_seconds": 52.82800000003772,
+  "total_seconds": 55.57800000003772,
+  "cleanup_agent": "independent_watchdog",
+  "remaining_owned_pods": 0,
+  "estimated_cost_usd": 0.008912595625718434
+}

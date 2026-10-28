@@ -1,0 +1,224 @@
+{
+  "at_utc": "2026-10-24T06:32:27.293562+00:00",
+  "actual": {
+    "keep": {
+      "label": "상시 보존",
+      "allocated_seconds": 177.03200000000652,
+      "gpu_estimate_usd": 0.058518911111113264,
+      "mean_latency_seconds": 1.2382222222707544,
+      "max_latency_seconds": 1.6410000000614673,
+      "restarts": 0,
+      "requests": 9,
+      "all_tokens_match": true
+    },
+    "delete": {
+      "label": "즉시 반납",
+      "allocated_seconds": 115.73399999993853,
+      "gpu_estimate_usd": 0.03825651666664635,
+      "mean_latency_seconds": 25.293222222244367,
+      "max_latency_seconds": 36.96900000004098,
+      "restarts": 3,
+      "requests": 9,
+      "all_tokens_match": true
+    },
+    "fixed20": {
+      "label": "고정 20초",
+      "allocated_seconds": 169.295999999973,
+      "gpu_estimate_usd": 0.05596173333332441,
+      "mean_latency_seconds": 29.600222222261234,
+      "max_latency_seconds": 50.93700000003446,
+      "restarts": 2,
+      "requests": 9,
+      "all_tokens_match": true
+    },
+    "predict": {
+      "label": "예측 TTL",
+      "allocated_seconds": 153.53100000007544,
+      "gpu_estimate_usd": 0.050750525000024936,
+      "mean_latency_seconds": 11.437111111124977,
+      "max_latency_seconds": 38.53099999995902,
+      "restarts": 1,
+      "requests": 9,
+      "all_tokens_match": true
+    }
+  },
+  "order": [
+    "predict",
+    "keep",
+    "fixed20",
+    "delete"
+  ],
+  "actual_trace": [
+    0.0,
+    8.0,
+    16.0,
+    46.0,
+    54.0,
+    62.0,
+    132.0,
+    140.0,
+    148.0
+  ],
+  "horizon": 175.0,
+  "calibration": {
+    "boot_median_seconds": 35.992000000027474,
+    "service_median_seconds": 1.0940000000409782,
+    "delete_confirmation_median_seconds": 1.992499999993015,
+    "boot_samples": [
+      25.280999999959022,
+      34.56200000003446,
+      35.35900000005495,
+      49.20299999997951,
+      48.18700000003446,
+      36.625
+    ]
+  },
+  "same_trace_replay": {
+    "keep": {
+      "allocated_seconds": 176.99249999999302,
+      "mean_latency_seconds": 1.0940000000409782,
+      "max_latency_seconds": 1.0940000000409782,
+      "restarts": 0
+    },
+    "delete": {
+      "allocated_seconds": 125.79200000042329,
+      "mean_latency_seconds": 25.271111111208384,
+      "max_latency_seconds": 37.08600000006845,
+      "restarts": 3
+    },
+    "fixed20": {
+      "allocated_seconds": 145.34550000017043,
+      "mean_latency_seconds": 20.48466666675328,
+      "max_latency_seconds": 37.08600000006845,
+      "restarts": 2
+    },
+    "predict": {
+      "allocated_seconds": 153.329000000027,
+      "mean_latency_seconds": 10.78933333339713,
+      "max_latency_seconds": 37.08600000006845,
+      "restarts": 1
+    }
+  },
+  "synthetic_replay": {
+    "bursty": {
+      "keep": {
+        "allocated_seconds": 554.6807316370222,
+        "mean_latency_seconds": 1.0940000000409782,
+        "max_latency_seconds": 1.0940000000409786,
+        "restarts": 0
+      },
+      "delete": {
+        "allocated_seconds": 299.4578300011228,
+        "mean_latency_seconds": 24.438352250992118,
+        "max_latency_seconds": 37.63651071947343,
+        "restarts": 7.14
+      },
+      "fixed20": {
+        "allocated_seconds": 360.0234832638358,
+        "mean_latency_seconds": 16.080343244858792,
+        "max_latency_seconds": 37.08600000006845,
+        "restarts": 4.58
+      },
+      "predict": {
+        "allocated_seconds": 452.7608443190371,
+        "mean_latency_seconds": 11.799868062533607,
+        "max_latency_seconds": 37.194305275871216,
+        "restarts": 3.3
+      }
+    },
+    "sparse": {
+      "keep": {
+        "allocated_seconds": 2099.204981255809,
+        "mean_latency_seconds": 1.0940000000409782,
+        "max_latency_seconds": 1.0940000000409809,
+        "restarts": 0
+      },
+      "delete": {
+        "allocated_seconds": 901.8920000014477,
+        "mean_latency_seconds": 35.58633333340064,
+        "max_latency_seconds": 37.086000000068495,
+        "restarts": 23
+      },
+      "fixed20": {
+        "allocated_seconds": 1361.8920000014477,
+        "mean_latency_seconds": 35.58633333340064,
+        "max_latency_seconds": 37.086000000068495,
+        "restarts": 23
+      },
+      "predict": {
+        "allocated_seconds": 1806.7282726675269,
+        "mean_latency_seconds": 22.195959641643555,
+        "max_latency_seconds": 37.669090554131635,
+        "restarts": 14.05
+      }
+    },
+    "alternating": {
+      "keep": {
+        "allocated_seconds": 975.1192049670381,
+        "mean_latency_seconds": 1.0940000000409782,
+        "max_latency_seconds": 1.0940000000409797,
+        "restarts": 0
+      },
+      "delete": {
+        "allocated_seconds": 484.06250000122236,
+        "mean_latency_seconds": 32.654984520430226,
+        "max_latency_seconds": 37.08600000006846,
+        "restarts": 12
+      },
+      "fixed20": {
+        "allocated_seconds": 672.9544309216259,
+        "mean_latency_seconds": 31.155317853762416,
+        "max_latency_seconds": 37.08600000006846,
+        "restarts": 11
+      },
+      "predict": {
+        "allocated_seconds": 862.229530820169,
+        "mean_latency_seconds": 17.504784979779842,
+        "max_latency_seconds": 37.14228012914149,
+        "restarts": 6
+      }
+    },
+    "irregular": {
+      "keep": {
+        "allocated_seconds": 1201.4063272628673,
+        "mean_latency_seconds": 1.0940000000409782,
+        "max_latency_seconds": 1.0940000000409797,
+        "restarts": 0
+      },
+      "delete": {
+        "allocated_seconds": 654.2330600013141,
+        "mean_latency_seconds": 30.396664769824405,
+        "max_latency_seconds": 37.48300347365773,
+        "restarts": 16.48
+      },
+      "fixed20": {
+        "allocated_seconds": 833.0518229504648,
+        "mean_latency_seconds": 24.232635596065272,
+        "max_latency_seconds": 37.50709456114674,
+        "restarts": 12.97
+      },
+      "predict": {
+        "allocated_seconds": 1079.0248362791008,
+        "mean_latency_seconds": 12.817578347373276,
+        "max_latency_seconds": 37.49069446789022,
+        "restarts": 6.62
+      }
+    }
+  },
+  "replay_is_not_additional_gpu_runs": true,
+  "replay_analysis": "Exploratory post-design analysis, not a preregistered population test.",
+  "cleanup": {
+    "at_utc": "2026-10-24T06:31:10.642604+00:00",
+    "error": null,
+    "account_pod_count": 0,
+    "account_network_volume_count": 0,
+    "current_spend_per_hour": 0,
+    "gpu_lifetime_estimate_usd": 0.29924530132677823,
+    "all_owned_deleted": true,
+    "billing_finalized": false
+  },
+  "container_disk_estimate_usd": 0.0006985184438066717,
+  "network_volume_continuous_estimate_usd": 0.0005506971112371964,
+  "total_resource_estimate_usd": 0.3004945168818221,
+  "metric_note": "Policy allocation proxy integrates create intent to deletion confirmation, excluding common initial preparation. API/quote time can overestimate provider billing. Total costs use resource ledger lifetimes. One run per policy; no population tail or statistical superiority claim."
+}

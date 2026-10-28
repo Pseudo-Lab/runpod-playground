@@ -1,0 +1,21 @@
+{
+  "declared_at_utc": "2026-10-17T16:02:49.386627+00:00",
+  "idle_seconds": 300,
+  "pairs": 3,
+  "pattern_source": "synthetic; no natural user-session call intervals available",
+  "order": [
+    [
+      "keep",
+      "ephemeral"
+    ],
+    [
+      "ephemeral",
+      "keep"
+    ],
+    [
+      "keep",
+      "ephemeral"
+    ]
+  ],
+  "interpretation": "Only compare this 5-minute synthetic pattern; representative-user H2 remains unverified."
+}

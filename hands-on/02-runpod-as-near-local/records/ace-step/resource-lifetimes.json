@@ -1,0 +1,139 @@
+{
+  "resources": [
+    {
+      "kind": "volume",
+      "name": "rpace-20261024-065417-data",
+      "id": "zp0n8cydyk",
+      "created_at_epoch": 1792824857.9666011,
+      "size_gb": 60,
+      "deleted": true,
+      "deleted_at_epoch": 1792829620.43481
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-cold",
+      "id": "ck4pgn1uddqmbv",
+      "created_at_epoch": 1792824860.0896292,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792825589.4174771
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-cached-1",
+      "id": "uck3t6ppv4pa5f",
+      "created_at_epoch": 1792825652.9350247,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792825888.6244316
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-cached-2",
+      "id": "x2t2hgnzgu32dk",
+      "created_at_epoch": 1792825889.637067,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792826056.412147
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-cached-3",
+      "id": "oq0rzm8mcdws2z",
+      "created_at_epoch": 1792826057.4263413,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792826236.8601496
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-fixed20-initial",
+      "id": "0fqodep42j43ns",
+      "created_at_epoch": 1792826568.5941226,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792826799.4459398
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-fixed20-restart-1",
+      "id": "ca63g9cvw43dyt",
+      "created_at_epoch": 1792826803.7095726,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792827033.5542262
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-fixed20-restart-2",
+      "id": "7akyq94bzp4k0o",
+      "created_at_epoch": 1792827192.5978487,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792827419.870368
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-keep-initial",
+      "id": "u9n901r58jpeso",
+      "created_at_epoch": 1792827433.9064853,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792827938.264968
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-delete-initial",
+      "id": "w6g5s497iqthlb",
+      "created_at_epoch": 1792827939.381358,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792828136.4489436
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-delete-restart-1",
+      "id": "b619o90pyuxymj",
+      "created_at_epoch": 1792828140.638479,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792828348.789186
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-delete-restart-2",
+      "id": "c2qhdrzi8z7gwx",
+      "created_at_epoch": 1792828372.9355369,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792828558.6344266
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-delete-restart-3",
+      "id": "b94d0c6knzigga",
+      "created_at_epoch": 1792828737.8657403,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792828925.5316155
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-predict-initial",
+      "id": "4y8ahvg9sup778",
+      "created_at_epoch": 1792828959.609033,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792829244.201629
+    },
+    {
+      "kind": "pod",
+      "name": "rpace-20261024-065417-policy-predict-restart-1",
+      "id": "e89z6wo1xdhw2v",
+      "created_at_epoch": 1792829363.3141472,
+      "total_hourly_usd": 1.19,
+      "deleted": true,
+      "deleted_at_epoch": 1792829594.9117606
+    }
+  ]
+}

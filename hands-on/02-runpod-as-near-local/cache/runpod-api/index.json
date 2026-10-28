@@ -1,0 +1,25 @@
+{
+  "fetched_at_utc": "2026-10-17T15:50:58.549667+00:00",
+  "ttl_seconds": 604800,
+  "contains_credentials": false,
+  "files": [
+    {
+      "path": "openapi.json",
+      "source": "https://rest.runpod.io/v1/openapi.json",
+      "sha256": "9500a8989878d53d8731f27bf8dbbd57801b328c760bdb32c38ba36d5cb580db",
+      "bytes": 154609
+    },
+    {
+      "path": "graphql-manage-pods.mdx",
+      "source": "https://raw.githubusercontent.com/runpod/docs/main/sdks/graphql/manage-pods.mdx",
+      "sha256": "b61ebcd5841bfb3649467f56c1e4e185fc5243238e7190f0e9dca7043e413eac",
+      "bytes": 11717
+    },
+    {
+      "path": "s3-api.mdx",
+      "source": "https://raw.githubusercontent.com/runpod/docs/main/storage/s3-api.mdx",
+      "sha256": "f5ce192a176842bbd6ec793d15b50db3df9166f0ec70db58e33c9251de4d580a",
+      "bytes": 26137
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-10-24T02:03:47.441476+00:00",
+  "source_sha256": {
+    "scripts/followup.py": "3b305212cc16881d52e2335fad86acdaeafab83d98f4f29948608fdf9db9ad26",
+    "scripts/followup_gpu.py": "f54e9a4c2c61fe7a4737bc75a6351b05e8d5115f12d4b64b3b9911dcb9b6c1b2",
+    "추가실험-아이디어선정.md": "9545ee9e3374ca11b7cb78140744a4d9e3988d8564bcb3b68d67333b32618d15",
+    "docs/followup/실험01-계획.md": "71fdfc75076acbc57562363a909197e2061b831146ea500185bffc7132b18ac5",
+    "docs/followup/실험01-설계.md": "48908c47dee687d3f04dd4539b1e6b9a7a6a7b543dcf625a84357fe46b1f9bfa",
+    "docs/followup/실험02-계획.md": "22ca4b1b2881ec09203475b7df562a3ecad07debda92f08ee262ccb9eb1d6b54",
+    "docs/followup/실험02-설계.md": "ebc8c7205940425653228c0d4bcedacd49ab3bd03e08ac0022b477a7ac18b5ed"
+  },
+  "budget_usd": 8.0,
+  "pod_ttl_seconds": 2100,
+  "global_ttl_seconds": 14400,
+  "storage_order": [
+    "ABC",
+    "BCA",
+    "CAB"
+  ],
+  "training_seeds": [
+    11,
+    22,
+    33
+  ]
+}

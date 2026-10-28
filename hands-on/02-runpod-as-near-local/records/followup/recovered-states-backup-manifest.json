@@ -1,0 +1,44 @@
+[
+  {
+    "path": "runs/train-full-11/final.pt",
+    "bytes": 1231115,
+    "sha256": "5ba5ccc81c400d295ceac1775692e09bc2d92d785b62f5e9dc675b95d427531b",
+    "source": "s3_full_object",
+    "matches_result_hash": true
+  },
+  {
+    "path": "runs/train-full-22/final.pt",
+    "bytes": 1231115,
+    "sha256": "f63d850517173592175f92bb6baea60a0d382d0a4ae4559337be5b85b2583121",
+    "source": "s3_full_object",
+    "matches_result_hash": true
+  },
+  {
+    "path": "runs/train-weights-11/final.pt",
+    "bytes": 1231115,
+    "sha256": "6ed5b0626a984e6c3247b83c28ca41c126d9978af5ae7b351be4c9b67ea64789",
+    "source": "s3_full_object",
+    "matches_result_hash": true
+  },
+  {
+    "path": "runs/train-weights-22/final.pt",
+    "bytes": 1231115,
+    "sha256": "5b1d71989b44f34048791023ec2f04230c3cac7df614598e03d28e41adbc6474",
+    "source": "s3_full_object",
+    "matches_result_hash": true
+  },
+  {
+    "path": "runs/train-full-33/final.pt",
+    "bytes": 1231115,
+    "sha256": "0a1b404e5fa0b11ea568b0a416479eb467b16506a5003151a151254da12a68c6",
+    "source": "s3_full_object",
+    "matches_result_hash": true
+  },
+  {
+    "path": "runs/train-weights-33/final.pt",
+    "bytes": 1231115,
+    "sha256": "2cc36526be1b7734245a71455d1e751b4c0cc601156f19359e09e3b99eda67cd",
+    "source": "s3_full_object",
+    "matches_result_hash": true
+  }
+]

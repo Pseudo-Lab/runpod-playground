@@ -1,0 +1,34 @@
+{
+  "status": "partial_not_final",
+  "known_allocated_pods": 17,
+  "pod_rows_received": 4,
+  "received_pod_amount_usd": 0.034902685321867466,
+  "rows": [
+    {
+      "run_id": "a02",
+      "amount_usd": 0.007211944554001093,
+      "time_billed_ms": 51926,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "a01",
+      "amount_usd": 0.0157467593671754,
+      "time_billed_ms": 111710,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "b01",
+      "amount_usd": 0.004269814933650196,
+      "time_billed_ms": 29076,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "a03",
+      "amount_usd": 0.007674166467040777,
+      "time_billed_ms": 55254,
+      "bucket_utc": "2026-10-17 15:00:00"
+    }
+  ],
+  "network_volume_rows_received": 0,
+  "note": "Only some usage records have appeared. Do not treat this amount as the whole experiment cost."
+}

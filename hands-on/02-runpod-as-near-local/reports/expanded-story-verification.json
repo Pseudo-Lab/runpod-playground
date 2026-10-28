@@ -1,0 +1,15 @@
+{
+  "previous_main_chars_without_whitespace": 4023,
+  "current_main_chars_without_whitespace": 15659,
+  "main_text_ratio": 3.89236887894606,
+  "slides": 28,
+  "main_slides": 22,
+  "appendix_slides": 6,
+  "source_hashes_match": true,
+  "relative_blog_links_resolve": true,
+  "credential_scan": "passed",
+  "sha256": {
+    "blog.html": "08b73ef653fe97c72b1d5b89c26b6767d314641f4884a5a1a137b2940123b5e8",
+    "slides.html": "bf202a34e5fce87ccb44ffd6917cba5fc3d5d197ec07fe9bd6a50c809756bdc5"
+  }
+}

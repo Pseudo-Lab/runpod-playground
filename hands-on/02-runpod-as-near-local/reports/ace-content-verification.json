@@ -1,0 +1,18 @@
+{
+  "previous_main_chars_without_whitespace": 4023,
+  "current_main_chars_without_whitespace": 14976,
+  "main_text_ratio": 3.722595078299776,
+  "slides": 42,
+  "main_slides": 35,
+  "appendix_slides": 7,
+  "source_hashes_match": true,
+  "relative_blog_links_resolve": true,
+  "credential_scan": "passed",
+  "inline_javascript_syntax": "passed",
+  "audio_players_per_document": 2,
+  "sha256": {
+    "blog.html": "056fc01fc34ec0005277bdcd26382bf82e7a6c86bb6b4374a519cc9715a14fe4",
+    "slides.html": "aad1b67f6696373c18a25c9f28b2975d0559ad360fcc912386cf231d85c27e59"
+  },
+  "resource_cleanup_evidence": "records/ace-step/final-cleanup.json"
+}

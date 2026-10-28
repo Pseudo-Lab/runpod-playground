@@ -1,0 +1,58 @@
+{
+  "slides": 30,
+  "main_slides": 23,
+  "appendix_slides": 7,
+  "changed_slides_visually_verified": [
+    8,
+    18,
+    19,
+    24,
+    25
+  ],
+  "tables": [
+    {
+      "allColumnsAligned": true,
+      "cellsFit": true,
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "세 번 다 새 Pod에서 음악을 회수했다"
+    },
+    {
+      "allColumnsAligned": true,
+      "cellsFit": true,
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "네 번 생성하고, 똑같이 쉬어봤다"
+    },
+    {
+      "allColumnsAligned": true,
+      "cellsFit": true,
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "음악을 받은 뒤 쉬고, 다음 곡을 요청했다"
+    },
+    {
+      "allColumnsAligned": true,
+      "cellsFit": true,
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "이번 ACE-Step 실행 조건"
+    },
+    {
+      "allColumnsAligned": true,
+      "cellsFit": true,
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "작은 Qwen 결과는 예비 실험으로 남겼다"
+    }
+  ],
+  "site_source_commit": "0247699e85cef383bc8a40b5d836abe81212a31e",
+  "site_deployment_status": "succeeded",
+  "site_owner_only": true,
+  "live_policy_table_alignment_verified": true,
+  "desktop_copy_verified": true,
+  "sha256": {
+    "blog.html": "166911fcab892393a720a2b4266fa5a2f5314b1d4532fe970ea87fce1af2ce84",
+    "slides.html": "1db09d382f7622e8bfcb5955118fdbe1a655d6307b41c74713a3406cf5f51582"
+  }
+}

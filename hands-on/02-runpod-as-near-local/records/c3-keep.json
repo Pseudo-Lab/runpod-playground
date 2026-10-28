@@ -1,0 +1,13 @@
+{
+  "pair": 3,
+  "policy": "keep",
+  "pattern": "synthetic_300s",
+  "run_ids": [
+    "c3k"
+  ],
+  "success_count": 2,
+  "estimated_cost_usd": 0.06965888096557722,
+  "complete_seconds": 422.68699999997625,
+  "second_call_seconds": 1.0939694470725954,
+  "resident_model_reused": true
+}

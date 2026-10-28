@@ -1,0 +1,221 @@
+{
+  "policy": "keep",
+  "trace": [
+    0.0,
+    8.0,
+    16.0,
+    46.0,
+    54.0,
+    62.0,
+    132.0,
+    140.0,
+    148.0
+  ],
+  "horizon": 175.0,
+  "initial_state": "model-ready",
+  "policy_seconds": 177.03200000000652,
+  "allocated_seconds": 177.03200000000652,
+  "hourly_usd": 1.19,
+  "gpu_estimate_usd": 0.058518911111113264,
+  "restarts": [],
+  "responses": [
+    {
+      "request": 0,
+      "arrival": 0.0,
+      "start": 0.0,
+      "complete": 1.6410000000614673,
+      "latency_seconds": 1.6410000000614673,
+      "inference_seconds": 0.8266394019592553,
+      "pod_id": "amuyzfpvnixhdj"
+    },
+    {
+      "request": 1,
+      "arrival": 8.0,
+      "start": 8.141000000061467,
+      "complete": 9.204000000027008,
+      "latency_seconds": 1.2040000000270084,
+      "inference_seconds": 0.5425381929962896,
+      "pod_id": "amuyzfpvnixhdj"
+    },
+    {
+      "request": 2,
+      "arrival": 16.0,
+      "start": 16.0,
+      "complete": 17.094000000040978,
+      "latency_seconds": 1.0940000000409782,
+      "inference_seconds": 0.547108914994169,
+      "pod_id": "amuyzfpvnixhdj"
+    },
+    {
+      "request": 3,
+      "arrival": 46.0,
+      "start": 46.03200000000652,
+      "complete": 47.125,
+      "latency_seconds": 1.125,
+      "inference_seconds": 0.557694438030012,
+      "pod_id": "amuyzfpvnixhdj"
+    },
+    {
+      "request": 4,
+      "arrival": 54.0,
+      "start": 54.063000000081956,
+      "complete": 55.188000000081956,
+      "latency_seconds": 1.1880000000819564,
+      "inference_seconds": 0.575062895019073,
+      "pod_id": "amuyzfpvnixhdj"
+    },
+    {
+      "request": 5,
+      "arrival": 62.0,
+      "start": 62.125,
+      "complete": 63.21900000004098,
+      "latency_seconds": 1.2190000000409782,
+      "inference_seconds": 0.549554064986296,
+      "pod_id": "amuyzfpvnixhdj"
+    },
+    {
+      "request": 6,
+      "arrival": 132.0,
+      "start": 132.10999999998603,
+      "complete": 133.18800000008196,
+      "latency_seconds": 1.1880000000819564,
+      "inference_seconds": 0.5462430100305937,
+      "pod_id": "amuyzfpvnixhdj"
+    },
+    {
+      "request": 7,
+      "arrival": 140.0,
+      "start": 140.125,
+      "complete": 141.31300000008196,
+      "latency_seconds": 1.3130000000819564,
+      "inference_seconds": 0.6356988829793409,
+      "pod_id": "amuyzfpvnixhdj"
+    },
+    {
+      "request": 8,
+      "arrival": 148.0,
+      "start": 148.09400000004098,
+      "complete": 149.1720000000205,
+      "latency_seconds": 1.172000000020489,
+      "inference_seconds": 0.5430145079735667,
+      "pod_id": "amuyzfpvnixhdj"
+    }
+  ],
+  "events": [
+    {
+      "t": 0.0,
+      "type": "arrival",
+      "request": 0,
+      "ewma": 10.0,
+      "ttl": null
+    },
+    {
+      "t": 1.6410000000614673,
+      "type": "response",
+      "request": 0
+    },
+    {
+      "t": 8.0,
+      "type": "arrival",
+      "request": 1,
+      "ewma": 9.0,
+      "ttl": null
+    },
+    {
+      "t": 9.204000000027008,
+      "type": "response",
+      "request": 1
+    },
+    {
+      "t": 16.0,
+      "type": "arrival",
+      "request": 2,
+      "ewma": 8.5,
+      "ttl": null
+    },
+    {
+      "t": 17.094000000040978,
+      "type": "response",
+      "request": 2
+    },
+    {
+      "t": 46.0,
+      "type": "arrival",
+      "request": 3,
+      "ewma": 19.25,
+      "ttl": null
+    },
+    {
+      "t": 47.125,
+      "type": "response",
+      "request": 3
+    },
+    {
+      "t": 54.0,
+      "type": "arrival",
+      "request": 4,
+      "ewma": 13.625,
+      "ttl": null
+    },
+    {
+      "t": 55.188000000081956,
+      "type": "response",
+      "request": 4
+    },
+    {
+      "t": 62.0,
+      "type": "arrival",
+      "request": 5,
+      "ewma": 10.8125,
+      "ttl": null
+    },
+    {
+      "t": 63.21900000004098,
+      "type": "response",
+      "request": 5
+    },
+    {
+      "t": 132.0,
+      "type": "arrival",
+      "request": 6,
+      "ewma": 40.40625,
+      "ttl": null
+    },
+    {
+      "t": 133.18800000008196,
+      "type": "response",
+      "request": 6
+    },
+    {
+      "t": 140.0,
+      "type": "arrival",
+      "request": 7,
+      "ewma": 24.203125,
+      "ttl": null
+    },
+    {
+      "t": 141.31300000008196,
+      "type": "response",
+      "request": 7
+    },
+    {
+      "t": 148.0,
+      "type": "arrival",
+      "request": 8,
+      "ewma": 16.1015625,
+      "ttl": null
+    },
+    {
+      "t": 149.1720000000205,
+      "type": "response",
+      "request": 8
+    },
+    {
+      "t": 175.09400000004098,
+      "type": "horizon_delete",
+      "confirmed": 177.03200000000652
+    }
+  ],
+  "all_tokens_match": true,
+  "initial_preparation_excluded_from_policy_metrics": true
+}

@@ -1,0 +1,239 @@
+{
+  "policy": "predict",
+  "trace": [
+    0.0,
+    8.0,
+    16.0,
+    46.0,
+    54.0,
+    62.0,
+    132.0,
+    140.0,
+    148.0
+  ],
+  "horizon": 175.0,
+  "initial_state": "model-ready",
+  "policy_seconds": 177.18700000003446,
+  "allocated_seconds": 153.53100000007544,
+  "hourly_usd": 1.19,
+  "gpu_estimate_usd": 0.050750525000024936,
+  "restarts": [
+    {
+      "start": 132.14000000001397,
+      "ready": 168.76500000001397,
+      "seconds": 36.625,
+      "pod_id": "vdzka4leintqld"
+    }
+  ],
+  "responses": [
+    {
+      "request": 0,
+      "arrival": 0.0,
+      "start": 0.0,
+      "complete": 1.6709999999729916,
+      "latency_seconds": 1.6709999999729916,
+      "inference_seconds": 0.839676411007531,
+      "pod_id": "uy2dvh95bosonw"
+    },
+    {
+      "request": 1,
+      "arrival": 8.0,
+      "start": 8.01500000001397,
+      "complete": 9.09299999999348,
+      "latency_seconds": 1.0929999999934807,
+      "inference_seconds": 0.5474072140059434,
+      "pod_id": "uy2dvh95bosonw"
+    },
+    {
+      "request": 2,
+      "arrival": 16.0,
+      "start": 16.030999999959022,
+      "complete": 17.109000000054948,
+      "latency_seconds": 1.109000000054948,
+      "inference_seconds": 0.5378471380099654,
+      "pod_id": "uy2dvh95bosonw"
+    },
+    {
+      "request": 3,
+      "arrival": 46.0,
+      "start": 46.03099999995902,
+      "complete": 47.10900000005495,
+      "latency_seconds": 1.109000000054948,
+      "inference_seconds": 0.5471179130254313,
+      "pod_id": "uy2dvh95bosonw"
+    },
+    {
+      "request": 4,
+      "arrival": 54.0,
+      "start": 54.04599999997299,
+      "complete": 55.125,
+      "latency_seconds": 1.125,
+      "inference_seconds": 0.547479008033406,
+      "pod_id": "uy2dvh95bosonw"
+    },
+    {
+      "request": 5,
+      "arrival": 62.0,
+      "start": 62.06200000003446,
+      "complete": 63.18700000003446,
+      "latency_seconds": 1.187000000034459,
+      "inference_seconds": 0.5896423180238344,
+      "pod_id": "uy2dvh95bosonw"
+    },
+    {
+      "request": 6,
+      "arrival": 132.0,
+      "start": 168.76500000001397,
+      "complete": 170.53099999995902,
+      "latency_seconds": 38.53099999995902,
+      "inference_seconds": 0.979844368994236,
+      "pod_id": "vdzka4leintqld"
+    },
+    {
+      "request": 7,
+      "arrival": 140.0,
+      "start": 170.53099999995902,
+      "complete": 171.85900000005495,
+      "latency_seconds": 31.859000000054948,
+      "inference_seconds": 0.5788072679933975,
+      "pod_id": "vdzka4leintqld"
+    },
+    {
+      "request": 8,
+      "arrival": 148.0,
+      "start": 171.85900000005495,
+      "complete": 173.25,
+      "latency_seconds": 25.25,
+      "inference_seconds": 0.6212188969948329,
+      "pod_id": "vdzka4leintqld"
+    }
+  ],
+  "events": [
+    {
+      "t": 0.0,
+      "type": "arrival",
+      "request": 0,
+      "ewma": 10.0,
+      "ttl": 40.0
+    },
+    {
+      "t": 1.6709999999729916,
+      "type": "response",
+      "request": 0
+    },
+    {
+      "t": 8.0,
+      "type": "arrival",
+      "request": 1,
+      "ewma": 9.0,
+      "ttl": 36.0
+    },
+    {
+      "t": 9.09299999999348,
+      "type": "response",
+      "request": 1
+    },
+    {
+      "t": 16.0,
+      "type": "arrival",
+      "request": 2,
+      "ewma": 8.5,
+      "ttl": 34.0
+    },
+    {
+      "t": 17.109000000054948,
+      "type": "response",
+      "request": 2
+    },
+    {
+      "t": 46.0,
+      "type": "arrival",
+      "request": 3,
+      "ewma": 19.25,
+      "ttl": 60.0
+    },
+    {
+      "t": 47.10900000005495,
+      "type": "response",
+      "request": 3
+    },
+    {
+      "t": 54.0,
+      "type": "arrival",
+      "request": 4,
+      "ewma": 13.625,
+      "ttl": 54.5
+    },
+    {
+      "t": 55.125,
+      "type": "response",
+      "request": 4
+    },
+    {
+      "t": 62.0,
+      "type": "arrival",
+      "request": 5,
+      "ewma": 10.8125,
+      "ttl": 43.25
+    },
+    {
+      "t": 63.18700000003446,
+      "type": "response",
+      "request": 5
+    },
+    {
+      "t": 106.43700000003446,
+      "type": "delete_intent",
+      "confirmed": 108.48400000005495,
+      "ttl": 43.25
+    },
+    {
+      "t": 132.0,
+      "type": "arrival",
+      "request": 6,
+      "ewma": 40.40625,
+      "ttl": 60.0
+    },
+    {
+      "t": 168.76500000001397,
+      "type": "ready",
+      "pod_id": "vdzka4leintqld"
+    },
+    {
+      "t": 140.0,
+      "type": "arrival",
+      "request": 7,
+      "ewma": 24.203125,
+      "ttl": 60.0
+    },
+    {
+      "t": 148.0,
+      "type": "arrival",
+      "request": 8,
+      "ewma": 16.1015625,
+      "ttl": 60.0
+    },
+    {
+      "t": 170.53099999995902,
+      "type": "response",
+      "request": 6
+    },
+    {
+      "t": 171.85900000005495,
+      "type": "response",
+      "request": 7
+    },
+    {
+      "t": 173.25,
+      "type": "response",
+      "request": 8
+    },
+    {
+      "t": 175.045999999973,
+      "type": "horizon_delete",
+      "confirmed": 177.18700000003446
+    }
+  ],
+  "all_tokens_match": true,
+  "initial_preparation_excluded_from_policy_metrics": true
+}

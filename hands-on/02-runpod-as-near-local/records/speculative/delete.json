@@ -1,0 +1,274 @@
+{
+  "policy": "delete",
+  "trace": [
+    0.0,
+    8.0,
+    16.0,
+    46.0,
+    54.0,
+    62.0,
+    132.0,
+    140.0,
+    148.0
+  ],
+  "horizon": 175.0,
+  "initial_state": "model-ready",
+  "policy_seconds": 175.125,
+  "allocated_seconds": 115.73399999993853,
+  "hourly_usd": 1.19,
+  "gpu_estimate_usd": 0.03825651666664635,
+  "restarts": [
+    {
+      "start": 8.031000000075437,
+      "ready": 33.31200000003446,
+      "seconds": 25.280999999959022,
+      "pod_id": "tttkl1cusdltfp"
+    },
+    {
+      "start": 46.09400000004098,
+      "ready": 80.65600000007544,
+      "seconds": 34.56200000003446,
+      "pod_id": "4ul16poxocll0j"
+    },
+    {
+      "start": 132.0,
+      "ready": 167.35900000005495,
+      "seconds": 35.35900000005495,
+      "pod_id": "rd4fmveif2iuvm"
+    }
+  ],
+  "responses": [
+    {
+      "request": 0,
+      "arrival": 0.0,
+      "start": 0.0,
+      "complete": 1.437000000034459,
+      "latency_seconds": 1.437000000034459,
+      "inference_seconds": 0.6932431190507486,
+      "pod_id": "hm3rznrn6wfwov"
+    },
+    {
+      "request": 1,
+      "arrival": 8.0,
+      "start": 33.31200000003446,
+      "complete": 34.875,
+      "latency_seconds": 26.875,
+      "inference_seconds": 0.6926680200267583,
+      "pod_id": "tttkl1cusdltfp"
+    },
+    {
+      "request": 2,
+      "arrival": 16.0,
+      "start": 34.875,
+      "complete": 36.26500000001397,
+      "latency_seconds": 20.26500000001397,
+      "inference_seconds": 0.5350686740130186,
+      "pod_id": "tttkl1cusdltfp"
+    },
+    {
+      "request": 3,
+      "arrival": 46.0,
+      "start": 80.65600000007544,
+      "complete": 82.14000000001397,
+      "latency_seconds": 36.14000000001397,
+      "inference_seconds": 0.6928220699774101,
+      "pod_id": "4ul16poxocll0j"
+    },
+    {
+      "request": 4,
+      "arrival": 54.0,
+      "start": 82.14000000001397,
+      "complete": 83.42200000002049,
+      "latency_seconds": 29.42200000002049,
+      "inference_seconds": 0.5360466570127755,
+      "pod_id": "4ul16poxocll0j"
+    },
+    {
+      "request": 5,
+      "arrival": 62.0,
+      "start": 83.42200000002049,
+      "complete": 84.75,
+      "latency_seconds": 22.75,
+      "inference_seconds": 0.5340832460206002,
+      "pod_id": "4ul16poxocll0j"
+    },
+    {
+      "request": 6,
+      "arrival": 132.0,
+      "start": 167.35900000005495,
+      "complete": 168.96900000004098,
+      "latency_seconds": 36.96900000004098,
+      "inference_seconds": 0.8278750770259649,
+      "pod_id": "rd4fmveif2iuvm"
+    },
+    {
+      "request": 7,
+      "arrival": 140.0,
+      "start": 168.96900000004098,
+      "complete": 170.25,
+      "latency_seconds": 30.25,
+      "inference_seconds": 0.5399847730295733,
+      "pod_id": "rd4fmveif2iuvm"
+    },
+    {
+      "request": 8,
+      "arrival": 148.0,
+      "start": 170.25,
+      "complete": 171.53100000007544,
+      "latency_seconds": 23.531000000075437,
+      "inference_seconds": 0.5413610530085862,
+      "pod_id": "rd4fmveif2iuvm"
+    }
+  ],
+  "events": [
+    {
+      "t": 0.0,
+      "type": "arrival",
+      "request": 0,
+      "ewma": 10.0,
+      "ttl": 0.0
+    },
+    {
+      "t": 1.437000000034459,
+      "type": "response",
+      "request": 0
+    },
+    {
+      "t": 1.437000000034459,
+      "type": "delete_intent",
+      "confirmed": 3.5,
+      "ttl": 0.0
+    },
+    {
+      "t": 8.0,
+      "type": "arrival",
+      "request": 1,
+      "ewma": 9.0,
+      "ttl": 0.0
+    },
+    {
+      "t": 33.31200000003446,
+      "type": "ready",
+      "pod_id": "tttkl1cusdltfp"
+    },
+    {
+      "t": 16.0,
+      "type": "arrival",
+      "request": 2,
+      "ewma": 8.5,
+      "ttl": 0.0
+    },
+    {
+      "t": 34.875,
+      "type": "response",
+      "request": 1
+    },
+    {
+      "t": 36.26500000001397,
+      "type": "response",
+      "request": 2
+    },
+    {
+      "t": 36.26500000001397,
+      "type": "delete_intent",
+      "confirmed": 38.26500000001397,
+      "ttl": 0.0
+    },
+    {
+      "t": 46.0,
+      "type": "arrival",
+      "request": 3,
+      "ewma": 19.25,
+      "ttl": 0.0
+    },
+    {
+      "t": 80.65600000007544,
+      "type": "ready",
+      "pod_id": "4ul16poxocll0j"
+    },
+    {
+      "t": 54.0,
+      "type": "arrival",
+      "request": 4,
+      "ewma": 13.625,
+      "ttl": 0.0
+    },
+    {
+      "t": 62.0,
+      "type": "arrival",
+      "request": 5,
+      "ewma": 10.8125,
+      "ttl": 0.0
+    },
+    {
+      "t": 82.14000000001397,
+      "type": "response",
+      "request": 3
+    },
+    {
+      "t": 83.42200000002049,
+      "type": "response",
+      "request": 4
+    },
+    {
+      "t": 84.75,
+      "type": "response",
+      "request": 5
+    },
+    {
+      "t": 84.75,
+      "type": "delete_intent",
+      "confirmed": 86.625,
+      "ttl": 0.0
+    },
+    {
+      "t": 132.0,
+      "type": "arrival",
+      "request": 6,
+      "ewma": 40.40625,
+      "ttl": 0.0
+    },
+    {
+      "t": 167.35900000005495,
+      "type": "ready",
+      "pod_id": "rd4fmveif2iuvm"
+    },
+    {
+      "t": 140.0,
+      "type": "arrival",
+      "request": 7,
+      "ewma": 24.203125,
+      "ttl": 0.0
+    },
+    {
+      "t": 148.0,
+      "type": "arrival",
+      "request": 8,
+      "ewma": 16.1015625,
+      "ttl": 0.0
+    },
+    {
+      "t": 168.96900000004098,
+      "type": "response",
+      "request": 6
+    },
+    {
+      "t": 170.25,
+      "type": "response",
+      "request": 7
+    },
+    {
+      "t": 171.53100000007544,
+      "type": "response",
+      "request": 8
+    },
+    {
+      "t": 171.53100000007544,
+      "type": "delete_intent",
+      "confirmed": 173.46900000004098,
+      "ttl": 0.0
+    }
+  ],
+  "all_tokens_match": true,
+  "initial_preparation_excluded_from_policy_metrics": true
+}

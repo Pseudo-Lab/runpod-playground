@@ -1,0 +1,17 @@
+{
+  "label": "cached-2",
+  "at_utc": "2026-10-24T07:11:39.803859+00:00",
+  "pod_id": "x2t2hgnzgu32dk",
+  "ssh_seconds": 9.952999999979511,
+  "selected": {
+    "gpu_type": "NVIDIA GeForce RTX 5090",
+    "data_center": "EU-RO-1",
+    "usd_per_gpu_hour": 1.19,
+    "stock_at_fetch": "Low"
+  },
+  "live_quote": {
+    "uninterruptablePrice": 1.19,
+    "stockStatus": "Medium"
+  },
+  "hourly_usd": 1.19
+}

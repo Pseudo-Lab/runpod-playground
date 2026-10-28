@@ -1,0 +1,23 @@
+{
+  "run": "policy-fixed20-restart-1",
+  "pid": 82,
+  "import_seconds": 67.69455896108411,
+  "weight_hash_seconds": 14.29476699710358,
+  "dit_init_seconds": 11.06625931209419,
+  "lm_init_seconds": 44.01689439895563,
+  "worker_ready_seconds": 137.07503154606093,
+  "hashes": {
+    "acestep-v15-turbo/model.safetensors": "3f6e0797fad420a39bd33979eb6e840e30989e34a3794e843d23b60ec6e422d7",
+    "vae/diffusion_pytorch_model.safetensors": "da17edb604c40deaf09e9b24974e590d1ca83a374070e5d0884cfa4bed9a99b0",
+    "Qwen3-Embedding-0.6B/model.safetensors": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd",
+    "acestep-5Hz-lm-4B/model-00001-of-00002.safetensors": "ada9d0d4ff48f112de3f7b82cd4e7d57b4245932657e8b8edc9a5ded6a23b77f",
+    "acestep-5Hz-lm-4B/model-00002-of-00002.safetensors": "6302100c3577e2f1dbf32573e9b5e6e6b1bea7af101b433c2d3d6280faa8ab68"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "torch": "2.10.0+cu128",
+  "backend": "vllm",
+  "flash_attention": false,
+  "torch_compile": false,
+  "cuda_memory_allocated_bytes": 16938391040,
+  "cuda_memory_reserved_bytes": 17041457152
+}

@@ -1,0 +1,33 @@
+# POST https://api.runpod.io/graphql
+# Authorization: Bearer <RUNPOD_API_KEY>, loaded locally; never put the key here.
+
+query GpuCatalog {
+  gpuTypes { id displayName memoryInGb securePrice communityPrice }
+  dataCenters { id location s3apiEnabled }
+}
+
+query GpuQuote {
+  gpuTypes(input: {id: "NVIDIA GeForce RTX 3090"}) {
+    id
+    lowestPrice(input: {gpuCount: 1, secureCloud: true, dataCenterId: "EU-CZ-1"}) {
+      uninterruptablePrice
+      stockStatus
+    }
+  }
+}
+
+query LiveAvailability {
+  dataCenters {
+    id
+    s3apiEnabled
+    gpuAvailability(input: {gpuCount: 1, secureCloud: true, minMemoryInGb: 16, minVcpuCount: 2}) {
+      gpuTypeId
+      available
+      stockStatus
+    }
+  }
+}
+
+query AccountCost {
+  myself { clientBalance currentSpendPerHr }
+}

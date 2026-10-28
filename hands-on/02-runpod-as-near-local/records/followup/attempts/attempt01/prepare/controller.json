@@ -1,0 +1,11 @@
+{
+  "run_id": "prepare",
+  "at_utc": "2026-10-24T02:08:05.584725+00:00",
+  "pid": 100,
+  "expected_exit": 0,
+  "exit": {
+    "returncode": 0,
+    "wall_seconds": 36.08672852895688
+  },
+  "local_roundtrip_seconds": 41.60999999998603
+}

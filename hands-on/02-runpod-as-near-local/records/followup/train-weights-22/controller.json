@@ -1,0 +1,11 @@
+{
+  "run_id": "train-weights-22",
+  "at_utc": "2026-10-24T02:29:41.619790+00:00",
+  "pid": 142,
+  "expected_exit": 0,
+  "exit": {
+    "returncode": 0,
+    "wall_seconds": 4.810241044033319
+  },
+  "local_roundtrip_seconds": 12.704000000027008
+}

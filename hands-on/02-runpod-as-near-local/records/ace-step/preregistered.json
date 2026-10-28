@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-10-24T06:54:17.966601+00:00",
+  "source_sha256": {
+    "docs/ace-step-experiment.md": "ef808977a68fdd264d118057c9b0de33a7518152fa13865b385ae1dd7f46121c",
+    "scripts/ace_worker.py": "d92f9e5a9832f24a1aa92715ae5bc6d02f1f29c205bd5af1a44c74fe6ce0acca",
+    "scripts/ace_bootstrap.py": "0d1675b04e16585d58ecd019ad3aa1ef84563c88b733111c1da28392e8aac3ab",
+    "scripts/ace_control.py": "7129208f6ed404f440d064646486c6337a1295a71babff539158cd5859624667"
+  },
+  "budget_usd": 6,
+  "source_commit": "ca1e85fe9430179831e6bc6be790c332190a3866"
+}

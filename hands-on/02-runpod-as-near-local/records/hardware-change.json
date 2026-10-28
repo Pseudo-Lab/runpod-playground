@@ -1,0 +1,19 @@
+[
+  {
+    "at_utc": "2026-10-17T15:55:51.067491+00:00",
+    "from": {
+      "gpu_type": "NVIDIA GeForce RTX 3090",
+      "data_center": "EU-CZ-1",
+      "usd_per_gpu_hour": 0.5,
+      "stock_at_fetch": "Low"
+    },
+    "to": {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    "reason": "original datacenter exhausted stock",
+    "do_not_pool_hardware_strata": true
+  }
+]

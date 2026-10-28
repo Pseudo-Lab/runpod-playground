@@ -1,0 +1,17 @@
+{
+  "label": "predict-restart-1",
+  "at_utc": "2026-10-24T06:19:57.629495+00:00",
+  "pod_id": "vdzka4leintqld",
+  "ssh_seconds": 21.35999999998603,
+  "selected": {
+    "gpu_type": "NVIDIA GeForce RTX 5090",
+    "data_center": "EU-RO-1",
+    "usd_per_gpu_hour": 1.19,
+    "stock_at_fetch": "Low"
+  },
+  "live_quote": {
+    "uninterruptablePrice": 1.19,
+    "stockStatus": "Low"
+  },
+  "hourly_usd": 1.19
+}

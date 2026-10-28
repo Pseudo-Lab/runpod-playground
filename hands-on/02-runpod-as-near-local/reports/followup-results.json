@@ -1,0 +1,48 @@
+{
+  "storage_median_total_seconds": {
+    "A": 32.486526316031814,
+    "B": 85.2675164520042,
+    "C": 86.55615961801959
+  },
+  "paired_median_improvement_fraction": {
+    "B": -1.5616170319518492,
+    "C": -1.6643710311159028
+  },
+  "storage_threshold_met": {
+    "B": false,
+    "C": false
+  },
+  "modeled_break_even_process_count": {
+    "B": [
+      3,
+      4,
+      4
+    ],
+    "C": [
+      3,
+      4,
+      4
+    ]
+  },
+  "all_tokens_and_hashes_match": true,
+  "full_recovery_pass_by_seed": {
+    "11": true,
+    "22": true,
+    "33": true
+  },
+  "first_restore_request_to_collected_result_seconds": 51.37108397483826,
+  "container_disk_estimate_usd": 0.0011805634682561144,
+  "cleanup": {
+    "at_utc": "2026-10-24T02:30:13.604271+00:00",
+    "error": null,
+    "account_pod_count": 0,
+    "account_network_volume_count": 0,
+    "account_current_spend_per_hour": 0,
+    "pod_runtime_cost_estimate_usd": 0.2507516806575987,
+    "network_volume_estimate_usd": 0.0008332839148831957,
+    "observed_account_balance_decrease_usd": 0.20529134349999367,
+    "billing_finalized": false,
+    "all_owned_deleted": true,
+    "previous_failed_attempt_count": 1
+  }
+}

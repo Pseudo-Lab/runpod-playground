@@ -1,0 +1,10 @@
+{
+  "at_utc": "2026-10-24T02:31:29.998017+00:00",
+  "known_pods": 7,
+  "pods_with_usage_rows": 0,
+  "usage_rows": 0,
+  "final_invoice_verified": false,
+  "received_rows_amount_usd": 0,
+  "total_billed_cost_usd": null,
+  "note": "No usage rows received yet; total cost is unknown, not zero."
+}

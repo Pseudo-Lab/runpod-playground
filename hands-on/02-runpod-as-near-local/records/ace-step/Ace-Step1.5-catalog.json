@@ -1,0 +1,342 @@
+{
+  "_id": "69734694552d5009790048c1",
+  "id": "ACE-Step/Ace-Step1.5",
+  "private": false,
+  "pipeline_tag": "text-to-audio",
+  "library_name": "transformers",
+  "tags": [
+    "transformers",
+    "diffusers",
+    "safetensors",
+    "acestep",
+    "feature-extraction",
+    "audio",
+    "music",
+    "text2music",
+    "text-to-audio",
+    "custom_code",
+    "arxiv:2602.00744",
+    "license:mit",
+    "region:us"
+  ],
+  "downloads": 79069,
+  "likes": 921,
+  "modelId": "ACE-Step/Ace-Step1.5",
+  "author": "ACE-Step",
+  "sha": "19671f406d603126926c1b7e2adc169acbcade22",
+  "lastModified": "2026-02-03T11:37:37.000Z",
+  "gated": false,
+  "disabled": false,
+  "model-index": null,
+  "config": {
+    "architectures": [
+      "AceStepConditionGenerationModel"
+    ],
+    "auto_map": {
+      "AutoConfig": "configuration_acestep_v15.AceStepConfig",
+      "AutoModel": "modeling_acestep_v15_turbo.AceStepConditionGenerationModel"
+    },
+    "model_type": "acestep"
+  },
+  "cardData": {
+    "library_name": "transformers",
+    "license": "mit",
+    "pipeline_tag": "text-to-audio",
+    "tags": [
+      "audio",
+      "music",
+      "text2music"
+    ]
+  },
+  "transformersInfo": {
+    "auto_model": "AutoModel",
+    "custom_class": "modeling_acestep_v15_turbo.AceStepConditionGenerationModel",
+    "pipeline_tag": "feature-extraction"
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "a8d4cbb214bda0ce6b6e4453c02ca1a826b9f08a",
+      "size": 1740
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/added_tokens.json",
+      "blobId": "b54f9135e44c1e81047e8d05cb027af8bc039eed",
+      "size": 707
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/chat_template.jinja",
+      "blobId": "699ff8df401fe4788525e9c1f9b86a99eadd6230",
+      "size": 4116
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/config.json",
+      "blobId": "21bd712c76114dc22587c6eeb84ab64186c9d245",
+      "size": 1359
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/merges.txt",
+      "blobId": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+      "size": 1671853
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/model.safetensors",
+      "blobId": "9116264a405846ebfe4e95556b63b1ca07c892a0",
+      "size": 1191586416,
+      "lfs": {
+        "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd",
+        "size": 1191586416,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/special_tokens_map.json",
+      "blobId": "ac23c0aaa2434523c494330aeb79c58395378103",
+      "size": 613
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/tokenizer.json",
+      "blobId": "18a4abbf4a408dc534006a455544dcc195f356d2",
+      "size": 11423705,
+      "lfs": {
+        "sha256": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a",
+        "size": 11423705,
+        "pointerSize": 133
+      }
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/tokenizer_config.json",
+      "blobId": "ddaf69808214a44fdd26d3785b66c1367c78277a",
+      "size": 5404
+    },
+    {
+      "rfilename": "Qwen3-Embedding-0.6B/vocab.json",
+      "blobId": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "size": 2776833
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "a3115cec283fbdc2d500aa50fdffac3c87e6689a",
+      "size": 5496
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/added_tokens.json",
+      "blobId": "584075018edeacd6dcc031b3e2cbbf90836eba41",
+      "size": 2217787
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/chat_template.jinja",
+      "blobId": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+      "size": 4168
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/config.json",
+      "blobId": "1325891e0f2cb06ea22906f9c89047d09d0dac1f",
+      "size": 1385
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/merges.txt",
+      "blobId": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+      "size": 1671853
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/model.safetensors",
+      "blobId": "24177a84e9d1da125ef1a6c87493f07c2fb3565c",
+      "size": 3708521528,
+      "lfs": {
+        "sha256": "f161689da73e5ecefa28ff780d51c2d92a00f056d021d7933c779ed5c6cd7db8",
+        "size": 3708521528,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/special_tokens_map.json",
+      "blobId": "aa26266349a0f38be608e07138c9047356309551",
+      "size": 1824199
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/tokenizer.json",
+      "blobId": "9ddbbfa4ab39a70635bbde85a4cb422afeae7d88",
+      "size": 24321939,
+      "lfs": {
+        "sha256": "35af56c3f5cb3ea2cc578aa28a8937770981d504f183ac5c8c38baf4bbd4af4d",
+        "size": 24321939,
+        "pointerSize": 133
+      }
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/tokenizer_config.json",
+      "blobId": "b24427adb48675a5389bd54813b4e63f1b7127f8",
+      "size": 14072925,
+      "lfs": {
+        "sha256": "6cd70cdd89425971794f5235562edcc608b0629a6c4686ae51a8b8c8b8ba5e95",
+        "size": 14072925,
+        "pointerSize": 133
+      }
+    },
+    {
+      "rfilename": "acestep-5Hz-lm-1.7B/vocab.json",
+      "blobId": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "size": 2776833
+    },
+    {
+      "rfilename": "acestep-v15-turbo/config.json",
+      "blobId": "6a0b5c09a654614302947fd1d7041f7ed0764d8c",
+      "size": 1968
+    },
+    {
+      "rfilename": "acestep-v15-turbo/configuration_acestep_v15.py",
+      "blobId": "965a1b73afb1c89d0959c7d80691e487fdfde505",
+      "size": 13130
+    },
+    {
+      "rfilename": "acestep-v15-turbo/model.safetensors",
+      "blobId": "dd5858cb03b6587350e2c4abc4fd55c0ae7dc39b",
+      "size": 4787825604,
+      "lfs": {
+        "sha256": "3f6e0797fad420a39bd33979eb6e840e30989e34a3794e843d23b60ec6e422d7",
+        "size": 4787825604,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "acestep-v15-turbo/modeling_acestep_v15_turbo.py",
+      "blobId": "fa1162a5a01cc45c7959f3c531e2a8272ca05104",
+      "size": 96036
+    },
+    {
+      "rfilename": "acestep-v15-turbo/silence_latent.pt",
+      "blobId": "6b1e0f254e47f4f23ec505313d05e1d9fd09ae3e",
+      "size": 3841215,
+      "lfs": {
+        "sha256": "a778e9dd942f5e8b2c09c55370782d318834432b03dabbcdf70e6ed49ad6358b",
+        "size": 3841215,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "config.json",
+      "blobId": "6a0b5c09a654614302947fd1d7041f7ed0764d8c",
+      "size": 1968
+    },
+    {
+      "rfilename": "vae/config.json",
+      "blobId": "f49eb7b261dde15ed29c0fa1e790251dcecbd280",
+      "size": 425
+    },
+    {
+      "rfilename": "vae/diffusion_pytorch_model.safetensors",
+      "blobId": "1b5eb1b18009ae7ad96c3bda6412517b68ec2bc2",
+      "size": 337431388,
+      "lfs": {
+        "sha256": "da17edb604c40deaf09e9b24974e590d1ca83a374070e5d0884cfa4bed9a99b0",
+        "size": 337431388,
+        "pointerSize": 134
+      }
+    }
+  ],
+  "spaces": [
+    "hugging-apps/qwen-video-edit",
+    "ACE-Step/Ace-Step-v1.5",
+    "abelinoo/Ace-Step-v1.5",
+    "FreddyQQQ/ace-step-music-studio",
+    "victor/ace-step-jam",
+    "techfreakworm/ACE-Music-Studio",
+    "LububMusicAi/ACE-Step-Custom",
+    "Zyan11/LocalAI-Amlan-Edition",
+    "OnyxMunk/Ace-Step-Munk",
+    "Gamahea/ACE-Step-Custom",
+    "Davex256/LocalAI-Amlan-Edition",
+    "MiquelC/voice-clone-music-demo",
+    "Dezz-9-10/joat-music-ace-lab",
+    "aTrapDeer/Lora-ace-step",
+    "anti-human-music/Ace-Step-v1.5",
+    "Kansasfan/ace-step-music-studio",
+    "adowu/ACE-Step-Training",
+    "WeReCooking/ACE-Step-CPU",
+    "build-small-hackathon/turntable-time-machine",
+    "build-small-hackathon/poetic",
+    "Opera8/Ace-Step-v1.5",
+    "rawdripcollective-codec/ACE-Step-CPU",
+    "Sattigeri07/Music-project",
+    "Kansasfan/Ace-Step-v1.5",
+    "critesjosh/ace-step-music-studio",
+    "swdq/acestep-jpdenpa",
+    "DXMatrix/acestep-v15-xl-base-demo",
+    "Blursed/ACE-Step-1.5-XL-ENHANCED",
+    "fcolooo/stem-0-web-dev",
+    "Oliver577/qwen-video-edit",
+    "DarkCAlex/my-song-engine",
+    "Blursed/Ace-Step-v1.5",
+    "k-hwan/ace-step-v15-sdpa-diagnostic-20260909",
+    "eustlb/text-to-audio-models-on-the-hub",
+    "DengLi1208/ACE-Step-1.5",
+    "Bastian57/Studio-musiku",
+    "sudharsanabayya/Ace-Step-v1.5",
+    "mehdinaji68/ACE-Step-Training",
+    "punitg7/Ace-Step-v1.5",
+    "Mine11442/Ace-Step-v1.5",
+    "RoxyMusic/Ace-Step-v1.5",
+    "Ramtinhoss/Ace-Step-v1.5",
+    "hkjm/Ace-Step-v1.5_3",
+    "0kram/Ace-Step-v1.5-testing",
+    "Lanston/ACE-Step-v1-5-Music",
+    "sb-prince/Ace-Step-v1.5",
+    "testmeso/YourSongs-ACE-Step",
+    "Mine11442/Ace-Step-v1.55",
+    "Hellmachine/Ace-Step-v1.5",
+    "Paradise94/Tonemagic",
+    "MBLF/ACE-Step-1.5",
+    "FiditeNemini/Ace-Step-v1.5",
+    "Woyra/woyra-acestep",
+    "Thebeachingwaulrus/ACE-Step-Custom",
+    "webnowa/ace-step-jam",
+    "MageLord/Ace-Step-v1.5-ULG",
+    "developerjeremylive/Ace-Step-v1.5-etheroi",
+    "ManishKumar0001/ace-step-jam",
+    "sxySophie/Ace-Step-v1.5",
+    "StevenTGay/Ace-Step-v1.5",
+    "properfool/ace-step-jam",
+    "anuragsubedi/latent-recommend-app",
+    "gsk-music/GSK-Music",
+    "sayfpack/Ace-Step-v1.5",
+    "Anjuna/bunny-anjuna-ai",
+    "djp666/ACE-Music-Studio",
+    "OsricShaw/ace-step-exp",
+    "MokshHF/project_echo",
+    "Alfrancis55/Ace-Step-v1.5",
+    "wers600/symphonyai-audio-worker",
+    "poroping/Ace-Step-15",
+    "gowtamkumar0/ace-step-music",
+    "diegosiep/Ace-Step-v1.5",
+    "Tuananh20015/Ace-Step-v1.5",
+    "multimodalart/Ace-Step-v1.5",
+    "87Sonic/Ace-Step-v1.5",
+    "KuldeepPushpad/k2a-voice-cloner",
+    "Opera8/Ace-Step-v1.5fast",
+    "Falln87/Ace-Step-v1.5",
+    "lavanyaeswar/Ace-Step-v1.5",
+    "yonngddhsdhsdfsdf/OmniVoice",
+    "Falln87/museplayer-backend",
+    "agentllms/Ace-Step-v1.5",
+    "Frinch69/Ace-Step-v1.5",
+    "NathanPereira/ace-step-jam",
+    "xxxtunezxxx/ace-step-music",
+    "drexx56/Music_Tutor",
+    "drizzymedia/Lora-ace-step",
+    "drizzymedia/Synapse-Music-V8-Training",
+    "drizzymedia/ACE-Music-Studio",
+    "WojteKris/ace-step-1-5-demo",
+    "eemadd/trap-and-rap-acestep",
+    "hiro1414/Ace-Step-v1.5",
+    "Nitishkumar8948/Ace-Step-v1.5",
+    "berkkbeskardesler/Ace-Step-v1.5",
+    "chase8/Ace-Step-v1.5",
+    "Kraige/ZUMO-ACE-PRO",
+    "Jamalbalya/aimusicgenerated",
+    "Phinny/ACE-Step-Custom-Phinny",
+    "mumairjutt/Ace-Step-Song"
+  ],
+  "createdAt": "2026-01-23T09:59:48.000Z",
+  "usedStorage": 10079024720
+}

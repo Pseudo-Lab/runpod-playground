@@ -1,0 +1,29 @@
+{
+  "at_utc": "2026-10-24T06:14:10.654825+00:00",
+  "source_sha256": {
+    "docs/speculative-gpu-experiment.md": "57a4fbcf95d0949a74bc76925442c9a75b078df821eb617a829014e39f688553",
+    "scripts/speculative_policy.py": "d61924c1ff003885095a66dcc57952a0b04688d2b7824f1a5b36886c48f907eb",
+    "scripts/speculative_worker.py": "d27afb5fe1c0e2387ac56b39031f20456706fad75f73ad545530665d6eab692f",
+    "scripts/speculative_experiment.py": "769879eaf711d7e68e9e3c7c5400bececb4f045a8bb0273e7ef9a9896eec1b43",
+    "scripts/followup.py": "ac166ac6c3992abc8e5e8d8e3cba54591966a00267169c0440bc58107bdbd14c"
+  },
+  "order": [
+    "predict",
+    "keep",
+    "fixed20",
+    "delete"
+  ],
+  "trace": [
+    0.0,
+    8.0,
+    16.0,
+    46.0,
+    54.0,
+    62.0,
+    132.0,
+    140.0,
+    148.0
+  ],
+  "horizon": 175.0,
+  "budget_usd": 3.0
+}

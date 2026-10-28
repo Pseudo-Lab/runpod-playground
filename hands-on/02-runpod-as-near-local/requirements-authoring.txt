@@ -1,0 +1,4 @@
+# Local report/audio authoring; cloud API dependencies remain in requirements.txt.
+numpy==2.4.3
+soundfile==0.13.1
+imageio-ffmpeg==0.6.0

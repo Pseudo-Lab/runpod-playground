@@ -1,0 +1,26 @@
+{
+  "run_id": "a01",
+  "started_at_utc": "2026-10-17T15:45:08.832339+00:00",
+  "gpu": {
+    "gpu_type": "NVIDIA GeForce RTX 3090",
+    "data_center": "EU-CZ-1",
+    "usd_per_gpu_hour": 0.5,
+    "stock_at_fetch": "Low"
+  },
+  "image": "runpod/pytorch@sha256:cb154fcca15d1d6ce858cfa672b76505e30861ef981d28ec94bd44168767d853",
+  "result": "failed",
+  "hold_seconds": 0,
+  "price_ceiling_usd_per_hour": 1.19,
+  "timing_seconds": {
+    "api": 1.3599999999860302,
+    "ssh": 21.39100000000326,
+    "dependencies_ready": 80.0,
+    "delete_confirm": 2.014999999955762,
+    "total_including_delete": 113.20299999997951
+  },
+  "total_hourly_usd": 0.5,
+  "error": "TimeoutError: ",
+  "remote_log_tail": "\rFetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]\rFetching 7 files:  57%|█████▋    | 4/7 [00:00<00:00,  9.48it/s]\rFetching 7 files: 100%|██████████| 7/7 [00:10<00:00,  1.46s/it]\n`torch_dtype` is deprecated! Use `dtype` instead!\n",
+  "estimated_cost_usd": 0.01573639108075036,
+  "billed_cost_usd": null
+}

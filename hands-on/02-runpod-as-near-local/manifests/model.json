@@ -1,0 +1,13 @@
+{
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "source": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "license": "Apache-2.0",
+  "weights": {
+    "path": "model.safetensors",
+    "bytes": 3087467144,
+    "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+  },
+  "precision_tested": "bfloat16",
+  "weights_stored_in_git": false
+}

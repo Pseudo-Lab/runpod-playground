@@ -1,0 +1,18 @@
+{
+  "at_utc": "2026-10-17T15:44:57.986794+00:00",
+  "status": "passed",
+  "bytes": 47,
+  "sha256": "c8551bffb2ac7b951fb45c3d295a55804e550479bc2df65e815f1997b7bc1d19",
+  "elapsed_seconds": 1.797000000020489,
+  "no_pods_running": true,
+  "data_center": "EU-CZ-1",
+  "gpu_quote": {
+    "gpu_type": "NVIDIA GeForce RTX 3090",
+    "data_center": "EU-CZ-1",
+    "usd_per_gpu_hour": 0.5,
+    "stock_at_fetch": "Low"
+  },
+  "network_volume_gb": 10,
+  "storage_estimate_usd_for_2h": 0.0019444444444444446,
+  "pricing_source": "https://docs.runpod.io/pods/pricing"
+}

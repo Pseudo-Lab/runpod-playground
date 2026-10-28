@@ -1,0 +1,6 @@
+[
+  {
+    "reason": "Preparation workload succeeded, but SFTP ENOENT left an empty local result.json; controller tried to parse that absent optional result. Remove partial local file on ENOENT. No comparison measurements were made. All resources deleted before restart. Preserve attempt01 and include its cost.",
+    "training_pilot": "Seed99 baseline completed, excluded from registered sample."
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "snapshot": "/workspace/followup/hf/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "s3_key": "followup/hf/hub/models--Qwen--Qwen2.5-1.5B-Instruct/blobs/dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+  "bytes": 3087467144,
+  "first64k_sha256": "d6cc976421e28ad7fa38eb83a91c6b4dab359d86514b2fda55b79bcf44f3673a"
+}

@@ -1,0 +1,5 @@
+{
+  "at_utc": "2026-10-24T02:07:44.321101+00:00",
+  "reason": "Validate training workload on prepare Pod while dependencies install; excluded from registered seeds and comparisons",
+  "seed": 99
+}

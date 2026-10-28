@@ -1,0 +1,33 @@
+{
+  "run": "cold",
+  "request": "music",
+  "generation_seconds": 17.479619613965042,
+  "path": "/workspace/ace/runs/cold/music/9a4862fa-8c0e-5853-433d-8793c06ede83.flac",
+  "bytes": 5003269,
+  "sha256": "267d38471812c0710963143da36a13b3713eeeb161846e04fbb0806a29338d00",
+  "pcm_sha256": "7460abab7b2b6a7dac708889829dbb9e884356d6eae44b6b73eec0d1daf01bd9",
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration_seconds": 60.0,
+  "rms": 0.1466756788871243,
+  "peak": 0.891265869140625,
+  "clipping_fraction": 0.0,
+  "peak_cuda_memory_allocated_bytes": 17820958720,
+  "peak_cuda_memory_reserved_bytes": 18589155328,
+  "time_costs": {
+    "lm_phase1_time": 0.0,
+    "lm_phase2_time": 10.854845762252808,
+    "lm_total_time": 10.854845762252808,
+    "dit_encoder_time_cost": 0.010795354843139648,
+    "dit_diffusion_time_cost": 3.5546457767486572,
+    "dit_diffusion_per_step_time_cost": 0.44433072209358215,
+    "dit_total_time_cost": 4.4210429191589355,
+    "dit_offload_time_cost": 0.0,
+    "dit_vae_decode_time_cost": 0.8556017875671387,
+    "pipeline_total_time": 15.275888681411743
+  },
+  "backend": "vllm",
+  "seed": 42,
+  "local_audio_path": "private/ace-audio/cold/9a4862fa-8c0e-5853-433d-8793c06ede83.flac",
+  "local_file_hash_verified": true
+}

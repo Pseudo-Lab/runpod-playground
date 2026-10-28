@@ -1,0 +1,56 @@
+[
+  {
+    "path": "checkpoints/11/step060.pt",
+    "bytes": 3717081,
+    "sha256": "554b80aa7286f9b0e6efb972dc71540db97ec00aff3635378191753d2cd84f57",
+    "source": "s3_full_object"
+  },
+  {
+    "path": "checkpoints/11/step060.json",
+    "bytes": 140,
+    "sha256": "bad89df5c85240cca14928e88dfb4a1759aaaad936b837656ef4a1411133bfe1",
+    "source": "s3_full_object"
+  },
+  {
+    "path": "runs/train-baseline-11/final.pt",
+    "bytes": 1231115,
+    "sha256": "5ba5ccc81c400d295ceac1775692e09bc2d92d785b62f5e9dc675b95d427531b",
+    "source": "s3_full_object"
+  },
+  {
+    "path": "checkpoints/22/step060.pt",
+    "bytes": 3717081,
+    "sha256": "74369be2c89ac7e0bed25a3c9b1e5954b0a70ed05e25598d9c4cd5d4201c9332",
+    "source": "s3_full_object"
+  },
+  {
+    "path": "checkpoints/22/step060.json",
+    "bytes": 140,
+    "sha256": "c04b869f59a6839f5c34536fe5aa3c26102c8ec6196c60eee880072556c80f96",
+    "source": "s3_full_object"
+  },
+  {
+    "path": "runs/train-baseline-22/final.pt",
+    "bytes": 1231115,
+    "sha256": "f63d850517173592175f92bb6baea60a0d382d0a4ae4559337be5b85b2583121",
+    "source": "s3_full_object"
+  },
+  {
+    "path": "checkpoints/33/step060.pt",
+    "bytes": 3717081,
+    "sha256": "831cc75b17e9d8c64f03aace959f1eb9d62736df5daee3a8763966e3a836f9c8",
+    "source": "s3_full_object"
+  },
+  {
+    "path": "checkpoints/33/step060.json",
+    "bytes": 140,
+    "sha256": "dfb645b1517224d3d25ba75ea30634f115dcda456d285ef8540c1621fbdf2e77",
+    "source": "s3_full_object"
+  },
+  {
+    "path": "runs/train-baseline-33/final.pt",
+    "bytes": 1231115,
+    "sha256": "0a1b404e5fa0b11ea568b0a416479eb467b16506a5003151a151254da12a68c6",
+    "source": "s3_full_object"
+  }
+]

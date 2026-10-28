@@ -1,0 +1,44 @@
+# Credentials and machine-local state
+.env
+.env.*
+!.env.example
+.aws/
+.ssh/
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+private/
+sites/
+
+# Python environments and tooling
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Downloaded model weights and runtime caches
+.cache/
+cache/models/
+checkpoints/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# Local editor and temporary files
+.idea/
+.vscode/
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Keep records/*.log, cached API docs, and report audio as experiment evidence.

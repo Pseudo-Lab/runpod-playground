@@ -1,0 +1,290 @@
+{
+  "generated_at_utc": "2026-10-17T16:52:35.381646+00:00",
+  "H1": {
+    "status": "passed_exploratory",
+    "hardware": "NVIDIA GeForce RTX 3090 / EU-CZ-1",
+    "successes": 3,
+    "attempts": 3,
+    "ready_seconds": [
+      57.80600838037208,
+      47.33184367342619,
+      48.57062183244852
+    ],
+    "first_result_seconds": [
+      67.34400000004098,
+      55.90700000000652,
+      53.45299999997951
+    ],
+    "ready_timing": "approximate local timing derived from remote elapsed duration",
+    "note": "A later same-GPU allocation request failed; this does not establish capacity availability."
+  },
+  "H2": {
+    "status": "failed_synthetic",
+    "completed_pairs": 3,
+    "representative_user_pattern": "not_tested",
+    "pattern": "synthetic_300s",
+    "pairs": [
+      {
+        "pair": 1,
+        "keep": {
+          "pair": 1,
+          "policy": "keep",
+          "pattern": "synthetic_300s",
+          "run_ids": [
+            "c1k"
+          ],
+          "success_count": 2,
+          "estimated_cost_usd": 0.06645468455155691,
+          "complete_seconds": 403.219000000041,
+          "second_call_seconds": 1.0998868341557682,
+          "resident_model_reused": true
+        },
+        "ephemeral": {
+          "pair": 1,
+          "policy": "ephemeral",
+          "pattern": "synthetic_300s",
+          "run_ids": [
+            "c1e1",
+            "c1e2"
+          ],
+          "success_count": 2,
+          "estimated_cost_usd": 0.04016841443445947,
+          "complete_seconds": 540.7649999999558,
+          "second_call_seconds": 121.875,
+          "resident_model_reused": false
+        },
+        "cost_savings_fraction": 0.3955518003656163,
+        "completion_increase_fraction": 0.34111983810262125
+      },
+      {
+        "pair": 2,
+        "keep": {
+          "pair": 2,
+          "policy": "keep",
+          "pattern": "synthetic_300s",
+          "run_ids": [
+            "c2k"
+          ],
+          "success_count": 2,
+          "estimated_cost_usd": 0.06508165606392755,
+          "complete_seconds": 394.76600000000326,
+          "second_call_seconds": 1.1593873259844258,
+          "resident_model_reused": true
+        },
+        "ephemeral": {
+          "pair": 2,
+          "policy": "ephemeral",
+          "pattern": "synthetic_300s",
+          "run_ids": [
+            "c2e1",
+            "c2e2"
+          ],
+          "success_count": 2,
+          "estimated_cost_usd": 0.03986484661300976,
+          "complete_seconds": 540.329000000027,
+          "second_call_seconds": 120.01500000001397,
+          "resident_model_reused": false
+        },
+        "cost_savings_fraction": 0.387464163882802,
+        "completion_increase_fraction": 0.3687323629695125
+      },
+      {
+        "pair": 3,
+        "keep": {
+          "pair": 3,
+          "policy": "keep",
+          "pattern": "synthetic_300s",
+          "run_ids": [
+            "c3k"
+          ],
+          "success_count": 2,
+          "estimated_cost_usd": 0.06965888096557722,
+          "complete_seconds": 422.68699999997625,
+          "second_call_seconds": 1.0939694470725954,
+          "resident_model_reused": true
+        },
+        "ephemeral": {
+          "pair": 3,
+          "policy": "ephemeral",
+          "pattern": "synthetic_300s",
+          "run_ids": [
+            "c3e1",
+            "c3e2"
+          ],
+          "success_count": 2,
+          "estimated_cost_usd": 0.03961629422638151,
+          "complete_seconds": 538.7810000000172,
+          "second_call_seconds": 125.78099999995902,
+          "resident_model_reused": false
+        },
+        "cost_savings_fraction": 0.43128150097676166,
+        "completion_increase_fraction": 0.27465713400234093
+      }
+    ],
+    "second_call_scope_note": "Keep second-call seconds measure remote inference only; ephemeral seconds measure local request-to-result. Use complete_seconds for the policy time comparison.",
+    "cost_savings_fraction": 0.40530617808115355,
+    "completion_increase_fraction": 0.3270354362187162,
+    "keep_cost_usd": 0.20119522158106168,
+    "ephemeral_cost_usd": 0.11964955527385074,
+    "keep_second_call_seconds": [
+      1.0998868341557682,
+      1.1593873259844258,
+      1.0939694470725954
+    ],
+    "ephemeral_second_call_seconds": [
+      121.875,
+      120.01500000001397,
+      125.78099999995902
+    ],
+    "l4_inference_runs_checked": 10,
+    "l4_generated_tokens_identical": true,
+    "l4_model_manifests_identical": true,
+    "resident_repeat_tokens_identical": true
+  },
+  "H3": {
+    "status": "not_tested",
+    "reason": "optional storage-path comparison deferred"
+  },
+  "H4": {
+    "status": "passed_inference_only",
+    "generated_tokens_identical": true,
+    "model_manifests_identical": true,
+    "max_sample_logit_abs_error": 0.0,
+    "sampled_logits": 64,
+    "training_resume": "not_tested"
+  },
+  "H5": {
+    "status": "passed_tested_cases",
+    "ssh_disconnect": {
+      "status": "passed",
+      "reconnect_seconds": 3.2339999999967404,
+      "same_job_pid_alive": true,
+      "duplicate_job_created": false
+    },
+    "controller_termination": {
+      "run_id": "d02",
+      "status": "passed",
+      "controller_exit_code": 87,
+      "cleanup_after_fault_seconds": 52.82800000003772,
+      "total_seconds": 55.57800000003772,
+      "cleanup_agent": "independent_watchdog",
+      "remaining_owned_pods": 0,
+      "estimated_cost_usd": 0.008912595625718434
+    },
+    "not_tested": [
+      "lost create response",
+      "interrupted upload",
+      "API outage",
+      "whole-PC failure"
+    ]
+  },
+  "gpu_cost_estimate_usd": 0.4445710520492659,
+  "billed_gpu_cost_usd": null,
+  "container_disk_estimate_usd": 0.0021404915123457613,
+  "network_volume_estimate_usd": 0.0019444444444444446,
+  "provider_total_estimate_before_tax_usd": 0.4486559880060561,
+  "storage_estimate_basis": "10GB volumes rounded up to an hour; 20GB container disks; 720h/month estimate",
+  "initial_l4_preparation": {
+    "ready_seconds": 338.05567793996306,
+    "first_result_seconds": 345.98399999999674
+  },
+  "s3_model_range": {
+    "at_utc": "2026-10-17T16:05:19.195456+00:00",
+    "object_bytes": 3087467144,
+    "downloaded_bytes": 65536,
+    "content_range": "bytes 0-65535/3087467144",
+    "sha256": "d6cc976421e28ad7fa38eb83a91c6b4dab359d86514b2fda55b79bcf44f3673a",
+    "matches_gpu_read": true,
+    "full_file_s3_transfer_tested": false
+  },
+  "run_attempts_excluding_controller_fault": 17,
+  "successes": 14,
+  "failures": [
+    {
+      "run_id": "a01",
+      "error": "TimeoutError: ",
+      "estimated_cost_usd": 0.01573639108075036
+    },
+    {
+      "run_id": "a02",
+      "error": "RuntimeError: GPU job failed: AssertionError: Non-finite logits",
+      "estimated_cost_usd": 0.00743130581246482
+    },
+    {
+      "run_id": "d01",
+      "error": "RuntimeError: Runpod POST pods: HTTP 500: {\"error\":\"create pod: There are no instances currently available\",\"status\":500}\n",
+      "estimated_cost_usd": 0
+    }
+  ],
+  "remaining_owned_resources": [],
+  "hardware_changes": [
+    {
+      "at_utc": "2026-10-17T15:55:51.067491+00:00",
+      "from": {
+        "gpu_type": "NVIDIA GeForce RTX 3090",
+        "data_center": "EU-CZ-1",
+        "usd_per_gpu_hour": 0.5,
+        "stock_at_fetch": "Low"
+      },
+      "to": {
+        "gpu_type": "NVIDIA L4",
+        "data_center": "EU-RO-1",
+        "usd_per_gpu_hour": 0.59,
+        "stock_at_fetch": "Low"
+      },
+      "reason": "original datacenter exhausted stock",
+      "do_not_pool_hardware_strata": true
+    }
+  ],
+  "final_cleanup": {
+    "at_utc": "2026-10-17T16:50:34.845327+00:00",
+    "local_artifacts_verified": 14,
+    "resident_second_inference_backups_verified": 3,
+    "remaining_owned_resources": 0,
+    "account_pod_count": 0,
+    "account_network_volume_count": 0,
+    "account_current_spend_per_hour": 0,
+    "observed_account_balance_decrease_usd": 0.4216669667000019,
+    "balance_change_note": "Observed account-level change, not a finalized per-run invoice.",
+    "billing_response_available": {
+      "pods": true,
+      "networkvolumes": false
+    },
+    "billing_finalized": false,
+    "watchdog_exit_requested": true
+  },
+  "billing_partial": {
+    "status": "partial_not_final",
+    "known_allocated_pods": 17,
+    "pod_rows_received": 4,
+    "received_pod_amount_usd": 0.034902685321867466,
+    "rows": [
+      {
+        "run_id": "a02",
+        "amount_usd": 0.007211944554001093,
+        "time_billed_ms": 51926,
+        "bucket_utc": "2026-10-17 15:00:00"
+      },
+      {
+        "run_id": "a01",
+        "amount_usd": 0.0157467593671754,
+        "time_billed_ms": 111710,
+        "bucket_utc": "2026-10-17 15:00:00"
+      },
+      {
+        "run_id": "b01",
+        "amount_usd": 0.004269814933650196,
+        "time_billed_ms": 29076,
+        "bucket_utc": "2026-10-17 15:00:00"
+      },
+      {
+        "run_id": "a03",
+        "amount_usd": 0.007674166467040777,
+        "time_billed_ms": 55254,
+        "bucket_utc": "2026-10-17 15:00:00"
+      }
+    ],
+    "network_volume_rows_received": 0,
+    "note": "Only some usage records have appeared. Do not treat this amount as the whole experiment cost."
+  }
+}

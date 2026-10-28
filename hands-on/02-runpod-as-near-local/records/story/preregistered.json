@@ -1,0 +1,13 @@
+{
+  "at_utc": "2026-10-24T05:28:35.594382+00:00",
+  "source_sha256": {
+    "scripts/story_experiment.py": "2b1618449df6c8d23dd5a12a4a99aed488daffee281d374f9cd4e435a1b34478",
+    "scripts/story_gpu.py": "e41ac9c3eb53c98b8a88e36ca97c5bedeac6bd0b856f8b81ab603e313fbd1b73",
+    "scripts/followup.py": "ac166ac6c3992abc8e5e8d8e3cba54591966a00267169c0440bc58107bdbd14c",
+    "scripts/followup_gpu.py": "f54e9a4c2c61fe7a4737bc75a6351b05e8d5115f12d4b64b3b9911dcb9b6c1b2",
+    "docs/story-experiment.md": "ac4dd4c34426cf2dd2af597939aa8e5f8544b33886e87531196f821132c8e4df"
+  },
+  "budget_usd": 6,
+  "cold_samples": 1,
+  "cached_fresh_pods": 3
+}

@@ -1,0 +1,17 @@
+{
+  "at_utc": "2026-10-17T16:50:34.845327+00:00",
+  "local_artifacts_verified": 14,
+  "resident_second_inference_backups_verified": 3,
+  "remaining_owned_resources": 0,
+  "account_pod_count": 0,
+  "account_network_volume_count": 0,
+  "account_current_spend_per_hour": 0,
+  "observed_account_balance_decrease_usd": 0.4216669667000019,
+  "balance_change_note": "Observed account-level change, not a finalized per-run invoice.",
+  "billing_response_available": {
+    "pods": true,
+    "networkvolumes": false
+  },
+  "billing_finalized": false,
+  "watchdog_exit_requested": true
+}

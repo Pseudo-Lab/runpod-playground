@@ -1,0 +1,11 @@
+{
+  "run_id": "train-baseline-22",
+  "at_utc": "2026-10-24T02:27:21.621434+00:00",
+  "pid": 121,
+  "expected_exit": 0,
+  "exit": {
+    "returncode": 0,
+    "wall_seconds": 5.338047843019012
+  },
+  "local_roundtrip_seconds": 12.10999999998603
+}

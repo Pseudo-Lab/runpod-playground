@@ -1,0 +1,17 @@
+{
+  "label": "policy-delete-restart-1",
+  "at_utc": "2026-10-24T07:49:28.922346+00:00",
+  "pod_id": "b619o90pyuxymj",
+  "ssh_seconds": 28.09299999999348,
+  "selected": {
+    "gpu_type": "NVIDIA GeForce RTX 5090",
+    "data_center": "EU-RO-1",
+    "usd_per_gpu_hour": 1.19,
+    "stock_at_fetch": "Low"
+  },
+  "live_quote": {
+    "uninterruptablePrice": 1.19,
+    "stockStatus": "Medium"
+  },
+  "hourly_usd": 1.19
+}

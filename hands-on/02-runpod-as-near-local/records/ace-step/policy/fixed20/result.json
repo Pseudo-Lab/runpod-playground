@@ -1,0 +1,151 @@
+{
+  "policy": "fixed20",
+  "initial_state": "model-ready",
+  "gaps_after_response_seconds": [
+    5.0,
+    25.0,
+    180.0
+  ],
+  "tail_seconds": 35.0,
+  "session_seconds": 689.75,
+  "allocated_seconds": 515.4370000000345,
+  "hourly_usd": 1.19,
+  "gpu_estimate_usd": 0.17038056388890027,
+  "responses": [
+    {
+      "request": 0,
+      "arrival": 0.0,
+      "start": 0.015000000013969839,
+      "complete": 18.656000000075437,
+      "latency_seconds": 18.656000000075437,
+      "generation_seconds": 13.21136325399857,
+      "pod_id": "0fqodep42j43ns",
+      "music_record": "policy-fixed20-request-0"
+    },
+    {
+      "request": 1,
+      "arrival": 23.656000000075437,
+      "start": 23.67200000002049,
+      "complete": 34.35900000005495,
+      "latency_seconds": 10.702999999979511,
+      "generation_seconds": 7.087942949961871,
+      "pod_id": "0fqodep42j43ns",
+      "music_record": "policy-fixed20-request-1"
+    },
+    {
+      "request": 2,
+      "arrival": 59.35900000005495,
+      "start": 248.98400000005495,
+      "complete": 268.4220000000205,
+      "latency_seconds": 209.06299999996554,
+      "generation_seconds": 13.274222860927694,
+      "pod_id": "ca63g9cvw43dyt",
+      "music_record": "policy-fixed20-request-2"
+    },
+    {
+      "request": 3,
+      "arrival": 448.4220000000205,
+      "start": 635.7810000000754,
+      "complete": 654.734000000055,
+      "latency_seconds": 206.31200000003446,
+      "generation_seconds": 12.8871458460344,
+      "pod_id": "7akyq94bzp4k0o",
+      "music_record": "policy-fixed20-request-3"
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "t": 0.0,
+      "request": 0,
+      "ewma": 10.0,
+      "ttl": 20.0
+    },
+    {
+      "type": "response",
+      "t": 18.656000000075437,
+      "request": 0
+    },
+    {
+      "type": "request",
+      "t": 23.656000000075437,
+      "request": 1,
+      "ewma": 7.5,
+      "ttl": 20.0
+    },
+    {
+      "type": "response",
+      "t": 34.35900000005495,
+      "request": 1
+    },
+    {
+      "type": "idle_delete",
+      "t": 54.42200000002049,
+      "confirmed": 56.29700000002049,
+      "ttl": 20.0
+    },
+    {
+      "type": "request",
+      "t": 59.35900000005495,
+      "request": 2,
+      "ewma": 16.25,
+      "ttl": 20.0
+    },
+    {
+      "type": "ready",
+      "t": 248.98400000005495,
+      "pod_id": "ca63g9cvw43dyt"
+    },
+    {
+      "type": "response",
+      "t": 268.4220000000205,
+      "request": 2
+    },
+    {
+      "type": "idle_delete",
+      "t": 288.48400000005495,
+      "confirmed": 290.39000000001397,
+      "ttl": 20.0
+    },
+    {
+      "type": "request",
+      "t": 448.4220000000205,
+      "request": 3,
+      "ewma": 98.125,
+      "ttl": 20.0
+    },
+    {
+      "type": "ready",
+      "t": 635.7810000000754,
+      "pod_id": "7akyq94bzp4k0o"
+    },
+    {
+      "type": "response",
+      "t": 654.734000000055,
+      "request": 3
+    },
+    {
+      "type": "idle_delete",
+      "t": 674.7970000000205,
+      "confirmed": 676.719000000041,
+      "ttl": 20.0
+    }
+  ],
+  "restarts": [
+    {
+      "start": 59.5,
+      "ready": 248.98400000005495,
+      "seconds": 189.48400000005495,
+      "pod_id": "ca63g9cvw43dyt"
+    },
+    {
+      "start": 448.469000000041,
+      "ready": 635.7810000000754,
+      "seconds": 187.31200000003446,
+      "pod_id": "7akyq94bzp4k0o"
+    }
+  ],
+  "request_count": 4,
+  "common_initial_setup_excluded_from_policy_metrics": true,
+  "arrival_model": "closed-loop after response"
+}

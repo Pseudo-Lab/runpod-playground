@@ -1,0 +1,113 @@
+{
+  "responses": [
+    {
+      "request": 0,
+      "arrival": 0.0,
+      "start": 0.0,
+      "complete": 18.719000000040978,
+      "latency_seconds": 18.719000000040978,
+      "generation_seconds": 12.929711147036869,
+      "pod_id": "4y8ahvg9sup778",
+      "music_record": "policy-predict-request-0"
+    },
+    {
+      "request": 1,
+      "arrival": 23.719000000040978,
+      "start": 23.734000000054948,
+      "complete": 34.75,
+      "latency_seconds": 11.030999999959022,
+      "generation_seconds": 7.195280185027514,
+      "pod_id": "4y8ahvg9sup778",
+      "music_record": "policy-predict-request-1"
+    },
+    {
+      "request": 2,
+      "arrival": 59.75,
+      "start": 59.84400000004098,
+      "complete": 70.73400000005495,
+      "latency_seconds": 10.984000000054948,
+      "generation_seconds": 7.021821292000823,
+      "pod_id": "4y8ahvg9sup778",
+      "music_record": "policy-predict-request-2"
+    },
+    {
+      "request": 3,
+      "arrival": 250.73400000005495,
+      "start": 427.76500000001397,
+      "complete": 446.469000000041,
+      "latency_seconds": 195.73499999998603,
+      "generation_seconds": 12.769749414990656,
+      "pod_id": "e89z6wo1xdhw2v",
+      "music_record": "policy-predict-request-3"
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "t": 0.0,
+      "request": 0,
+      "ewma": 10.0,
+      "ttl": 40.0
+    },
+    {
+      "type": "response",
+      "t": 18.719000000040978,
+      "request": 0
+    },
+    {
+      "type": "request",
+      "t": 23.719000000040978,
+      "request": 1,
+      "ewma": 7.5,
+      "ttl": 30.0
+    },
+    {
+      "type": "response",
+      "t": 34.75,
+      "request": 1
+    },
+    {
+      "type": "request",
+      "t": 59.75,
+      "request": 2,
+      "ewma": 16.25,
+      "ttl": 60.0
+    },
+    {
+      "type": "response",
+      "t": 70.73400000005495,
+      "request": 2
+    },
+    {
+      "type": "idle_delete",
+      "t": 130.9220000000205,
+      "confirmed": 132.7970000000205,
+      "ttl": 60.0
+    },
+    {
+      "type": "request",
+      "t": 250.73400000005495,
+      "request": 3,
+      "ewma": 98.125,
+      "ttl": 60.0
+    },
+    {
+      "type": "ready",
+      "t": 427.76500000001397,
+      "pod_id": "e89z6wo1xdhw2v"
+    },
+    {
+      "type": "response",
+      "t": 446.469000000041,
+      "request": 3
+    }
+  ],
+  "boots": [
+    {
+      "start": 250.78100000007544,
+      "ready": 427.76500000001397,
+      "seconds": 176.98399999993853,
+      "pod_id": "e89z6wo1xdhw2v"
+    }
+  ]
+}

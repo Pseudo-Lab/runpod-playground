@@ -1,0 +1,256 @@
+{
+  "policy": "fixed20",
+  "trace": [
+    0.0,
+    8.0,
+    16.0,
+    46.0,
+    54.0,
+    62.0,
+    132.0,
+    140.0,
+    148.0
+  ],
+  "horizon": 175.0,
+  "initial_state": "model-ready",
+  "policy_seconds": 186.64000000001397,
+  "allocated_seconds": 169.295999999973,
+  "hourly_usd": 1.19,
+  "gpu_estimate_usd": 0.05596173333332441,
+  "restarts": [
+    {
+      "start": 46.06200000003446,
+      "ready": 95.26500000001397,
+      "seconds": 49.20299999997951,
+      "pod_id": "1v7r1i8ivocwsh"
+    },
+    {
+      "start": 132.0470000000205,
+      "ready": 180.23400000005495,
+      "seconds": 48.18700000003446,
+      "pod_id": "vulu743si4oj0y"
+    }
+  ],
+  "responses": [
+    {
+      "request": 0,
+      "arrival": 0.0,
+      "start": 0.0,
+      "complete": 1.562000000034459,
+      "latency_seconds": 1.562000000034459,
+      "inference_seconds": 0.7829917200142518,
+      "pod_id": "aetwkyskmil0fs"
+    },
+    {
+      "request": 1,
+      "arrival": 8.0,
+      "start": 8.047000000020489,
+      "complete": 9.109000000054948,
+      "latency_seconds": 1.109000000054948,
+      "inference_seconds": 0.5583562949905172,
+      "pod_id": "aetwkyskmil0fs"
+    },
+    {
+      "request": 2,
+      "arrival": 16.0,
+      "start": 16.04700000002049,
+      "complete": 17.109000000054948,
+      "latency_seconds": 1.109000000054948,
+      "inference_seconds": 0.553818857006263,
+      "pod_id": "aetwkyskmil0fs"
+    },
+    {
+      "request": 3,
+      "arrival": 46.0,
+      "start": 95.26500000001397,
+      "complete": 96.93700000003446,
+      "latency_seconds": 50.93700000003446,
+      "inference_seconds": 0.8195535669801757,
+      "pod_id": "1v7r1i8ivocwsh"
+    },
+    {
+      "request": 4,
+      "arrival": 54.0,
+      "start": 96.93700000003446,
+      "complete": 98.28100000007544,
+      "latency_seconds": 44.28100000007544,
+      "inference_seconds": 0.5289390130201355,
+      "pod_id": "1v7r1i8ivocwsh"
+    },
+    {
+      "request": 5,
+      "arrival": 62.0,
+      "start": 98.28100000007544,
+      "complete": 99.65600000007544,
+      "latency_seconds": 37.65600000007544,
+      "inference_seconds": 0.5281092369696125,
+      "pod_id": "1v7r1i8ivocwsh"
+    },
+    {
+      "request": 6,
+      "arrival": 132.0,
+      "start": 180.23400000005495,
+      "complete": 181.89000000001397,
+      "latency_seconds": 49.89000000001397,
+      "inference_seconds": 0.831920527969487,
+      "pod_id": "vulu743si4oj0y"
+    },
+    {
+      "request": 7,
+      "arrival": 140.0,
+      "start": 181.89000000001397,
+      "complete": 183.26500000001397,
+      "latency_seconds": 43.26500000001397,
+      "inference_seconds": 0.5378462868975475,
+      "pod_id": "vulu743si4oj0y"
+    },
+    {
+      "request": 8,
+      "arrival": 148.0,
+      "start": 183.26500000001397,
+      "complete": 184.59299999999348,
+      "latency_seconds": 36.59299999999348,
+      "inference_seconds": 0.5349770520115271,
+      "pod_id": "vulu743si4oj0y"
+    }
+  ],
+  "events": [
+    {
+      "t": 0.0,
+      "type": "arrival",
+      "request": 0,
+      "ewma": 10.0,
+      "ttl": 20.0
+    },
+    {
+      "t": 1.562000000034459,
+      "type": "response",
+      "request": 0
+    },
+    {
+      "t": 8.0,
+      "type": "arrival",
+      "request": 1,
+      "ewma": 9.0,
+      "ttl": 20.0
+    },
+    {
+      "t": 9.109000000054948,
+      "type": "response",
+      "request": 1
+    },
+    {
+      "t": 16.0,
+      "type": "arrival",
+      "request": 2,
+      "ewma": 8.5,
+      "ttl": 20.0
+    },
+    {
+      "t": 17.109000000054948,
+      "type": "response",
+      "request": 2
+    },
+    {
+      "t": 37.14000000001397,
+      "type": "delete_intent",
+      "confirmed": 39.125,
+      "ttl": 20.0
+    },
+    {
+      "t": 46.0,
+      "type": "arrival",
+      "request": 3,
+      "ewma": 19.25,
+      "ttl": 20.0
+    },
+    {
+      "t": 95.26500000001397,
+      "type": "ready",
+      "pod_id": "1v7r1i8ivocwsh"
+    },
+    {
+      "t": 54.0,
+      "type": "arrival",
+      "request": 4,
+      "ewma": 13.625,
+      "ttl": 20.0
+    },
+    {
+      "t": 62.0,
+      "type": "arrival",
+      "request": 5,
+      "ewma": 10.8125,
+      "ttl": 20.0
+    },
+    {
+      "t": 96.93700000003446,
+      "type": "response",
+      "request": 3
+    },
+    {
+      "t": 98.28100000007544,
+      "type": "response",
+      "request": 4
+    },
+    {
+      "t": 99.65600000007544,
+      "type": "response",
+      "request": 5
+    },
+    {
+      "t": 119.68700000003446,
+      "type": "delete_intent",
+      "confirmed": 121.64000000001397,
+      "ttl": 20.0
+    },
+    {
+      "t": 132.0,
+      "type": "arrival",
+      "request": 6,
+      "ewma": 40.40625,
+      "ttl": 20.0
+    },
+    {
+      "t": 180.23400000005495,
+      "type": "ready",
+      "pod_id": "vulu743si4oj0y"
+    },
+    {
+      "t": 140.0,
+      "type": "arrival",
+      "request": 7,
+      "ewma": 24.203125,
+      "ttl": 20.0
+    },
+    {
+      "t": 148.0,
+      "type": "arrival",
+      "request": 8,
+      "ewma": 16.1015625,
+      "ttl": 20.0
+    },
+    {
+      "t": 181.89000000001397,
+      "type": "response",
+      "request": 6
+    },
+    {
+      "t": 183.26500000001397,
+      "type": "response",
+      "request": 7
+    },
+    {
+      "t": 184.59299999999348,
+      "type": "response",
+      "request": 8
+    },
+    {
+      "t": 184.59299999999348,
+      "type": "horizon_delete",
+      "confirmed": 186.64000000001397
+    }
+  ],
+  "all_tokens_match": true,
+  "initial_preparation_excluded_from_policy_metrics": true
+}

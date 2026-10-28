@@ -1,0 +1,50 @@
+{
+  "at_utc": "2026-10-24T05:27:17.669993+00:00",
+  "reference_5090": {
+    "gpu_type": "NVIDIA GeForce RTX 5090",
+    "data_center": "EU-RO-1",
+    "usd_per_gpu_hour": 1.19,
+    "stock_at_fetch": "Low"
+  },
+  "selected": {
+    "gpu_type": "NVIDIA GeForce RTX 5090",
+    "data_center": "EU-RO-1",
+    "usd_per_gpu_hour": 1.19,
+    "stock_at_fetch": "Low"
+  },
+  "candidates": [
+    {
+      "gpu_type": "NVIDIA GeForce RTX 5090",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 1.19,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA GeForce RTX 5090",
+      "data_center": "EUR-IS-1",
+      "usd_per_gpu_hour": 1.19,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA GeForce RTX 5090",
+      "data_center": "EUR-NO-1",
+      "usd_per_gpu_hour": 1.19,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "EUR-IS-1",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    }
+  ],
+  "cache_reused": true,
+  "pod_count": 0,
+  "volume_count": 0
+}

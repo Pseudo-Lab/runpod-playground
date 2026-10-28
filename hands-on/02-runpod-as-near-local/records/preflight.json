@@ -1,0 +1,77 @@
+{
+  "checked_at_utc": "2026-10-17T15:55:09.534345+00:00",
+  "cache_reused": true,
+  "cache_path": "cache/gpu-prices.json",
+  "reference_5090": {
+    "gpu_type": "NVIDIA GeForce RTX 5090",
+    "data_center": "EU-RO-1",
+    "usd_per_gpu_hour": 1.19,
+    "stock_at_fetch": "Low"
+  },
+  "candidates": [
+    {
+      "gpu_type": "NVIDIA RTX PRO 4000 Blackwell",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.57,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "EUR-IS-1",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "US-GA-2",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "US-MO-2",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+      "data_center": "US-NE-1",
+      "usd_per_gpu_hour": 0.69,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA RTX PRO 4500 Blackwell",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.72,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA RTX PRO 4500 Blackwell Server Edition",
+      "data_center": "US-KS-2",
+      "usd_per_gpu_hour": 0.72,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA GeForce RTX 4090",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.89,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA GeForce RTX 5090",
+      "data_center": "EUR-NO-1",
+      "usd_per_gpu_hour": 1.19,
+      "stock_at_fetch": "Low"
+    }
+  ],
+  "s3_credentials_present": true,
+  "existing_pods": 0,
+  "existing_network_volumes": 1,
+  "paid_resources_created": false
+}

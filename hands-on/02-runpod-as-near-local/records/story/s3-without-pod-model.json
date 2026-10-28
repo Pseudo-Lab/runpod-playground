@@ -1,0 +1,9 @@
+{
+  "at_utc": "2026-10-24T05:31:06.181687+00:00",
+  "pod_count": 0,
+  "marker": "rpstory-20261024-052835: persisted without a GPU",
+  "marker_sha256": "a2f8a99e0cc63ead2113b3386f5c03a444c9a1facfb3111da4d35d8da3dda63a",
+  "model_bytes": 3087467144,
+  "range_bytes": 65536,
+  "model_range_hash_matches": true
+}

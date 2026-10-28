@@ -1,0 +1,44 @@
+{
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "data_center": "EU-RO-1",
+  "gpu_hourly_usd": 1.19,
+  "cold_end_to_end_seconds": 141.15599999995902,
+  "cold_install_seconds": 78.03099999995902,
+  "cold_archive_build_seconds": 13.969000000040978,
+  "cold_download_and_lookup_seconds": 8.112780358991586,
+  "cached_end_to_end_seconds": [
+    31.92200000002049,
+    33.15599999995902,
+    40.203000000095926
+  ],
+  "cached_median_seconds": 33.15599999995902,
+  "cached_extract_median_seconds": 0.25958550098584965,
+  "cached_model_load_median_seconds": 1.5413230400299653,
+  "all_output_tokens_and_hashes_match": true,
+  "four_distinct_pod_ids": true,
+  "pod_estimate_usd": 0.08351138134002685,
+  "container_disk_estimate_usd": 0.00019493786493937176,
+  "network_volume_estimate_usd": 0.00014567324224813488,
+  "cleanup": {
+    "at_utc": "2026-10-24T05:33:06.639799+00:00",
+    "error": null,
+    "account_pod_count": 0,
+    "account_network_volume_count": 0,
+    "current_spend_per_hour": 0,
+    "pod_estimate_usd": 0.08351138134002685,
+    "all_owned_deleted": true,
+    "billing_finalized": false
+  },
+  "scenario": {
+    "purchase_budget_krw": 12000000,
+    "personal_expected_idle_fraction": 0.99,
+    "month_hours": 720,
+    "allocated_gpu_hours": 7.2,
+    "gpu_usd": 8.568,
+    "volume_gb": 20,
+    "storage_usd_month": 1.4000000000000001,
+    "gpu_plus_storage_usd_month": 9.968,
+    "note": "Hypothetical billed allocation hours including setup, not observed compute utilization or total ownership cost."
+  },
+  "total_resource_estimate_usd": 0.08385199244721436
+}

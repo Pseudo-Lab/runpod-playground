@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-10-24T07:22:47.509704+00:00",
+  "order": [
+    "fixed20",
+    "keep",
+    "delete",
+    "predict"
+  ],
+  "gaps": [
+    5.0,
+    25.0,
+    180.0
+  ],
+  "tail": 35.0,
+  "source_sha256": {
+    "scripts/ace_policy_experiment.py": "9fae130ecb79282f0a63733706ad2b413e1906a1b9f875d477a66dfe7bdf1b62",
+    "scripts/ace_control.py": "7129208f6ed404f440d064646486c6337a1295a71babff539158cd5859624667",
+    "scripts/ace_worker.py": "d92f9e5a9832f24a1aa92715ae5bc6d02f1f29c205bd5af1a44c74fe6ce0acca"
+  }
+}

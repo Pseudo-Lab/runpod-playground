@@ -1,0 +1,11 @@
+{
+  "run_id": "storage-3-A",
+  "at_utc": "2026-10-24T02:25:03.082820+00:00",
+  "pid": 171,
+  "expected_exit": 0,
+  "exit": {
+    "returncode": 0,
+    "wall_seconds": 29.38944389502285
+  },
+  "local_roundtrip_seconds": 36.78200000000652
+}

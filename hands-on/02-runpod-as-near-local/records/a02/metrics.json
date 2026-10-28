@@ -1,0 +1,84 @@
+{
+  "run_id": "a02",
+  "started_at_utc": "2026-10-17T15:47:29.258131+00:00",
+  "gpu": {
+    "gpu_type": "NVIDIA GeForce RTX 3090",
+    "data_center": "EU-CZ-1",
+    "usd_per_gpu_hour": 0.5,
+    "stock_at_fetch": "Low"
+  },
+  "image": "runpod/pytorch@sha256:cb154fcca15d1d6ce858cfa672b76505e30861ef981d28ec94bd44168767d853",
+  "result": "failed",
+  "hold_seconds": 0,
+  "price_ceiling_usd_per_hour": 1.19,
+  "timing_seconds": {
+    "api": 1.3439999999827705,
+    "ssh": 21.42199999996228,
+    "dependencies_ready": 31.764999999955762,
+    "first_result": 50.34399999998277,
+    "ready": 48.34432419791119,
+    "ready_note": "Approximate local ready time; includes remote job startup polling uncertainty",
+    "delete_confirm": 2.3439999999827705,
+    "total_including_delete": 53.42199999996228
+  },
+  "total_hourly_usd": 0.5,
+  "remote": {
+    "run_id": "a02",
+    "python": "3.11.11",
+    "torch": "2.8.0.dev20250319+cu128",
+    "transformers": "4.57.1",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "w0_max_abs_error": 0.0,
+    "driver": "610.43.02",
+    "download_seconds": 0.17871982418000698,
+    "hash_seconds": 2.451615631580353,
+    "model_manifest": [
+      {
+        "path": "config.json",
+        "bytes": 660,
+        "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670"
+      },
+      {
+        "path": "generation_config.json",
+        "bytes": 242,
+        "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6"
+      },
+      {
+        "path": "merges.txt",
+        "bytes": 1671839,
+        "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+      },
+      {
+        "path": "model.safetensors",
+        "bytes": 3087467144,
+        "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+      },
+      {
+        "path": "tokenizer.json",
+        "bytes": 7031645,
+        "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "bytes": 7305,
+        "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+      },
+      {
+        "path": "vocab.json",
+        "bytes": 2776833,
+        "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      }
+    ],
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "model_load_seconds": 4.089399161748588,
+    "ready_seconds": 16.57932419795543,
+    "error": "AssertionError: Non-finite logits",
+    "status": "failed"
+  },
+  "error": "RuntimeError: GPU job failed: AssertionError: Non-finite logits",
+  "remote_log_tail": "\rFetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]\rFetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1680.03it/s]\n`torch_dtype` is deprecated! Use `dtype` instead!\nTraceback (most recent call last):\n  File \"/workspace/experiment/jobs/gpu_job.py\", line 87, in main\n    assert bool(torch.isfinite(logits).all()), 'Non-finite logits'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Non-finite logits\nTraceback (most recent call last):\n  File \"/workspace/experiment/jobs/gpu_job.py\", line 137, in <module>\n    main()\n  File \"/workspace/experiment/jobs/gpu_job.py\", line 87, in main\n    assert bool(torch.isfinite(logits).all()), 'Non-finite logits'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Non-finite logits\n",
+  "estimated_cost_usd": 0.00743130581246482,
+  "billed_cost_usd": null
+}

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="robots" content="noindex,nofollow"><meta name="description" content="5090을 살 돈으로 GPU를 얼마나 빌릴 수 있을까. 실제 RTX5090을 빌려 첫 실행과 캐시 재사용 시간을 재고, RunPod S3와 보관비를 확인했다. 조금 진지하게 해본 취미용 GPU 이야기."><title>5090은 안 샀다. 대신 빌려서 놀았다.</title>
+<style>
+:root{--paper:#faf9f4;--ink:#282a25;--muted:#73766c;--blue:#294db4;--line:#dcded2;--ochre:#f0e69b;--sans:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;--serif:"Noto Serif KR","Nanum Myeongjo",Batang,serif}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}::selection{background:#e5e7bd}a{color:var(--blue);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible{outline:3px solid #c29a52;outline-offset:5px}.skip{position:fixed;top:-100px;left:20px;background:white;padding:12px;z-index:5}.skip:focus{top:10px}.mast{max-width:1080px;margin:auto;padding:25px 40px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:12px;color:var(--muted)}.mast a{color:var(--ink);text-decoration:none;font-weight:700}.heading{max-width:930px;margin:0 auto;padding:80px 40px 43px}.eyebrow{font-size:12px;color:var(--muted);margin:0 0 23px;letter-spacing:.06em}h1{font-family:var(--serif);font-weight:500;font-size:clamp(37px,5vw,64px);line-height:1.45;letter-spacing:-.065em;margin:0;word-break:keep-all;text-wrap:balance}.deck{font-size:18px;line-height:1.9;color:#6b7064;margin:27px 0 0;max-width:700px;letter-spacing:-.025em;word-break:keep-all}.meta{font-size:11px;color:var(--muted);line-height:1.9;margin-top:24px}.small-scribble{display:block;width:max-content;margin:24px 0 0 auto;color:var(--blue);font-family:var(--serif);font-size:15px;transform:rotate(-3deg);border-bottom:1px solid #6b83b5;padding:0 4px 5px}.article{max-width:760px;margin:auto;padding:20px 35px 80px;font-size:17px;line-height:2;letter-spacing:-.025em;word-break:keep-all;overflow-wrap:break-word}.article p{margin:0 0 24px}.article .opening{font-size:21px;line-height:1.95;letter-spacing:-.035em}.article h2{font-size:27px;line-height:1.5;font-weight:700;letter-spacing:-.045em;margin:58px 0 25px;text-wrap:balance}.article h3{font-size:19px;line-height:1.8;margin:32px 0 16px}.article strong{font-weight:720}.mark{background:linear-gradient(transparent 58%,var(--ochre) 58%);padding-bottom:1px}.aside{font-size:13px;color:var(--muted);line-height:1.9;border-left:2px solid #c7cebb;padding-left:17px;margin:8px 0 31px!important}.aside.blue{border-color:#9baed6}.plain-quote{font-family:var(--serif);font-size:24px;line-height:1.9;color:var(--blue);margin:34px 0;padding:11px 0 11px 22px;border-left:2px solid var(--blue)}.measurement{margin:35px -20px;padding:25px 22px 20px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}.measurement .big{font-size:62px;font-weight:600;line-height:1.2;letter-spacing:-.07em;font-variant-numeric:tabular-nums}.measurement .big small{font-size:19px;font-weight:500;letter-spacing:-.015em;margin-left:6px}.measurement .label{font-size:12px;color:var(--muted);margin:9px 0 23px;line-height:1.8}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.8;font-variant-numeric:tabular-nums;letter-spacing:0}th,td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{font-weight:550;color:var(--muted)}th:first-child,td:first-child{text-align:left}tr:last-child td{border:0}td:last-child{font-weight:650;color:var(--blue)}figcaption,.caption{font-size:12px;color:var(--muted);line-height:1.9;margin-top:14px}.calc{border-block:1px solid var(--line);margin:29px 0;padding:21px 0;display:flex;align-items:baseline;gap:24px;flex-wrap:wrap}.calc strong{font-size:39px;font-weight:600;letter-spacing:-.05em;color:var(--blue);white-space:nowrap}.calc span{font-size:13px;color:var(--muted);line-height:1.8}.math{font-family:Consolas,ui-monospace,monospace;font-size:15px;background:#f0f0e5;padding:17px 20px;margin:27px 0;line-height:1.9;letter-spacing:0}.article code{font-family:Consolas,ui-monospace,monospace;font-size:.85em;background:#eeeeE3;padding:.1em .3em;border-radius:3px}.afterthought{margin-top:40px!important;padding-top:28px;border-top:1px solid var(--line)}.ps{font-family:var(--serif);font-size:22px;line-height:1.95}.sources{margin-top:50px;border-top:1px solid var(--line);padding-top:20px}.sources summary{cursor:pointer;font-size:14px;line-height:1.9;color:var(--blue);font-weight:600}.sources details{margin-bottom:18px}.source-body{font-size:13px;color:#6b7164;line-height:1.95;padding:17px 0 4px}.source-body p{margin-bottom:16px}.source-body ul{padding-left:20px;margin:12px 0 20px}.source-body li{margin:0 0 9px}.source-links{font-size:12px;line-height:2.1;display:grid;grid-template-columns:1fr 1fr;gap:14px 25px;margin-top:24px}.source-links a{display:block}.bottom{max-width:1000px;margin:0 auto;padding:24px 40px 35px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:25px;font-size:11px;line-height:1.8;color:var(--muted)}.bottom p{margin:0}.bottom a{white-space:nowrap}@media(max-width:700px){.mast{padding:20px 23px;font-size:11px}.heading{padding:43px 25px 25px}h1{font-size:39px;line-height:1.5}.deck{font-size:16px}.small-scribble{font-size:13px;margin-top:24px}.article{padding:18px 25px 50px;font-size:16px;line-height:1.98}.article .opening{font-size:19px}.article h2{font-size:24px;margin-top:44px}.measurement{margin-inline:-5px;padding-inline:5px}.measurement .big{font-size:52px}.measurement .big small{font-size:16px}.plain-quote{font-size:21px;padding-left:16px}.calc{gap:10px 20px}.calc strong{font-size:33px}.source-links{grid-template-columns:1fr}.bottom{padding:23px;display:block}.bottom>a{display:block;margin-top:13px}.ps{font-size:20px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:white}.heading{padding-top:20px}.article{font-size:11pt;max-width:none;padding:10px 0}.heading,.mast,.bottom{max-width:none;padding-inline:0}.measurement,.calc{break-inside:avoid}.small-scribble{transform:none}details>*{display:block!important}h1{font-size:35pt}.source-links{display:block}.bottom>a{display:none}}
+</style></head><body><a class="skip" href="#text">본문으로</a><header class="mast" id="top"><a href="#top">가끔 GPU가 필요한 사람</a><span>2026.10.24</span></header><main>
+<header class="heading"><p class="eyebrow">GPU를 사는 대신 빌려서 해본 일</p><h1>5090은 안 샀다.<br>대신 빌려서 놀았다.</h1><p class="deck">비싼 GPU를 집에 모셔 놓는 대신, 필요할 때만 꺼내 쓰면 어떨까.<br>지갑을 지키려다 기동시간과 캐시, 학습 복구까지 재봤다.</p><p class="meta">실험: 2026.10.18 / 10.24 KST　·　단일 GPU　·　<a href="slides.html">발표용 슬라이드</a></p><span class="small-scribble">좋은 소비철학이 있으면 돈이 생기나요</span></header>
+<article class="article" id="text">
+<p class="opening">천이백만원쯤 들여서 5090을 산다고 쳐보자. 그리고 그 물건이 99%의 시간 동안 책상 아래에서 놀고 있다면.</p>
+<p>아주 비싼 인테리어다. 성능은 훌륭한데 주로 하는 일은 방 안의 공기와 눈을 맞추는 것.</p>
+
+<p>GPU를 살까 말까 고민할 때는 이상하게도 가장 열심히 쓸 날만 상상하게 된다. 새 모델이 공개되고, 남들은 메모리가 부족해서 못 돌린다는 걸 나는 집에서 돌려보고, 가끔은 작은 모델도 학습시킨다. 밤새 계산을 맡겨놓고 아침에 결과를 확인하는 멋진 생활. 그 장면 속의 나는 늘 할 일이 명확하고 의욕이 넘친다.</p>
+<p>그런데 장비의 주인은 상상 속의 내가 아니라 평소의 나다. 모델을 돌리기 전에 논문을 읽다가 다른 글로 새고, 실행할 코드를 고치다가 오늘은 여기까지만 하자고 하고, 잘 되면 잘 되는 대로 며칠 안 건드릴 사람이다. 최고 성능이 필요한 순간은 선명하게 떠오르는데, 아무것도 안 돌리는 화요일 오후는 구매 계획서에 잘 등장하지 않는다.</p>
+<p>그래픽카드가 나를 보고 일을 하라고 닦달해주면 좋겠지만, 그렇게 다정한 물건은 아니다. 안 쓰는 날에도 가격이 저절로 내려가 주는 것도 아니고. 내가 갖고 싶은 성능과 내가 꾸준히 소비할 계산량 사이에는 꽤 넓은 틈이 있을 것 같았다.</p>
+<p>장비를 좋아하는 마음과 장비를 잘 쓰는 능력을 같은 것으로 취급하지 말자. 적어도 나한테는 이 말을 한번 해줄 필요가 있었다.</p>
+<p>물론 남의 사용률을 내가 어떻게 알겠나. <strong>내가 사면 그럴 것 같다는 얘기다.</strong> 새 모델 나왔다고 며칠 신나게 돌려보다가, 코드를 고치고 자료를 읽고 다음에 뭘 해볼지 생각하는 시간이 더 길어질 사람. 나는 내가 안다. 장비를 산다고 갑자기 부지런해질 리도 없고.</p>
+<p class="aside">1,200만원은 비싸게 사는 상황을 잡은 가정이고, 99%도 내 예상이다. 모든 5090의 시세나 사람들의 평균 유휴율이라는 뜻은 아니다. 실제 판매가격 얘기는 맨 아래에 출처와 함께 적었다.</p>
+<p>그래서 안 샀다. 대신 RunPod에서 GPU를 빌렸다. 필요할 때 켜서 계산을 시키고, 결과를 챙긴 다음 지웠다. 집에 있던 GPU처럼 즉시 쓸 수 있는 건 아니지만, 적어도 비싼 물건을 일 년 내내 모시고 살 필요는 없었다.</p>
+
+<p>나는 GPU가 필요한 사람이지, 꼭 GPU의 소유자가 되어야 하는 사람은 아닐 수 있다. 이 둘을 나누고 나니 질문이 좀 작아졌다. 평생 어느 쪽이 더 이득이냐는 거창한 결론부터 낼 필요 없이, 이번 주말에 해보고 싶은 실험을 빌린 장비로 무리 없이 끝낼 수 있는지만 확인하면 됐다.</p>
+<p>물론 임대에도 귀찮음은 있다. 계정을 만들고, 키를 챙기고, 어떤 이미지로 켤지 정하고, 파일을 어디에 남길지 생각해야 한다. 로컬에서 터미널 하나 여는 경험과 같다고 말하면 안 된다. 이번에 해본 것도 그 귀찮음을 지운 척하는 일이 아니라, 한 번 정리한 준비물을 다음번에도 재사용하는 쪽이었다.</p>
+<p>실험이 끝나면 사라져도 되는 것은 실행 환경이고, 사라지면 곤란한 것은 모델과 코드와 결과다. 둘을 처음부터 한 덩어리로 생각하면 원격 GPU는 매번 이삿짐을 새로 싸는 물건이 된다. 나눠놓으면 계산할 때만 방 하나 잠깐 빌리는 쪽에 가까워진다.</p>
+<p>그게 말처럼 편한지, 그리고 편하다고 느끼기 위해 실제로 얼마를 기다려야 하는지가 궁금했다. 그래서 이번에는 ‘클라우드니까 편하겠지’에서 멈추지 않고 시계를 켰다.</p>
+<p>여기까지 말하면 보통 첫 반론이 나온다. 원격 GPU는 켜는 데 오래 걸리지 않냐고.</p>
+
+<h2>그래서 진짜 5090을 켜봤다</h2>
+<p>이번에는 실제 RTX 5090을 빌려서 쟀다. 모델과 준비물을 저장소에 남겨 두고, <strong>GPU만 삭제했다가 새 Pod를 만드는 일을 세 번</strong> 했다. 시작하겠다고 요청한 시점부터 추론 결과를 내 PC로 회수할 때까지 걸린 시간이다.</p>
+
+<p>여기서 먼저 정해둔 게 있다. 관리 화면에 초록불이 들어오는 순간을 결승선으로 삼지 않기로 했다. 서버가 만들어졌다는 표시와 내가 원하는 일을 할 수 있다는 것은 다르다. SSH가 열려도 Python 패키지가 안 맞을 수 있고, 모델이 디스크에 있어도 아직 GPU 메모리에 올라간 것은 아니다.</p>
+<p>내가 궁금한 것은 좀 더 생활적인 시간이었다. ‘자, 한번 돌려보자’고 시작한 뒤 결과를 받기까지 얼마나 걸리는가. 그래서 코드 전송, 준비물 전개, import, 파일 검증, 모델 로드, 짧은 추론, 내 PC로 결과를 가져오는 과정까지 넣었다. 폴링을 하는 로컬 제어기의 기다림도 들어 있다. 화면에 보기 좋은 GPU 내부 시간 하나만 고른 숫자는 아니다.</p>
+<p>대신 작업은 작게 고정했다. 모델은 Qwen2.5-1.5B-Instruct이고, 가중치 파일은 약 3.09GB다. 같은 revision과 같은 입력으로 BF16 추론을 했다. 5090의 한계를 보겠다는 시험이 아니라, 가정에서 작은 모델을 가볍게 만져보는 흐름을 확인하려는 시험이었다. 거대한 모델도 똑같이 빨리 뜰 거라고 읽으면 이 글이 갑자기 사기가 된다.</p>
+<figure class="measurement"><div class="big">{{cached_median}}<small>초, 중앙값</small></div><p class="label">준비물을 재사용한 새 RTX 5090 3회 · 요청부터 첫 결과 회수까지</p><div class="table-scroll"><table><thead><tr><th>새 Pod</th><th>SSH 연결까지</th><th>첫 결과 회수까지</th></tr></thead><tbody>{{cached_rows}}</tbody></table></div><figcaption>EU-RO-1, 약 3.09GB인 Qwen2.5-1.5B-Instruct, BF16, batch 1. 코드 전송·의존성 전개·모델 hash 검증·로드·짧은 추론·결과 회수를 포함했다. 모든 실행의 모델 hash와 출력 토큰이 일치했다. 큰 모델이나 모든 지역에서 이 속도를 보장하는 수치는 아니다.</figcaption></figure>
+<p>나는 이 정도면 꽤 빠르다고 느낀다. 전원 버튼 누르듯 0초에 뜬다는 얘기는 아니다. 그래도 취미로 모델 하나 돌려보고 결과를 구경하려는데, 없는 GPU를 새로 받아서 결과까지 오는 데 이 정도면 납득할 만했다.</p>
+
+<p>세 번의 Pod ID도 확인했다. 켜져 있던 한 대에서 프로세스만 다시 실행한 다음 ‘새 GPU가 빨리 떴다’고 한 것은 아니다. 이전 Pod를 삭제하고 다른 ID의 Pod를 새로 받았다. 다만 그 뒤의 물리 서버까지 서로 달랐는지는 확인하지 않았다. 같은 장비로 다시 배정됐을 가능성이나 공급자 쪽의 캐시까지 통제한 실험은 아니다.</p>
+<p>숫자는 세 개를 그대로 남겼다. 제일 잘 나온 31.9초만 대표 사진처럼 걸어놓기보다, 33.2초와 40.2초도 같이 보는 편이 내 질문에 맞았다. 세 번으로 ‘언제나 40초 안’ 같은 약속은 못 한다. 반대로 내 사용법에서 원격 GPU를 검토할 가치가 있는지조차 알 수 없을 정도로 아무 정보가 없는 것도 아니다.</p>
+<p>일상에서 느끼는 편리함은 종종 이 정도의 질문에서 갈린다. 키를 누를 때마다 즉시 돌아와야 하는 응답과, 한번 맡겨놓고 결과를 받아보는 작업은 기다림의 단위가 다르다. 나는 후자에 더 가까운 실험을 해보려던 참이었다. 그래서 이 세 숫자를 보고는, 적어도 기동시간만으로 임대를 포기할 이유는 없겠다고 생각했다.</p>
+<p>첫 실행은 당연히 달랐다. 빈 저장소에서 의존성을 설치하고, 다시 쓸 준비물을 묶고, 모델을 받은 뒤 첫 결과를 회수하기까지는 <strong>{{cold_e2e}}초</strong>가 걸렸다.</p>
+<p>여기서 좀 웃겼던 건 기다림의 범인이다. 모델 받는 데 한참 걸릴 줄 알았는데, 이번 3GB급 모델의 다운로드와 조회는 약 {{download}}초였다. 의존성 설치가 {{install}}초였고, 다음번에 쓸 패키지 묶음을 만드는 데 {{package}}초가 들었다. 이 실행에서 제일 오래 잡아먹은 건 설치였다. pip는 장소를 가리지 않는다.</p>
+
+<p>원격 GPU 얘기를 꺼내면 ‘모델을 또 받아야 하잖아’부터 떠오르기 쉽다. 나도 그랬다. 그런데 이번 실행의 내역을 열어보니 설치가 훨씬 컸다. 서버를 기다렸다는 하나의 기억 속에 사실은 서로 다른 종류의 대기가 섞여 있었던 셈이다. GPU 할당, 네트워크 전송, 패키지 설치, Python import는 해결 방법부터 다르다.</p>
+<p>모델을 받는 8.1초도 순수한 인터넷 속도 측정값은 아니다. 파일 다운로드와 Hugging Face 조회를 함께 잰 값이고, 그때의 경로와 모델 크기에서 나온 결과다. 그렇다고 무조건 다운로드가 주범이라고 밀어붙일 수도 없었다. 실험은 내가 처음 가져온 설명보다 조금 덜 극적이고, 조금 더 구체적인 답을 줬다.</p>
+<p>다음 실행을 위해 패키지를 묶은 14초도 공짜로 처리하지 않았다. 미리 만들어진 준비물만 보여주면 재사용이 빨라 보이는 건 당연하다. 그 준비물을 만드는 시간은 최초 실행에 넣고, 실제로 쓴 자원비용에도 포함했다. 한 번 내야 할 비용과 매번 내는 비용을 나누되, 한 번 내는 쪽을 증발시키지는 않기로 했다.</p>
+<p>재밌는 건 이런 종류의 일이 로컬에서도 낯설지 않다는 것이다. GPU를 샀다고 패키지 버전이 자동으로 화해하는 것은 아니다. 코드와 의존성을 맞추는 시간까지 전부 GPU 성능의 문제로 기억하면, 비싼 장비가 해결해주지 않는 기다림에도 비싼 답을 달게 된다.</p>
+<p class="aside">최초 준비 1회와 준비물 재사용 3회다. 두 시나리오의 환경이 다르므로 ‘캐시 하나로 몇 배 빨라졌다’는 무작위 비교는 아니다. 로컬 5090과 정면으로 붙인 벤치마크도 아니다. 로컬 5090이 없으니까.</p>
+<p>그런데 우리는 이 일을 대체로 Codex나 Claude Code에 시켜두지 않나. 적어도 나는 그렇다. 코드를 짜고, 의존성을 맞추고, 에러가 나면 다시 고치게 한다. 모델을 바꾸거나 effort를 올려놓고 기다리는 일도 이미 일상의 일부가 됐다.</p>
+<p>그런 내가 원격 GPU가 뜨는 몇십 초에만 유독 엄격할 필요가 있을까 싶었다. 내게 중요한 건 호출 순간의 즉각적인 반응보다, 하고 싶은 실험을 무리 없이 끝낼 수 있느냐였다. 모델·effort별 시간을 재서 얻은 결론은 아니고, 그냥 내가 기다림을 쓰는 방식이 그렇다는 얘기다.</p>
+
+<p>에이전트에게 일을 맡긴다는 것도 GPU가 필요해지는 순간을 바꾼다. 아직 코드를 쓰고 있는데 장비부터 켜놓을 수도 있지만, 실행할 코드와 환경을 먼저 준비한 다음 GPU가 필요한 단계에서 켤 수도 있다. 둘은 같은 실험을 하더라도 빌려놓는 시간이 다를 것이다. 이번에 그 둘의 실제 사용자 작업시간을 비교한 것은 아니지만, 적어도 내가 어떤 시간을 돈 내고 유지하고 싶은지는 다시 생각하게 됐다.</p>
+<p>그렇다고 ‘어차피 AI 기다리니까 느려도 괜찮다’는 말로 아무 지연이나 합리화할 생각은 없다. 결과가 나와야 다음 줄을 고칠 수 있는데 매번 오래 멈추면 흐름이 끊긴다. 반대로 긴 작업을 맡기고 자료를 읽는 동안의 30초는 같은 30초여도 다르게 느껴진다. 사람이 기다리는 시간은 초시계 하나만으로 설명이 끝나지 않는다.</p>
+<p>나는 이 글에서 남들의 참을성을 측정하지 않았다. 다만 이미 에이전트와 비동기적으로 일하는 내 사용법에는, 장비가 늘 내 책상 밑에 있어야 한다는 조건이 생각보다 덜 중요했다. 5090을 사야만 할 수 있는 일과, 5090을 잠깐 빌려도 할 수 있는 일을 구분해볼 여지가 생겼다.</p>
+
+<h2>“로컬에는 모델 캐시가 있잖아”</h2>
+<p>맞다. 한번 받아 둔 모델을 다음번에도 쓰는 건 로컬의 큰 장점이다. 그런데 GPU를 빌린다고 매번 그 파일까지 버릴 필요는 없다.</p>
+<p><span class="mark">GPU는 지우고, 준비물은 남겨 두면 된다.</span></p>
+<p>RunPod에는 network volume이 있고, 여기에 S3 호환 API로 접근할 수 있다. RunPod 쪽에서도 S3라고 부르는데, <strong>AWS의 S3에 별도 버킷을 파서 쓰는 얘기가 아니다.</strong> RunPod 저장소에 있는 파일을 S3 도구로 읽고 쓸 수 있다는 뜻이다. 같은 지원 지역의 새 Pod에서는 그 파일을 마운트해서 읽는다.</p>
+
+<p>나는 이 부분을 모델 파일이 들어 있는 보관함 정도로 이해하면 편했다. GPU가 달린 실행 공간은 반납하더라도, 보관함을 따로 유지하면 다음 실행 공간에서 다시 열 수 있다. 로컬 디스크와 완전히 같은 성질이라는 뜻은 아니다. 어디에 보관함을 만들었는지와 어떤 방식으로 연결하는지는 여전히 중요하다.</p>
+<p>S3는 여기서 그 보관함을 드나드는 방법 하나다. GPU가 없을 때도 내 PC에서 S3 호환 도구로 파일을 읽고 쓸 수 있고, Pod를 붙이면 마운트된 파일 경로로 접근한다. 원격 장비의 SSH 연결이 열려 있어야만 결과를 회수할 수 있는 구조에 묶이지 않는다는 점이 좋았다. 단, GPU 제어 API와 S3 접근에 쓰는 자격증명은 따로 챙겼다.</p>
+<p>그리고 캐시라고 부르는 것 안에도 층이 있다. 저장소에 모델 파일이 남아 있는 것, Python이 패키지를 읽는 것, GPU 메모리에 모델이 올라가 있는 것은 서로 다르다. Pod를 지운 뒤에도 첫 번째는 남길 수 있지만, 세 번째까지 그대로 남아 있는 것은 아니다. 그래서 ‘모델 캐시가 있으니 즉시 응답한다’와 ‘모델을 인터넷에서 다시 받지 않는다’는 문장을 섞으면 곤란하다.</p>
+<p>이번 흐름에서는 파일을 남기고 GPU 메모리는 새로 채웠다. 앞의 33.2초는 그 차이를 포함한 값이다. 로컬의 모든 장점을 복제했다기보다, 내가 재사용하고 싶은 준비물을 필요한 만큼 남겨본 것이다.</p>
+<p>실제로 GPU가 하나도 없는 동안 S3로 표식 파일을 쓰고 다시 읽었다. 모델 파일도 그 상태에서 크기와 일부 구간의 hash를 확인했다. 새 GPU를 붙였을 때는 마운트된 저장소에서 같은 모델을 읽었고, 전체 파일 hash와 생성 결과도 같았다.</p>
+
+<p>왜 굳이 표식 파일까지 넣었냐면, 저장소가 살아 있다는 설명을 GPU가 살아 있는 동안만 확인하고 끝내고 싶지 않았기 때문이다. Pod 목록이 정말 0개인 상태에서 작은 파일을 쓰고 다시 읽었다. 계산기를 치웠는데 보관함은 여전히 드나들 수 있는지 따로 본 셈이다.</p>
+<p>큰 모델 쪽은 확인한 범위를 구분했다. S3에서는 객체 크기와 64KB 구간의 hash를 확인했고, 다음 Pod에서는 마운트된 전체 모델 파일의 hash를 확인했다. ‘S3로 3GB 모델 전체를 로컬에 왕복시켰다’고 쓰면 내가 한 시험보다 커진다. 전체 다운로드 재개나 전송 중단 후 multipart 복구까지 시험한 것도 아니다.</p>
+<p>파일 이름이 같다는 것보다 hash가 같다는 확인이 든든했고, hash가 같다는 것에 더해 같은 입력에서 출력 토큰까지 같다는 것도 확인했다. 그렇다고 한 입력의 일치가 모델의 모든 동작을 검증한다는 뜻은 아니다. 여기서는 새 GPU에서도 의도한 같은 준비물로 짧은 작업을 끝냈다는 최소한의 연결고리였다.</p>
+<p>앞의 세 번은 모델을 다시 다운로드하지 않았다. 모델 로드 자체의 중앙값은 약 {{model_load}}초였다. 의존성도 파일을 하나씩 우르르 복사하지 않고 미리 tar로 묶어 두었다가 임시 디스크에 풀었다. 그 읽기와 전개는 중앙값 {{extract}}초였다. 이 준비물 묶음을 만드는 시간도 첫 실행 시간과 비용에 넣었다.</p>
+
+<p>이렇게 해놓으니 ‘재활용이 가능하냐’는 질문에는 답이 생겼다. 다만 모든 패키지와 모든 모델을 영구 보존하자는 결론으로 달려가고 싶지는 않았다. 실험을 몇 번 해보려는 사람에게 캐시를 운영하는 일 자체가 새 취미가 되어버리면 조금 이상하다. 준비물을 남겨서 다음 작업이 편해지는 만큼만 해도 충분하다.</p>
+<p>예를 들어 모델 revision과 패키지 버전이 바뀌면 그 준비물도 다시 맞춰야 한다. 아무 때나 최신 버전을 당겨오면서 이전 실행과 같은 캐시를 쓴다고 말할 수는 없다. 그래서 이번에는 모델 revision과 실행 이미지 digest를 고정했다. 파일을 남기는 것만큼이나 ‘무엇을 남겼는지’ 적어두는 것이 재사용의 일부였다.</p>
+<p>처음에는 로컬 GPU의 편의성을 전부 따라가야 한다고 생각하기 쉽다. 그런데 내가 꼭 필요했던 건 모든 것이 영원히 따뜻한 상태가 아니라, 다음에 돌아왔을 때 어디서부터 다시 시작하면 되는지 아는 상태였다. 파일과 설정이 정리돼 있으면, GPU를 지우는 일이 생각보다 덜 큰 사건이 된다.</p>
+<p>다만 볼륨이 어디에 있는지는 중요하다. 내가 원하는 GPU를 아무 지역에서 골라 붙일 수 있는 구조는 아니다. 같은 지역에 재고가 있어야 하고, 나도 이전 실험에서 잘 쓰던 3090을 지웠다가 다음 할당에 실패한 적이 있다. 껐다 켜는 게 빠른 날에도, 재고가 없으면 소용없다.</p>
+
+<p>실험의 출발부터 5090만 썼던 것은 아니다. 이전에는 3090에서 준비된 환경의 새 Pod를 세 번 만들었고, 첫 결과까지 67.3초, 55.9초, 53.5초가 걸렸다. 그 뒤 할당 실패를 겪어서 L4로 넘어간 구간이 있다. L4에서는 첫 준비가 338.1초, 첫 결과까지는 346초였던 실행도 있었다. 원격 GPU가 매번 비슷하게 뜬다는 느낌으로 뭉개면 안 되는 기록이다.</p>
+<p>이 숫자들을 한 줄에 세워놓고 5090이 몇 배 빠르다고 결론 내리지는 않았다. 하드웨어뿐 아니라 준비 상태와 실행 흐름도 달랐기 때문이다. 내게 남은 교훈은 다른 쪽이었다. 잘 준비한 한 번이 빠를 수 있다는 것과, 원하는 순간에 원하는 GPU가 반드시 나온다는 것은 별개다.</p>
+<p>소유한 GPU는 이 재고 문제를 직접 해결해준다. 그 편의성을 0원으로 취급하면 구매 쪽에 불공평하다. 나는 그 값을 아주 자주 치를 상황이 아닐 것 같아서 임대를 택했지만, 발표 직전이나 마감 직전에 반드시 실행해야 하는 사람이라면 같은 숫자를 보고도 다른 결론을 내릴 수 있다.</p>
+<p>로컬 GPU의 편리함은 분명 있다. 매일 돌리고, 게임도 하고, 떠오른 걸 바로 실행할 수 있다는 게 중요하면 살 이유가 충분하다. 나는 새 모델이 나올 때 이것저것 만져보고, 가끔 작은 실험을 해보려는 쪽에 가깝다. 늘 준비된 내 전용 장비를 유지하는 값어치가 내게 얼마나 있느냐의 문제였다.</p>
+
+<h2>모델 놔둘 돈도 계속 나가는 거 아니냐고</h2>
+<p>그건 맞다. GPU를 껐다고 저장소까지 무료가 되지는 않는다. 그래서 가격도 따로 봤다.</p>
+<div class="calc"><strong>20GB, 월 $1.40</strong><span>network volume의 1TB 미만 구간<br>$0.07 / GB / 월 기준</span></div>
+<p>이건 모델 파일 3GB만큼만 과금한다는 얘기가 아니다. <strong>20GB를 할당해서 한 달 보관하는 계산</strong>이다. GPU 가격 옆에 놓으면 꽤 얌전하다. 그렇다고 큰 모델을 잔뜩 모아놓고 영원히 잊어버리면 당연히 얌전하지 않을 테고.</p>
+
+<p>정확히는 1TB 미만 구간의 network volume 단가인 GB당 월 $0.07을 적용했다. 20에 0.07을 곱해서 $1.40이다. 지원 지역과 저장소 종류가 같은지 확인하고 계산해야 한다. 저장소라는 이름이 붙었다고 모든 디스크가 이 단가로 움직이는 것은 아니다.</p>
+<p>원격 GPU를 논할 때 저장소 비용이 종종 반격 카드처럼 등장한다. 파일을 남기면 결국 돈이 계속 나가는 것 아니냐는 말이다. 맞는 지적이지만, 계속 나간다는 사실과 감당하기 어려울 만큼 나간다는 판단은 따로 봐야 했다. 내 작은 모델을 다시 쓰기 위해 어느 정도의 공간을 얼마 동안 남길 건지 적어보니, 적어도 이 예에서는 그 비용이 구매를 강제할 정도로 크지 않았다.</p>
+<p>로컬 SSD는 이미 갖고 있고 원격 저장소는 새 비용이니 비교가 다를 수도 있다. 반대로 로컬도 새로 사야 한다면 또 계산이 달라진다. 여기서 SSD 시세까지 끌어와 구매 명세서를 완성하려는 것은 아니다. 나는 우선 ‘캐시를 남기는 데 돈이 들어서 임대는 의미 없다’는 막연한 걱정을 실제 할당량과 단가로 바꿔보고 싶었다.</p>
+<p>이 정도의 계산만 해도 생각이 꽤 차분해진다. 파일 하나를 지우느냐 마느냐보다, 비싼 GPU를 할 일 없이 계속 붙잡고 있는 시간이 더 신경 쓰이기 시작한다. 돈이 나가는 속도가 다르기 때문이다.</p>
+<p>숫자로 감을 잡아보자. 한 달을 720시간으로 놓고, 그중 GPU를 빌려 놓는 시간을 1%인 7.2시간으로 잡으면 어떨까. 이번에 확인한 5090 견적은 시간당 $1.19였다.</p>
+<div class="math">GPU 7.2시간 × $1.19 = $8.568<br>20GB 한 달 보관 = $1.40<br>두 항목 합계 ≈ $9.97 / 월</div>
+<p>주의할 게 하나 있다. 여기서 7.2시간은 모델이 실제로 계산한 시간만이 아니다. <strong>GPU를 빌려 놓고 설치를 기다린 시간까지 다 넣었다고 가정한 값</strong>이다. ‘내 GPU가 계산하는 시간이 1%니까 임대도 딱 1%만 하면 되겠네’ 하고 바꾸면 계산이 틀어진다.</p>
+
+<p>GPU 사용률 표시가 낮아도 Pod를 빌려놓은 시간에는 돈이 나간다. 에이전트가 코드를 고치는 동안 장비를 켜둔 시간, 사람이 결과를 읽는 시간, 다음 명령을 생각하는 시간도 마찬가지다. 따라서 임대의 장점을 얻으려면 ‘나는 별로 안 쓴다’는 성격 진술만으로는 부족하고, 실제로 안 쓰는 구간을 반납하는 동작이 있어야 한다.</p>
+<p>또 월 7.2시간을 어떻게 나눠 쓰는지도 중요하다. 긴 작업 몇 번으로 쓰는 것과, 짧은 요청을 아주 여러 번으로 쪼개 쓰는 것은 기동비용이 다르다. 같은 계산량이라고 해서 같은 임대시간이 되는 것은 아니다. 바로 이 지점에서 무조건 껐다 켜자는 주장도 조금 수상해진다. 뒤에서는 그걸 별도 정책 실험으로 다뤘다.</p>
+<p>시간당 가격이 싸다는 사실만으로 내 사용내역을 알 수는 없다. 그래서 월 $9.97은 실제 한 달 결제 인증처럼 쓰지 않았다. 내가 정한 사용 가정을 숫자로 옮긴 예시다. 이 구분은 좀 귀찮지만, 가정을 결과인 척 바꾸는 것보다는 훨씬 낫다.</p>
+<p>이건 내가 실제로 한 달에 이만큼 썼다는 사용내역도 아니다. 환율, 세금, 임시 디스크, 전기료, 중고로 팔 가격까지 넣어서 구매와 임대의 손익분기를 구한 것도 아니다. 다만 아주 가끔 쓰는 나 같은 사람이 저장소 비용 때문에 곧장 GPU를 사야 하는 건 아니라는 정도의 감은 잡혔다.</p>
+
+<h2>그렇다고 나한테 유리한 숫자만 나온 건 아니다</h2>
+<p>처음에는 GPU를 매번 지우면 싸고, 잘 준비해두면 시간도 별로 안 늘 거라고 생각했다. 실제로 L4에서 추론 두 번 사이에 5분을 둔 비교를 세 쌍 해보니, GPU 추정 비용은 40.5% 줄었다. 그런데 두 번째 결과까지의 전체시간은 32.7% 늘었다. 비용은 줄었고, 기다림은 분명 생겼다.</p>
+
+<p>이 비교는 단순하게 만들었다. 짧은 추론을 한 번 하고 5분을 쉰 뒤 같은 작업을 다시 한다. 한쪽은 모델을 올려둔 GPU를 그대로 유지하고, 다른 쪽은 Pod를 삭제한 뒤 새로 만들었다. 같은 L4에서 세 쌍을 비교했다. 내가 하고 싶은 실험의 모든 모습을 대표하는 부하는 아니지만, 아무 일도 하지 않는 동안 계산기를 붙잡는 비용은 보기 쉬웠다.</p>
+<p>미리 정한 기대는 GPU 비용을 30% 이상 줄이면서 전체시간 증가는 20% 안에 넣는 것이었다. 비용 쪽은 넘겼고, 시간 쪽은 넘지 못했다. 둘 다 만족해야 한다고 정했으니 가설은 실패다. ‘비용 40.5% 절약 성공’이라고만 제목을 달면 절반은 맞지만, 내가 처음 던진 질문에는 정직한 답이 아니게 된다.</p>
+<p>여기서 전체시간은 추론 커널이 도는 시간만 뜻하지 않는다. 두 번째 결과까지 가는 흐름 전체다. 작업 중간의 5분 공백도 포함돼 있다. 짧은 추론 자체가 빨라졌다는 얘기가 아니라, 같은 두 작업을 어떤 자원 유지 방식으로 끝냈는지의 비교였다.</p>
+<p>이 결과를 보고 오히려 질문이 좋아졌다. 임대가 편하냐 불편하냐를 한 번에 결정하려고 하기보다, 어떤 공백에서 얼마를 아끼고 얼마를 기다릴 건지 물으면 됐다. 5분 동안 놀릴 바에는 지우고 싶을 수 있다. 그런데 5초 뒤 다음 명령을 줄 예정이라면? 그때도 똑같이 지우는 게 합리적일까.</p>
+<p>파일을 가까이 가져오면 해결될 줄 알고, 의존성을 디렉터리째 복사하는 실험도 했다. import는 24.4초에서 2.3초로 빨라졌다. 그런데 복사에 73.6초가 들어서, 정작 전체 작업은 32.5초에서 85.3초로 느려졌다.</p>
+
+<p>이때는 의존성과 모델을 어디에 두느냐를 나눴다. A는 둘 다 network volume에 두고, B는 의존성만 임시 디스크로 복사하고, C는 의존성과 모델을 모두 복사했다. 서로 다른 새 Pod 세 개에서 순서를 ABC, BCA, CAB로 바꿔가며 실행했다. 특정 순서가 계속 유리한 상황을 조금이라도 줄여보려는 구성이다.</p>
+<p>모든 실행은 새 Python 프로세스였고, 복사 시간도 작업시간에 넣었다. 세 군의 전체시간 중앙값은 A 32.5초, B 85.3초, C 86.6초였다. 출력 토큰과 파일 hash는 아홉 번 모두 맞았다. 계산을 틀리게 해서 빨라진 문제는 아니었고, 기대했던 최적화가 준비비용을 회수하지 못한 문제였다.</p>
+<p>import가 2초대로 내려간 순간만 보면 기분이 좋다. 가까운 디스크에 두는 직관도 맞아 보인다. 하지만 파일 수천 개를 먼저 옮기는 데 1분 넘게 썼다면, 딱 한 번 실행하고 끝내는 사용자에게는 늦어진 것이다. 구간 하나의 속도가 전체 경험을 대신해주지는 않았다.</p>
+<p>그렇다면 여러 번 실행하면 복사비를 회수할 수 있지 않겠냐는 질문도 가능하다. 측정값을 단순히 나눠 계산한 예상 회수 지점은 블록에 따라 3회나 4회였다. 다만 그 횟수로 반복 서비스를 실제 운영해 검증한 결과는 아니다. 다음번에도 같은 import 비용이 반복된다는 가정을 둔 계산이다. 가능성은 남기되, 이미 성공한 실험처럼 쓰지는 않았다.</p>
+<p>빨라진 구간만 자랑했으면 그럴듯한 최적화 글 한 편이 나올 뻔했다. 그래서 더 찝찝하게 기억에 남는다. 내가 기다리는 건 import라는 함수 하나가 아니라, 결과가 오는 순간까지의 전부였다.</p>
+<p>이번 5090에서는 준비물을 한 파일로 묶어 재사용하는 흐름을 실제로 돌렸고, 그 방식에서 앞의 30~40초대 결과를 얻었다. 다만 이전 디렉터리 복사는 L4에서 잰 값이다. GPU와 환경, 실행 흐름도 달라졌으니 ‘tar 하나로 몇 배 개선’이라고 발표할 생각은 없다. <strong>이 구성으로는 실제로 이만큼 기다렸다는 것</strong>까지가 확인한 사실이다.</p>
+<p>그래서 내 주장의 범위도 그 정도다. 모든 집에 로컬 GPU가 필요 없다는 선언을 할 수는 없다. 나처럼 가끔 가볍게 만지는 사람이 임대로도 해볼 만하냐는 질문에는, 이번엔 꽤 괜찮은 답을 얻었다.</p>
+
+{{speculative_section}}
+
+<h2>빌린 GPU는 버려도 하던 일은 챙겨야 했다</h2>
+<p>추론만 끝내고 끄는 건 조금 시시해서 학습도 끊어봤다. 작은 Transformer를 120 step 학습시키다가, 별도 실행은 73 step에서 죽였다. 20 step마다 저장했으니 마지막으로 온전히 남은 체크포인트는 60 step이었다.</p>
+<p>Pod를 정말로 삭제하고 새 Pod를 만들었다. 거기서 60 step 상태를 읽고 나머지를 학습했다. 가중치에 더해 optimizer, scheduler, 난수와 데이터 진행 상태까지 복원하니 세 seed 모두 무중단 학습과 최종 파라미터가 정확히 같았다. 최대오차 0이었다.</p>
+
+<p>처음에는 모델 파일만 잘 저장하면 됐다고 생각하기 쉽다. 하지만 학습에는 지금의 가중치 말고도 진행 중인 상태가 있다. optimizer는 과거의 업데이트 정보를 갖고 있고, scheduler는 현재 학습률이 어디쯤인지 안다. 난수 상태와 다음에 읽을 데이터가 바뀌면 이후의 경로도 달라진다. 학습을 이어간다는 말에 생각보다 많은 짐이 붙어 있었다.</p>
+<p>그래서 무중단 기준 실행을 먼저 만들고, 별도의 실행에서는 73 step에서 프로세스를 종료했다. 마지막 저장은 60 step이므로 13 step의 계산은 버렸다. 새 Pod에서 복구한 실행은 60 step 이후를 다시 계산했다. 중단 직전의 모든 순간을 보존하는 것이 아니라, 마지막으로 온전히 저장된 지점으로 돌아가는 시험이다.</p>
+<p>seed는 11, 22, 33을 썼다. 전체 상태를 복구한 쪽은 남은 구간의 데이터 순서, 학습 loss와 최종 파라미터를 기준 실행과 대조했다. 세 seed 모두 이 설정에서는 일치했다. Pod ID는 바뀌었지만, 다른 물리 호스트로 옮겨졌는지까지 보장하는 시험은 아니다.</p>
+<p>이 결과가 마음에 들었던 건 장비가 빨라서가 아니다. 내가 하던 일을 설명하는 상태가 장비 바깥에 남아 있다는 느낌이 구체적이었기 때문이다. GPU는 계산을 해주는 자리이고, 그 자리를 옮겨도 이어갈 수 있게 만드는 정보는 따로 챙길 수 있었다.</p>
+<p>재밌게도 가중치만 읽고 나머지는 새로 시작한 쪽은 평가 loss가 더 낮았다. 학습률과 데이터 순서까지 달라진 덕에 다른 학습을 한 셈이었다. 점수가 좋다는 것과 아까 하던 일을 그대로 이어갔다는 건 별도로 봐야 했다.</p>
+
+<p>seed별 평가 loss는 무중단과 전체 복구에서 약 0.494, 0.572, 0.479였고, 가중치만 읽은 실행에서는 약 0.244, 0.203, 0.258이었다. 숫자만 보면 가중치만 복구한 쪽에 상을 주고 싶어진다. 하지만 그 실행의 재개 학습률은 0.001이었고, 전체 복구 쪽은 0.0005였다. 데이터 진행과 난수 상태도 함께 달랐다.</p>
+<p>따라서 ‘optimizer를 버리면 더 잘 학습한다’는 결론은 낼 수 없다. 여러 상태를 동시에 바꾼 비교이고, 작은 합성 문제다. 여기서 보고 싶었던 것은 점수 대결보다 이어하기의 의미였다. 좋은 결과가 우연히 나왔다고 해서 원래 실험을 그대로 재현한 것으로 인정할 수는 없다.</p>
+<p>새 Pod를 요청해서 첫 복구 결과를 가져오기까지는 51.4초였다. 체크포인트 파일을 읽는 구간 자체는 수십 밀리초였고, 남은 작은 학습도 1초가 안 걸렸다. 이때도 파일 로드 시간만 잘라 보여주면 ‘복구는 즉시 된다’는 인상을 만들 수 있다. 내가 실제로 기다린 것은 장비를 다시 받는 과정까지 포함한 시간이었다.</p>
+<p class="aside">이건 약 30.6만 파라미터의 합성 학습이다. 앞에서 추론한 Qwen 1.5B를 fine-tuning한 결과는 아니다. 대형 모델이나 분산학습도 같은 식으로 된다고 확인한 건 아니다.</p>
+<p>이런 걸 챙겨놓으면 GPU는 조금 덜 소중해진다. 결과와 상태가 바깥에 있으니 지워도 다음에 돌아올 곳이 있다. 물론 저장소 자체를 백업으로 착각하면 곤란해서, 중요한 파일은 내 PC로도 가져와 hash를 확인했다.</p>
+<p>연결을 끊었을 때 작업이 살아 있는지도 봤고, 로컬 제어기를 죽였을 때 별도 감시기가 GPU를 정리하는지도 시험했다. 안 쓰는 장비를 집에 들이지 않겠다고 시작해놓고, 안 쓰는 GPU를 클라우드에 켜둔 채 잊어버리면 좀 웃기니까.</p>
+
+<p>SSH 연결을 끊는 것과 원격 작업을 끝내는 것도 구분했다. 연결이 끊긴 뒤 같은 PID의 작업이 남아 있는 것을 확인했다. 터미널 창이 닫혔다고 계산도 자동으로 끝나리라고 기대하면 안 되는 쪽이다. 반대로 연결을 끊어도 계속 돌아가게 만들고 싶을 때는 이 성질이 필요하다.</p>
+<p>로컬 제어기를 죽인 시험에서는 별도로 실행한 감시기가 52.8초 뒤 Pod를 정리했다. 이건 그때 시험한 실패 상황의 결과다. PC 전원이 나가거나 네트워크와 API가 동시에 안 되는 상황까지 해결했다고 말할 수는 없다. 같은 PC에서 도는 감시기라면 그 PC와 함께 꺼질 수도 있다. 자동화를 붙였다는 사실이 모든 실패에서 청구를 막아준다는 보증은 아니었다.</p>
+<p>체크포인트와 결과 파일은 로컬로 가져와 hash도 확인했다. network volume이 Pod와 수명이 다르다는 것은 편리하지만, 그 자체가 별도 백업을 뜻하지는 않는다. 실수로 볼륨까지 지우면 이야기가 달라진다. 실험이 끝난 뒤 남기고 싶은 것이 무엇인지 정하고, 그 파일이 실제로 내 손에 왔는지 확인한 다음 정리했다.</p>
+<p>이런 뒷정리가 임대의 귀찮은 부분인 건 맞다. 다만 한번 흐름을 만들어놓으니 내 장비를 항상 켜두는 대신, 짧게 빌리고 결과를 챙긴 뒤 돌려주는 실험이 가능해졌다. 비용을 아낀다는 말은 결국 이 마지막 반납 버튼까지 포함한 말이어야 했다.</p>
+<p>마지막에는 GPU와 network volume을 모두 지웠다. 앞에서 본 5090의 최초 준비와 재사용, 네 번의 자원비용은 약 ${{new_cost}} 추정이다. 이전 실험과 이번 보존 정책 실험까지 더하면 약 ${{all_cost}}다. 전부 작은 작업이었고, 세금이나 에이전트 비용은 뺀 값이다. 긴 학습을 이 가격에 한다는 뜻으로 읽으면 큰일 난다.</p>
+
+<p>비용은 자원의 수명과 견적단가로 환산했다. 공급자의 최종 청구서와 같은 것인 양 쓰지 않았다. 확인 시점에 사용내역 반영이 덜 된 구간도 있었고, 볼륨의 시간 단위 과금은 연속시간 환산과 차이가 날 수 있다. 조회 결과가 아직 비어 있다고 사용료가 0이었다고 결론 내리는 것도 피했다.</p>
+<p>처음 실패한 실행도 기록에서 지우지 않았다. 의존성을 설치하고 결과를 회수하는 제어기 쪽에서도 시행착오가 있었고, 추론의 수치 형식을 BF16으로 맞춘 과정도 있었다. 최종 결과만 남겨놓으면 처음부터 반듯하게 성공한 것처럼 보이지만, 실제로 얻은 정보에는 잘못 짚은 지점도 들어 있다.</p>
+<p>누군가는 이 정도 실험을 하려고 이런 준비까지 했냐고 생각할 수 있다. 그 반응도 이해한다. 장비를 사는 편리함 중에는 이런 고민을 덜 한다는 값어치도 있을 테니까. 나는 반대로 이 정도의 작은 실험을 해보기 위해 큰 물건을 먼저 살 필요가 없었다는 쪽이 마음에 들었다. 둘 중 어느 귀찮음을 돈으로 바꿀지는 사람마다 다를 일이다.</p>
+
+<p class="afterthought">이 정도면 내가 왜 5090을 안 샀는지 제법 그럴듯하게 설명한 것 같다. 자원 활용률을 따져보고, 준비시간을 재고, 캐시 보관비까지 계산했다. 뭔가 합리적인 사람처럼 보인다.</p>
+<p class="ps">사실 그냥 돈이 없어서 못 샀다.</p>
+<p>대단한 소비철학이 먼저 있었던 건 아니다. 못 사는 김에 왜 안 사도 되는지 열심히 재봤더니 이만한 글이 됐다. 그래도 실험은 재밌었다. 돈이 생기면 입장이 달라질 수 있으니, 너무 엄숙하게 보관하지는 말아주시길.</p>
+
+<div class="sources"><details><summary>숫자가 수상하면 여기: 조건, 가정, 원자료</summary><div class="source-body"><p>말투는 가볍게 썼지만, 실측과 가정은 나눠 두었다.</p><ul>
+<li>1,200만원은 구매 시나리오다. 2026년 10월 24일에 확인한 <a href="https://www.compuzone.co.kr/product/product_detail.htm?DivNo=2043&amp;MediumDivNo=1016&amp;ProductNo=1213663" target="_blank" rel="noopener noreferrer">GAINWARD RTX5090 판매페이지</a>에는 약 960만원이 표시됐다. 특정 제품의 표시가격이며, 최저가나 실제 결제가는 아니다. 99% 유휴도 내 개인적인 예상이다.</li>
+<li>추가 실험은 EU-RO-1의 RTX5090, On-demand $1.19/h에서 진행했다. 이미지 digest와 Qwen2.5-1.5B-Instruct revision을 고정했다. BF16, batch 1, greedy 추론이며 최대 128토큰이지만 실제 출력은 짧다. 최초 준비 1회와 준비물 재사용 3회에 서로 다른 Pod ID 4개를 썼다. 다른 물리 호스트인지는 확인하지 않았다.</li>
+<li>요청부터 결과 회수까지는 생성 API, SSH 연결, 코드 전송, 의존성 전개, import, 모델 검증과 로드, 추론, 폴링과 회수를 포함한다. 사전 설계와 실행 소스 hash를 남겼다. provider·OS 캐시는 통제하지 않았고, 항상 재고가 있거나 p95도 빠르다고 확인한 것은 아니다.</li>
+<li>GPU가 없을 때 모델의 S3 HEAD와 64KB Range hash를 확인했다. 새 Pod에서는 마운트된 모델 전체의 hash를 검증했다. 대용량 모델 전체를 S3로 로컬에 내려받았다가 다시 올린 시험이나 multipart 재개 시험은 하지 않았다.</li>
+<li>기존 RTX3090 실험, L4의 정책·저장 위치 실험, 이번 5090 실험은 조건이 다르다. 서로의 수치를 묶어 하드웨어 효과나 단일 요인의 개선율을 만들지 않았다. 초기 실패도 기록과 비용에 포함했다.</li>
+<li>월 $9.97은 한 달 720시간 중 Pod 할당 7.2시간과 20GB 보관을 가정한 두 항목의 계산이다. 실제 연산 이용률을 임대시간으로 옮긴 수치나 TCO 분석은 아니다. 저장소는 <a href="https://docs.runpod.io/pods/pricing" target="_blank" rel="noopener noreferrer">공식 과금 문서</a>의 1TB 미만 구간인 $0.07/GB/월을 적용했다.</li>
+<li>Codex·Claude Code의 모델·effort별 대기시간, 실제 사용자들의 유휴율, 같은 조건의 로컬 GPU 성능은 측정하지 않았다. 에이전트에 일을 맡기는 내 사용법에서 몇십 초를 받아들일 만했다는 판단과 구분한다.</li>
+<li>자원비용은 사용시간과 견적단가로 환산한 추정치다. 세금과 에이전트 비용은 제외했으며 확정 청구액은 아니다. 볼륨은 시간 단위로 과금하므로 연속시간 환산과 차이가 날 수 있다. 마지막 API 조회에서 Pod 0개, network volume 0개, 현재 시간당 사용액 0을 확인했다.</li>
+</ul></div></details><div class="source-links"><div><a href="reports/story-results.md">이번 RTX5090 결과</a><a href="reports/story-results.json" download>이번 수치 JSON</a><a href="docs/story-experiment.md">추가 실험 사전 설계</a></div><div><a href="reports/results.md">기본 실험 결과</a><a href="reports/followup-results.md">저장 위치·학습 복구 결과</a><a href="https://docs.runpod.io/storage/s3-api" target="_blank" rel="noopener noreferrer">RunPod S3 공식 문서</a></div></div></div>
+</article></main><footer class="bottom"><p>2026.10.24 실험 기록<br>GPU와 저장소는 정리했고, 결과는 남겨뒀다.</p><a href="#top">위로</a></footer></body></html>

@@ -1,0 +1,236 @@
+{
+  "slides": 42,
+  "main_slides": 35,
+  "appendix_slides": 7,
+  "approximate_main_talk_minutes": 38,
+  "all_42_slides_rendered": true,
+  "slide_overflow_count": 0,
+  "slide_footer_overlap_count": 0,
+  "slide_geometry": [
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "5090은 안 샀습니다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "천이백만원을 쓴다고 쳐봅시다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "내가 사면, 거의 놀릴 것 같았다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "그래서 필요할 때 빌렸다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "계산할 때만 요금을 내는 건 아니었다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "GPU는 빌리고, 결과를 챙긴 다음 돌려줬다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "해볼 일은 정했다. 60초짜리 음악 만들기"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "이건 실제로 만든 60초 음악입니다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "60초 음악을 만드는 일을 23번 반복했다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "GPU 접속은 27초, 첫 음원을 받기까지는 약 3분"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "세 번 다 새 Pod에서 음악을 회수했다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "처음엔 음악 한 곡 받는 데 12분 걸렸다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "파일이 있어도, 모델을 다시 올리는 시간은 들었다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "모델을 올려두니, 60초 음악을 약 7초에 만들었다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "한 번 켜서 이어 만들면, 기다림이 확 줄었다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "나는 어차피 에이전트에 맡겨놓고 기다린다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "GPU는 반납해도, 준비물은 남길 수 있었다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "Ceph는 저장 기반과 접근 방식을 나눈다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "RunPod S3는 같은 파일에 접근하는 또 다른 문"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "GPU가 없어도 파일을 읽고 쓸 수 있었다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "그 파일들 놔둘 돈은?"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "한 달에 7.2시간 빌린다고 치면"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "GPU도 캐시처럼 남길까?"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "GPU를 더 켜둘 시간은 이렇게 정했다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "20초 뒤 껐는데, 25초 뒤 다시 필요해졌다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "GPU를 언제 끄느냐에 따라 돈과 시간이 달라졌다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "음악을 받은 뒤 쉬고, 다음 곡을 요청했다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "재기동도 돈을 내는 시간이었다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "5분 쉬는 짧은 작업에서는, 반납해서 돈을 아꼈다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "모든 작업에 같은 반납 규칙을 쓸 수는 없었다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "시작을 빠르게 하려고 파일을 옮겼더니, 더 느려졌다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "내가 다시 한다면 이렇게 쓸 것 같다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "이럴 거면 그냥 사는 게 편하지 않을까"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "음악은 남겼고, 장비는 돌려줬다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "사실 돈이 없어서 못 샀습니다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "이번 ACE-Step 실행 조건"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "작은 Qwen 결과는 예비 실험으로 남겼다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "이전 L4에서는 비용과 시간이 엇갈렸다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "이전의 import 최적화는 전체 작업을 늦췄다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "동일 seed의 음원도 따로 검증했다"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "실제 GPU 보유 기록을 자세히 보면"
+    },
+    {
+      "footerOverlap": false,
+      "overflow": false,
+      "title": "숫자가 수상할 때 볼 곳"
+    }
+  ],
+  "standalone_audience_context": true,
+  "live_cover_verified": true,
+  "live_retention_strategy_verified": true,
+  "strategy_examples_match_actual_log": true,
+  "live_purchase_transition_verified": true,
+  "site_source_commit": "8b165a7c2160b0dcb398facbf48c93a0a5a549ce",
+  "site_deployment_status": "succeeded",
+  "site_owner_only": true,
+  "desktop_copy_verified": true,
+  "desktop_path": "C:\\Users\\cools\\OneDrive\\바탕 화면\\5090은 안 샀습니다.html",
+  "sha256": {
+    "blog.html": "166911fcab892393a720a2b4266fa5a2f5314b1d4532fe970ea87fce1af2ce84",
+    "slides.html": "ae8eaf16c080331daebb607db63f2ec6042ca4e5ba402d59b5ba1656fe9ced66"
+  },
+  "additional_paid_experiments": false
+}

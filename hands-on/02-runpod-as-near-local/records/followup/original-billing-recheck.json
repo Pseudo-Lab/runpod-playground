@@ -1,0 +1,115 @@
+{
+  "at_utc": "2026-10-24T02:18:36.387734+00:00",
+  "known_pods": 17,
+  "known_pods_with_records": 17,
+  "pod_usage_amount_usd": 0.44178757432382554,
+  "rows": [
+    {
+      "run_id": "b02",
+      "amount_usd": 0.008122777566313744,
+      "time_billed_ms": 58484,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "a02",
+      "amount_usd": 0.007211944554001093,
+      "time_billed_ms": 51926,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "a01",
+      "amount_usd": 0.0157467593671754,
+      "time_billed_ms": 111710,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "b01",
+      "amount_usd": 0.009966065059415996,
+      "time_billed_ms": 70089,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "b03",
+      "amount_usd": 0.007738333195447922,
+      "time_billed_ms": 55716,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "a03",
+      "amount_usd": 0.007674166467040777,
+      "time_billed_ms": 55254,
+      "bucket_utc": "2026-10-17 15:00:00"
+    },
+    {
+      "run_id": "c2e1",
+      "amount_usd": 0.01933912339154631,
+      "time_billed_ms": 116589,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "c3k",
+      "amount_usd": 0.06982254586182535,
+      "time_billed_ms": 423211,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "a04",
+      "amount_usd": 0.05739412398543209,
+      "time_billed_ms": 348789,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "c3e1",
+      "amount_usd": 0.017930099740624428,
+      "time_billed_ms": 109404,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "d02",
+      "amount_usd": 0.00844306405633688,
+      "time_billed_ms": 51517,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "c3e2",
+      "amount_usd": 0.02109282836318016,
+      "time_billed_ms": 128702,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "c2e2",
+      "amount_usd": 0.020154399797320366,
+      "time_billed_ms": 122976,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "c1e2",
+      "amount_usd": 0.020536096766591072,
+      "time_billed_ms": 125305,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "c1e1",
+      "amount_usd": 0.019221451482735574,
+      "time_billed_ms": 115871,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "c2k",
+      "amount_usd": 0.06499315740074962,
+      "time_billed_ms": 395156,
+      "bucket_utc": "2026-10-17 16:00:00"
+    },
+    {
+      "run_id": "c1k",
+      "amount_usd": 0.06640063726808876,
+      "time_billed_ms": 403744,
+      "bucket_utc": "2026-10-17 16:00:00"
+    }
+  ],
+  "final_invoice_verified": false,
+  "note": "Provider usage records, not a finalized tax invoice. Original report retained as a historical observation.",
+  "network_volume_response_count": 1,
+  "account_window_network_volume_usage_amount_usd": 0.0009722221875563264,
+  "network_volume_allocation_note": "Account-window aggregate; response has no volume ID and is not a per-run attribution."
+}

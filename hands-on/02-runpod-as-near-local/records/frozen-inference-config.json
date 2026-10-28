@@ -1,0 +1,32 @@
+{
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "image": "runpod/pytorch@sha256:cb154fcca15d1d6ce858cfa672b76505e30861ef981d28ec94bd44168767d853",
+  "image_tag_at_resolution": "runpod/pytorch:2.8.0-py3.11-cuda12.8.1-cudnn-devel-ubuntu22.04",
+  "precision": "bfloat16",
+  "batch_size": 1,
+  "seed": 42,
+  "prompt": "Explain in three short sentences why saving a GPU checkpoint before shutting down an instance is useful.",
+  "max_new_tokens": 128,
+  "do_sample": false,
+  "gpu_count": 1,
+  "gpu_budget_usd": 20,
+  "phase_a_budget_usd": 2,
+  "network_volume_gb": 10,
+  "network_volume_retention": "delete after local backup and final verification",
+  "preferred_gpu": "NVIDIA L4",
+  "preferred_data_center": "EU-RO-1",
+  "price_cache": "cache/gpu-prices.json",
+  "price_cache_ttl_seconds": 86400,
+  "status": "s3_roundtrip_passed",
+  "storage_budget_usd": 0.1,
+  "storage_max_hours": 2,
+  "output_validation": {
+    "w0_max_abs_error": 1e-05,
+    "inference": "nonempty finite GPU output, then exact greedy token IDs across same-GPU repeats",
+    "logits_atol": 0.01,
+    "logits_rtol": 0.001
+  },
+  "s3_smoke_sha256": "c8551bffb2ac7b951fb45c3d295a55804e550479bc2df65e815f1997b7bc1d19",
+  "phase_a_adjustment": "a02 float16 inference produced non-finite logits; switch to bfloat16 before fixing the repeated-run baseline"
+}

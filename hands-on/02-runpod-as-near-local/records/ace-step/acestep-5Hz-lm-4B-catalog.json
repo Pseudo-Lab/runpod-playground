@@ -1,0 +1,169 @@
+{
+  "_id": "69734c98552d500979006346",
+  "id": "ACE-Step/acestep-5Hz-lm-4B",
+  "private": false,
+  "pipeline_tag": "text-to-audio",
+  "library_name": "transformers",
+  "tags": [
+    "transformers",
+    "safetensors",
+    "qwen3",
+    "text-generation",
+    "audio",
+    "music",
+    "text2music",
+    "text-to-audio",
+    "arxiv:2602.00744",
+    "license:mit",
+    "text-generation-inference",
+    "endpoints_compatible",
+    "region:us"
+  ],
+  "downloads": 16267,
+  "likes": 56,
+  "modelId": "ACE-Step/acestep-5Hz-lm-4B",
+  "author": "ACE-Step",
+  "sha": "0a3ec94b557aea7d508da38b31cfe7341f6ff737",
+  "lastModified": "2026-02-03T06:30:44.000Z",
+  "gated": false,
+  "disabled": false,
+  "model-index": null,
+  "config": {
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "model_type": "qwen3",
+    "chat_template_jinja": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0].role == 'system' %}\n        {{- messages[0].content + '\\n\\n' }}\n    {%- endif %}\n    {{- \"# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0].role == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0].content + '<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- set ns = namespace(multi_step_tool=true, last_query_index=messages|length - 1) %}\n{%- for message in messages[::-1] %}\n    {%- set index = (messages|length - 1) - loop.index0 %}\n    {%- if ns.multi_step_tool and message.role == \"user\" and message.content is string and not(message.content.startswith('<tool_response>') and message.content.endswith('</tool_response>')) %}\n        {%- set ns.multi_step_tool = false %}\n        {%- set ns.last_query_index = index %}\n    {%- endif %}\n{%- endfor %}\n{%- for message in messages %}\n    {%- if message.content is string %}\n        {%- set content = message.content %}\n    {%- else %}\n        {%- set content = '' %}\n    {%- endif %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) %}\n        {{- '<|im_start|>' + message.role + '\\n' + content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {%- set reasoning_content = '' %}\n        {%- if message.reasoning_content is string %}\n            {%- set reasoning_content = message.reasoning_content %}\n        {%- else %}\n            {%- if '</think>' in content %}\n                {%- set reasoning_content = content.split('</think>')[0].rstrip('\\n').split('<think>')[-1].lstrip('\\n') %}\n                {%- set content = content.split('</think>')[-1].lstrip('\\n') %}\n            {%- endif %}\n        {%- endif %}\n        {%- if loop.index0 > ns.last_query_index %}\n            {%- if loop.last or (not loop.last and reasoning_content) %}\n                {{- '<|im_start|>' + message.role + '\\n<think>\\n' + reasoning_content.strip('\\n') + '\\n</think>\\n\\n' + content.lstrip('\\n') }}\n            {%- else %}\n                {{- '<|im_start|>' + message.role + '\\n' + content }}\n            {%- endif %}\n        {%- else %}\n            {{- '<|im_start|>' + message.role + '\\n' + content }}\n        {%- endif %}\n        {%- if message.tool_calls %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if (loop.first and content) or (not loop.first) %}\n                    {{- '\\n' }}\n                {%- endif %}\n                {%- if tool_call.function %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {{- '<tool_call>\\n{\"name\": \"' }}\n                {{- tool_call.name }}\n                {{- '\", \"arguments\": ' }}\n                {%- if tool_call.arguments is string %}\n                    {{- tool_call.arguments }}\n                {%- else %}\n                    {{- tool_call.arguments | tojson }}\n                {%- endif %}\n                {{- '}\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.first or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n    {%- if enable_thinking is defined and enable_thinking is false %}\n        {{- '<think>\\n\\n</think>\\n\\n' }}\n    {%- endif %}\n{%- endif %}"
+  },
+  "cardData": {
+    "library_name": "transformers",
+    "license": "mit",
+    "pipeline_tag": "text-to-audio",
+    "tags": [
+      "audio",
+      "music",
+      "text2music"
+    ]
+  },
+  "transformersInfo": {
+    "auto_model": "AutoModelForCausalLM",
+    "pipeline_tag": "text-generation",
+    "processor": "AutoTokenizer"
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "744ea4af9d05a1d2de292e5b0d3eae6441c064dc",
+      "size": 1628
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "09b1e911e95bb4543e08bfa19ad93bf53e2bc05f",
+      "size": 5498
+    },
+    {
+      "rfilename": "added_tokens.json",
+      "blobId": "584075018edeacd6dcc031b3e2cbbf90836eba41",
+      "size": 2217787
+    },
+    {
+      "rfilename": "chat_template.jinja",
+      "blobId": "01be9b307daa2d425f7c168c9fb145a286e0afb4",
+      "size": 4168
+    },
+    {
+      "rfilename": "config.json",
+      "blobId": "f072db2e55ae58afe5d64a4aaa358219176c030d",
+      "size": 1562
+    },
+    {
+      "rfilename": "merges.txt",
+      "blobId": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7",
+      "size": 1671853
+    },
+    {
+      "rfilename": "model-00001-of-00002.safetensors",
+      "blobId": "38ffd4a5881931914996006fe6e0a3c7620cbfb6",
+      "size": 4999914896,
+      "lfs": {
+        "sha256": "ada9d0d4ff48f112de3f7b82cd4e7d57b4245932657e8b8edc9a5ded6a23b77f",
+        "size": 4999914896,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model-00002-of-00002.safetensors",
+      "blobId": "5a8dc8a57a49c777ff64d1de38b8fe342b2c5ff7",
+      "size": 3379239240,
+      "lfs": {
+        "sha256": "6302100c3577e2f1dbf32573e9b5e6e6b1bea7af101b433c2d3d6280faa8ab68",
+        "size": 3379239240,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "model.safetensors.index.json",
+      "blobId": "639e42fb383cbe3accbf08678deca94ee221f1bd",
+      "size": 32818
+    },
+    {
+      "rfilename": "special_tokens_map.json",
+      "blobId": "aa26266349a0f38be608e07138c9047356309551",
+      "size": 1824199
+    },
+    {
+      "rfilename": "tokenizer.json",
+      "blobId": "9ddbbfa4ab39a70635bbde85a4cb422afeae7d88",
+      "size": 24321939,
+      "lfs": {
+        "sha256": "35af56c3f5cb3ea2cc578aa28a8937770981d504f183ac5c8c38baf4bbd4af4d",
+        "size": 24321939,
+        "pointerSize": 133
+      }
+    },
+    {
+      "rfilename": "tokenizer_config.json",
+      "blobId": "b24427adb48675a5389bd54813b4e63f1b7127f8",
+      "size": 14072925,
+      "lfs": {
+        "sha256": "6cd70cdd89425971794f5235562edcc608b0629a6c4686ae51a8b8c8b8ba5e95",
+        "size": 14072925,
+        "pointerSize": 133
+      }
+    },
+    {
+      "rfilename": "vocab.json",
+      "blobId": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "size": 2776833
+    }
+  ],
+  "spaces": [
+    "LububMusicAi/ACE-Step-Custom",
+    "aquanode/gpu-vram-calculator",
+    "Zyan11/LocalAI-Amlan-Edition",
+    "Gamahea/ACE-Step-Custom",
+    "Davex256/LocalAI-Amlan-Edition",
+    "aTrapDeer/Lora-ace-step",
+    "adowu/ACE-Step-Training",
+    "Sattigeri07/Music-project",
+    "swdq/acestep-jpdenpa",
+    "DengLi1208/ACE-Step-1.5",
+    "mehdinaji68/ACE-Step-Training",
+    "Thebeachingwaulrus/ACE-Step-Custom",
+    "gsk-music/GSK-Music",
+    "drizzymedia/Lora-ace-step",
+    "drizzymedia/Synapse-Music-V8-Training",
+    "mateusdata/ace-step-1-5",
+    "eemadd/trap-and-rap-acestep",
+    "Jamalbalya/aimusicgenerated",
+    "Phinny/ACE-Step-Custom-Phinny"
+  ],
+  "createdAt": "2026-01-23T10:25:28.000Z",
+  "safetensors": {
+    "parameters": {
+      "BF16": 4189554176
+    },
+    "total": 4189554176
+  },
+  "usedStorage": 8417549000
+}

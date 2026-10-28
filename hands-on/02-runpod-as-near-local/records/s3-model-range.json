@@ -1,0 +1,9 @@
+{
+  "at_utc": "2026-10-17T16:05:19.195456+00:00",
+  "object_bytes": 3087467144,
+  "downloaded_bytes": 65536,
+  "content_range": "bytes 0-65535/3087467144",
+  "sha256": "d6cc976421e28ad7fa38eb83a91c6b4dab359d86514b2fda55b79bcf44f3673a",
+  "matches_gpu_read": true,
+  "full_file_s3_transfer_tested": false
+}

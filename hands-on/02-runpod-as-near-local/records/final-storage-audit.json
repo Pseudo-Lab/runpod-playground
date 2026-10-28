@@ -1,0 +1,9 @@
+{
+  "checked_at_utc": "2026-10-24T14:12:30.327361+00:00",
+  "pod_count": 0,
+  "network_volume_count": 0,
+  "current_spend_per_hour": 0,
+  "additional_deletions_needed": false,
+  "s3_scope": "RunPod S3-compatible access to network volumes; no network volumes remain",
+  "local_experiment_results_preserved": true
+}

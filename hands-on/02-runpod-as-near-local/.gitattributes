@@ -1,0 +1,3 @@
+# Preserve exact source, measurement, log, and HTML bytes.
+# Preregistered SHA-256 manifests must survive Git add/checkout unchanged.
+* -text

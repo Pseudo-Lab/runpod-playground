@@ -1,0 +1,11 @@
+{
+  "run_id": "train-fault-22",
+  "at_utc": "2026-10-24T02:27:34.498037+00:00",
+  "pid": 142,
+  "expected_exit": 86,
+  "exit": {
+    "returncode": 86,
+    "wall_seconds": 4.676830179989338
+  },
+  "local_roundtrip_seconds": 12.094000000040978
+}

@@ -1,0 +1,116 @@
+{
+  "at_utc": "2026-10-24T01:58:01.323477+00:00",
+  "reference_5090": {
+    "gpu_type": "NVIDIA GeForce RTX 5090",
+    "data_center": "EU-RO-1",
+    "usd_per_gpu_hour": 1.19,
+    "stock_at_fetch": "Low"
+  },
+  "candidates": [
+    {
+      "gpu_type": "NVIDIA RTX PRO 4000 Blackwell",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.57,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "EUR-IS-1",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L4",
+      "data_center": "US-MO-2",
+      "usd_per_gpu_hour": 0.59,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 1g.24gb",
+      "data_center": "US-NE-1",
+      "usd_per_gpu_hour": 0.69,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA RTX PRO 4500 Blackwell",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.72,
+      "stock_at_fetch": "Medium"
+    },
+    {
+      "gpu_type": "NVIDIA RTX PRO 4500 Blackwell",
+      "data_center": "EUR-IS-1",
+      "usd_per_gpu_hour": 0.72,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA RTX PRO 4500 Blackwell Server Edition",
+      "data_center": "US-KS-2",
+      "usd_per_gpu_hour": 0.72,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L40",
+      "data_center": "US-KS-2",
+      "usd_per_gpu_hour": 0.82,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA GeForce RTX 4090",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 0.89,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA RTX 6000 Ada Generation",
+      "data_center": "US-CA-2",
+      "usd_per_gpu_hour": 0.99,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA RTX 6000 Ada Generation",
+      "data_center": "US-WA-1",
+      "usd_per_gpu_hour": 0.99,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L40S",
+      "data_center": "US-MO-1",
+      "usd_per_gpu_hour": 1.09,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA L40S",
+      "data_center": "US-NC-1",
+      "usd_per_gpu_hour": 1.09,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA GeForce RTX 5090",
+      "data_center": "EU-RO-1",
+      "usd_per_gpu_hour": 1.19,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA GeForce RTX 5090",
+      "data_center": "EUR-IS-1",
+      "usd_per_gpu_hour": 1.19,
+      "stock_at_fetch": "Low"
+    },
+    {
+      "gpu_type": "NVIDIA GeForce RTX 5090",
+      "data_center": "EUR-NO-1",
+      "usd_per_gpu_hour": 1.19,
+      "stock_at_fetch": "Low"
+    }
+  ],
+  "existing_pods": 0,
+  "existing_network_volumes": 0,
+  "price_cache_reused": false
+}

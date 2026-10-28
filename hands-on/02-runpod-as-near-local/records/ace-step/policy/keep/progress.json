@@ -1,0 +1,95 @@
+{
+  "responses": [
+    {
+      "request": 0,
+      "arrival": 0.0,
+      "start": 0.0,
+      "complete": 18.48499999998603,
+      "latency_seconds": 18.48499999998603,
+      "generation_seconds": 13.046041369030718,
+      "pod_id": "u9n901r58jpeso",
+      "music_record": "policy-keep-request-0"
+    },
+    {
+      "request": 1,
+      "arrival": 23.48499999998603,
+      "start": 23.5,
+      "complete": 34.06299999996554,
+      "latency_seconds": 10.577999999979511,
+      "generation_seconds": 6.927553066983819,
+      "pod_id": "u9n901r58jpeso",
+      "music_record": "policy-keep-request-1"
+    },
+    {
+      "request": 2,
+      "arrival": 59.06299999996554,
+      "start": 59.15599999995902,
+      "complete": 69.71900000004098,
+      "latency_seconds": 10.656000000075437,
+      "generation_seconds": 6.949869815027341,
+      "pod_id": "u9n901r58jpeso",
+      "music_record": "policy-keep-request-2"
+    },
+    {
+      "request": 3,
+      "arrival": 249.71900000004098,
+      "start": 249.89099999994505,
+      "complete": 260.51599999994505,
+      "latency_seconds": 10.796999999904074,
+      "generation_seconds": 7.003262266982347,
+      "pod_id": "u9n901r58jpeso",
+      "music_record": "policy-keep-request-3"
+    }
+  ],
+  "events": [
+    {
+      "type": "request",
+      "t": 0.0,
+      "request": 0,
+      "ewma": 10.0,
+      "ttl": null
+    },
+    {
+      "type": "response",
+      "t": 18.48499999998603,
+      "request": 0
+    },
+    {
+      "type": "request",
+      "t": 23.48499999998603,
+      "request": 1,
+      "ewma": 7.5,
+      "ttl": null
+    },
+    {
+      "type": "response",
+      "t": 34.06299999996554,
+      "request": 1
+    },
+    {
+      "type": "request",
+      "t": 59.06299999996554,
+      "request": 2,
+      "ewma": 16.25,
+      "ttl": null
+    },
+    {
+      "type": "response",
+      "t": 69.71900000004098,
+      "request": 2
+    },
+    {
+      "type": "request",
+      "t": 249.71900000004098,
+      "request": 3,
+      "ewma": 98.125,
+      "ttl": null
+    },
+    {
+      "type": "response",
+      "t": 260.51599999994505,
+      "request": 3
+    }
+  ],
+  "boots": []
+}
