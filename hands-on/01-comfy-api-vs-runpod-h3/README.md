@@ -5,7 +5,7 @@
 - 상태: 완료
 - 실행 확인일: 2026-10-19
 - 발표 자료: [slides.pdf](slides.pdf)
-- 블로그: [Runpod Korea User Group 글](https://runpod-korea-ug-community.static.hf.space/articles/comfy-api-vs-runpod-h3/index.html)
+- 블로그: [Runpod Korea User Group 글](https://runpod-korea-ug.pages.dev/articles/comfy-api-vs-runpod-h3/index.html)
 - 측정 코드·원본 결과: [omg-runpod-media `recipes/video/06-comfy-api-vs-runpod-h3`](https://github.com/wlsdml1114/omg-runpod-media/tree/e8faba9780914858a1ec88615d55529c2de082b2/recipes/video/06-comfy-api-vs-runpod-h3) (커밋 고정)
 
 ## 확인하려는 질문
@@ -101,5 +101,5 @@ Comfy API 준비에서 손이 간 곳:
 
 ## 참고 자료
 
-- [Comfy API 출시 소개 글 (Runpod Korea User Group)](https://runpod-korea-ug-community.static.hf.space/articles/comfy-api-launch/index.html)
+- [Comfy API 출시 소개 글 (Runpod Korea User Group)](https://runpod-korea-ug.pages.dev/articles/comfy-api-launch/index.html)
 - [Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3)
