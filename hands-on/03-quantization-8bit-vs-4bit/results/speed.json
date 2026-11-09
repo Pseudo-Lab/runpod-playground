@@ -1,0 +1,314 @@
+[
+  {
+    "model": "exp-g4-26b-a4b-awq-pro4500",
+    "cost_per_hr": 0.72,
+    "levels": [
+      {
+        "level": 1,
+        "n": 8,
+        "errors": 0,
+        "throughput_tps": 117.3,
+        "ttft_p50_s": 0.392,
+        "ttft_p95_s": 1.056,
+        "decode_tps_p50": 153.7,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 1.705
+      },
+      {
+        "level": 16,
+        "n": 64,
+        "errors": 0,
+        "throughput_tps": 937.8,
+        "ttft_p50_s": 0.505,
+        "ttft_p95_s": 1.064,
+        "decode_tps_p50": 70.3,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.213
+      },
+      {
+        "level": 48,
+        "n": 144,
+        "errors": 0,
+        "throughput_tps": 1889.5,
+        "ttft_p50_s": 1.163,
+        "ttft_p95_s": 1.354,
+        "decode_tps_p50": 48.7,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.106
+      }
+    ]
+  },
+  {
+    "model": "exp-g4-26b-a4b-nvfp4-pro4500",
+    "cost_per_hr": 0.72,
+    "levels": [
+      {
+        "level": 1,
+        "n": 8,
+        "errors": 0,
+        "throughput_tps": 93.6,
+        "ttft_p50_s": 0.413,
+        "ttft_p95_s": 1.009,
+        "decode_tps_p50": 113.95,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 2.138
+      },
+      {
+        "level": 16,
+        "n": 64,
+        "errors": 0,
+        "throughput_tps": 947.6,
+        "ttft_p50_s": 0.516,
+        "ttft_p95_s": 0.625,
+        "decode_tps_p50": 67.3,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.211
+      },
+      {
+        "level": 48,
+        "n": 144,
+        "errors": 0,
+        "throughput_tps": 2154.5,
+        "ttft_p50_s": 0.668,
+        "ttft_p95_s": 1.03,
+        "decode_tps_p50": 51.2,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.093
+      }
+    ]
+  },
+  {
+    "model": "exp-q35-27b-awq-l40s",
+    "cost_per_hr": 1.09,
+    "levels": [
+      {
+        "level": 1,
+        "n": 8,
+        "errors": 0,
+        "throughput_tps": 35.8,
+        "ttft_p50_s": 0.768,
+        "ttft_p95_s": 1.246,
+        "decode_tps_p50": 40.4,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 8.456
+      },
+      {
+        "level": 16,
+        "n": 64,
+        "errors": 0,
+        "throughput_tps": 444.0,
+        "ttft_p50_s": 1.127,
+        "ttft_p95_s": 1.372,
+        "decode_tps_p50": 31.2,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.682
+      },
+      {
+        "level": 48,
+        "n": 144,
+        "errors": 0,
+        "throughput_tps": 859.1,
+        "ttft_p50_s": 1.355,
+        "ttft_p95_s": 1.905,
+        "decode_tps_p50": 19.9,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.352
+      }
+    ]
+  },
+  {
+    "model": "exp-q35-27b-fp8-l40s",
+    "cost_per_hr": 1.09,
+    "levels": [
+      {
+        "level": 1,
+        "n": 8,
+        "errors": 0,
+        "throughput_tps": 23.3,
+        "ttft_p50_s": 0.806,
+        "ttft_p95_s": 1.522,
+        "decode_tps_p50": 25.45,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 12.988
+      },
+      {
+        "level": 16,
+        "n": 64,
+        "errors": 0,
+        "throughput_tps": 304.9,
+        "ttft_p50_s": 1.475,
+        "ttft_p95_s": 1.727,
+        "decode_tps_p50": 21.4,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.993
+      },
+      {
+        "level": 48,
+        "n": 144,
+        "errors": 0,
+        "throughput_tps": 556.9,
+        "ttft_p50_s": 1.853,
+        "ttft_p95_s": 2.678,
+        "decode_tps_p50": 15.4,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.544
+      }
+    ]
+  },
+  {
+    "model": "exp-q35-9b-awq-4090",
+    "cost_per_hr": 0.89,
+    "levels": [
+      {
+        "level": 1,
+        "n": 8,
+        "errors": 0,
+        "throughput_tps": 87.3,
+        "ttft_p50_s": 1.149,
+        "ttft_p95_s": 1.285,
+        "decode_tps_p50": 131.1,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 2.832
+      },
+      {
+        "level": 16,
+        "n": 64,
+        "errors": 0,
+        "throughput_tps": 1193.3,
+        "ttft_p50_s": 0.652,
+        "ttft_p95_s": 1.243,
+        "decode_tps_p50": 100.95,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.207
+      },
+      {
+        "level": 48,
+        "n": 144,
+        "errors": 0,
+        "throughput_tps": 2479.1,
+        "ttft_p50_s": 1.012,
+        "ttft_p95_s": 1.489,
+        "decode_tps_p50": 67.7,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.1
+      }
+    ]
+  },
+  {
+    "model": "exp-q35-9b-awq-l40s",
+    "cost_per_hr": 1.09,
+    "levels": [
+      {
+        "level": 1,
+        "n": 8,
+        "errors": 0,
+        "throughput_tps": 72.9,
+        "ttft_p50_s": 0.823,
+        "ttft_p95_s": 1.941,
+        "decode_tps_p50": 103.15,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 4.156
+      },
+      {
+        "level": 16,
+        "n": 64,
+        "errors": 0,
+        "throughput_tps": 906.2,
+        "ttft_p50_s": 1.26,
+        "ttft_p95_s": 1.872,
+        "decode_tps_p50": 83.2,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.334
+      },
+      {
+        "level": 48,
+        "n": 144,
+        "errors": 0,
+        "throughput_tps": 1977.7,
+        "ttft_p50_s": 1.529,
+        "ttft_p95_s": 1.699,
+        "decode_tps_p50": 54.9,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.153
+      }
+    ]
+  },
+  {
+    "model": "exp-q35-9b-fp8-4090",
+    "cost_per_hr": 0.89,
+    "levels": [
+      {
+        "level": 1,
+        "n": 8,
+        "errors": 0,
+        "throughput_tps": 62.1,
+        "ttft_p50_s": 0.818,
+        "ttft_p95_s": 1.394,
+        "decode_tps_p50": 78.65,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 3.982
+      },
+      {
+        "level": 16,
+        "n": 64,
+        "errors": 0,
+        "throughput_tps": 822.1,
+        "ttft_p50_s": 1.136,
+        "ttft_p95_s": 1.603,
+        "decode_tps_p50": 67.8,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.301
+      },
+      {
+        "level": 48,
+        "n": 144,
+        "errors": 0,
+        "throughput_tps": 1907.1,
+        "ttft_p50_s": 1.29,
+        "ttft_p95_s": 1.528,
+        "decode_tps_p50": 50.0,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.13
+      }
+    ]
+  },
+  {
+    "model": "exp-q35-9b-fp8-l40s",
+    "cost_per_hr": 1.09,
+    "levels": [
+      {
+        "level": 1,
+        "n": 8,
+        "errors": 0,
+        "throughput_tps": 49.0,
+        "ttft_p50_s": 1.061,
+        "ttft_p95_s": 1.979,
+        "decode_tps_p50": 62.5,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 6.177
+      },
+      {
+        "level": 16,
+        "n": 64,
+        "errors": 0,
+        "throughput_tps": 657.2,
+        "ttft_p50_s": 1.38,
+        "ttft_p95_s": 1.989,
+        "decode_tps_p50": 54.75,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.461
+      },
+      {
+        "level": 48,
+        "n": 144,
+        "errors": 0,
+        "throughput_tps": 1589.0,
+        "ttft_p50_s": 1.475,
+        "ttft_p95_s": 1.646,
+        "decode_tps_p50": 41.3,
+        "mean_output_tokens": 256.0,
+        "usd_per_1m_output": 0.191
+      }
+    ]
+  }
+]
