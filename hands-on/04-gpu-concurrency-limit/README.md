@@ -50,7 +50,7 @@ RTX 5090 한 장에서 vLLM으로 Kanana 1.5 8B를 서빙할 때의 처리 한�
 
 ```bash
 cd hands-on
-COPYFILE_DISABLE=1 tar --exclude=.venv --exclude=__pycache__ -czf - 03-gpu-concurrency-limit \
+COPYFILE_DISABLE=1 tar --exclude=.venv --exclude=__pycache__ -czf - 04-gpu-concurrency-limit \
   | ssh <pod> "mkdir -p /workspace && tar -xzf - -C /workspace"
 ```
 
@@ -78,7 +78,7 @@ deactivate
 
 ```bash
 source /opt/vllm-env/bin/activate
-cd /workspace/03-gpu-concurrency-limit
+cd /workspace/04-gpu-concurrency-limit
 mkdir -p /workspace/logs
 openssl rand -hex 16 > /workspace/.vllm_key && chmod 600 /workspace/.vllm_key
 export VLLM_API_KEY=$(cat /workspace/.vllm_key)
@@ -100,7 +100,7 @@ vLLM 시작 로그의 `non-default args` 줄에는 API 키가 출력됩니다. �
 
 ```bash
 source /opt/lm-eval-env/bin/activate
-cd /workspace/03-gpu-concurrency-limit
+cd /workspace/04-gpu-concurrency-limit
 export HF_HOME=/workspace/hf
 export OPENAI_API_KEY=$(cat /workspace/.vllm_key)
 sh deploy/pod/run_kobest.sh http://localhost:8000 round1
@@ -112,7 +112,7 @@ sh deploy/pod/run_kobest.sh http://localhost:8000 round1
 
 ```bash
 source /opt/vllm-env/bin/activate
-cd /workspace/03-gpu-concurrency-limit
+cd /workspace/04-gpu-concurrency-limit
 export HF_HOME=/workspace/hf
 export VLLM_API_KEY=$(cat /workspace/.vllm_key)
 export OPENAI_API_KEY=$VLLM_API_KEY
@@ -217,7 +217,7 @@ GPU 시간당 $1.19를 측정 처리량으로 나눈 값입니다. 해당 동시
 Pod의 컨테이너 디스크는 Pod를 멈추면 지워지므로 먼저 결과를 로컬로 복사합니다. 로컬에서 실행합니다.
 
 ```bash
-ssh <pod> "tar -czf - -C /workspace/03-gpu-concurrency-limit results -C /workspace/logs metrics-round1" \
+ssh <pod> "tar -czf - -C /workspace/04-gpu-concurrency-limit results -C /workspace/logs metrics-round1" \
   | tar -xzf - -C .
 ```
 
