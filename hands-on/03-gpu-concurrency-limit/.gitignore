@@ -1,0 +1,15 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# secrets
+.env
+
+# dataset: only the format sample and README are published
+dataset/download.sh
+dataset/sharegpt_ko.json
+
+# os
+.DS_Store

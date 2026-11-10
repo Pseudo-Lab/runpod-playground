@@ -1,0 +1,10 @@
+[
+  {
+    "lang": "ko",
+    "id": "sample-1",
+    "conversations": [
+      { "from": "human", "value": "커피를 마시면 왜 잠이 깨나요?" },
+      { "from": "gpt", "value": "커피의 카페인이 졸음을 유도하는 아데노신의 작용을 막기 때문입니다." }
+    ]
+  }
+]

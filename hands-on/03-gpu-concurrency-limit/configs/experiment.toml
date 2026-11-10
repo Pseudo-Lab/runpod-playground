@@ -1,0 +1,27 @@
+# Conditions shared by every run. Change values here, not in code.
+
+[model]
+name = "kakaocorp/kanana-1.5-8b-instruct-2505"
+
+[dataset]
+name = "sharegpt"
+path = "dataset/sharegpt_ko.json"
+seed = 42
+
+[request]
+backend = "openai-chat"
+endpoint = "/v1/chat/completions"
+temperature = 0.0
+
+[concurrency_test]
+levels = [1, 2, 4, 8, 16, 32, 64, 128, 256]
+prompts_per_level_slot = 20
+min_prompts = 100
+repeats = 3
+
+[cost]
+# USD per hour, RTX 5090 Secure Cloud. Confirm in the RunPod console before the run.
+pod_hourly_usd = 1.19
+# Hourly equivalent of the published Serverless price for the same GPU.
+# Set this from the RunPod console to enable the Serverless estimate.
+# serverless_hourly_usd = 0.0
