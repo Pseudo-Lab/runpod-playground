@@ -5,7 +5,7 @@
 - 상태: 완료
 - 실행 확인일: 2026-11-09
 - 관련 Issue / 주간 기록: 미정
-- 발표 자료: [HTML](slides.html) · [PDF](slides.pdf)
+- 발표 자료: [HTML](slides.html) · [PDF](slides.pdf) · [Markdown](slides.md)
 
 ## 확인하려는 질문
 
