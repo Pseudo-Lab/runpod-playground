@@ -6,6 +6,7 @@
 | --- | --- | --- | --- |
 | [01. Comfy API vs Runpod Serverless — 같은 H3 워크플로 비교](01-comfy-api-vs-runpod-h3/README.md) | 김진의 | 완료 | [발표 PDF](01-comfy-api-vs-runpod-h3/slides.pdf) · [블로그](https://runpod-korea-ug-community.static.hf.space/articles/comfy-api-vs-runpod-h3/index.html) |
 | [2. RunPod을 로컬 GPU의 대안으로 쓸 수 있을까?](02-runpod-as-near-local/README.md) | coolspeed | 완료 | [HTML 발표](02-runpod-as-near-local/slides.html) · [블로그 HTML](02-runpod-as-near-local/blog.html) · [실측 결과](02-runpod-as-near-local/reports/ace-step-results.md) |
+| [3. 8bit에서 4bit로 내리면 손해일까?](03-quantization-8bit-vs-4bit/README.md) | kimjaejeong | 완료 | [발표 PDF](03-quantization-8bit-vs-4bit/slides.pdf) · [결과 데이터](03-quantization-8bit-vs-4bit/results/) |
 | [4. GPU 한 장으로 동시 요청을 얼마나 처리할 수 있을까?](04-gpu-concurrency-limit/README.md) | ldyoung4032 | 완료 | [HTML 발표](04-gpu-concurrency-limit/slides.html) · [PDF 발표](04-gpu-concurrency-limit/slides.pdf) · [결과 요약](04-gpu-concurrency-limit/results/round1/summary.json) |
 
 [핸즈온 양식](../templates/hands-on.md)을 복사해 시작하세요. 한 실험을 여러 명이 함께 진행하거나, 앞선 결과를 다른 조건으로 재현해도 좋습니다.

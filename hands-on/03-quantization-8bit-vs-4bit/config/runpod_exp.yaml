@@ -1,0 +1,91 @@
+# P35: 양자화 실험 (PLAN P35–P37). "8비트 → 4비트는 손해인가, 몇 B부터 4비트가 괜찮은가".
+# 만들기 · 지우기는 collector 컨테이너에서 (RUNPOD_API_KEY 는 collector 에만):
+#   docker compose exec -e RUNPOD_VLLM_API_KEY collector \
+#       python -m tollgate_platform.finops.runpod_exp up q35-9b-fp8 --gpu l40s
+#   docker compose exec collector python -m tollgate_platform.finops.runpod_exp status|down [이름]|cost
+#
+# - Pod 이름 = exp-<모델>-<gpu> = gateway 모델 이름 (config/runpod.yaml serving 의 exp- 규칙).
+# - 비용: Pod 이름 exp- → 서비스 runpod-exp (owners), 예산 config/budgets.yaml, 2시간 알림 · 자동 삭제.
+# - 같은 계열 Qwen3.5 (2026-02, Apache-2.0) dense 2B · 4B · 9B · 27B. 리비전 고정 (2026-11-06 확인).
+#   더 최신 Qwen3.8 · 3.6 은 dense 가 27B 하나뿐이라 "몇 B부터" 를 볼 수 없다.
+# - 정밀도: bf16 = 공식 원본, fp8 = 원본을 vLLM 이 띄울 때 FP8 로 (online, 2B · 4B · 9B 같은 방식)
+#   · 27B 는 원본(55GB)이 L40S 에 안 들어가 공식 FP8 배포판, awq = cyankiwi AWQ 4비트 (커뮤니티, 네 크기 같은 만든이 ·
+#   같은 설정 W4A16 group 32). Qwen 공식 4비트는 27B GPTQ 뿐이다.
+# - source: official · online(vLLM 변환) · community
+# - weight_gb: 가중치 크기 (HF safetensors 합, online fp8 은 원본의 약 절반 — 추정).
+#   AWQ 판은 비전 인코더 · 임베딩을 bf16 으로 두어 생각보다 크다 (9B AWQ 9.1GB ≈ 9B FP8)
+
+# vLLM 공식 이미지, digest 고정 (v0.32.0 2026-10-18, 기본 CUDA 13.0 · 드라이버 580+).
+# 2026-11-06: cu129 판은 Qwen3.5(이미지 · 영상 처리기)를 띄울 때 torchcodec 라이브러리를 못 읽고 죽었다
+#   (data/exp/logs). RunPod L40S 드라이버는 595 (CUDA 13.2) 라 기본 판으로 충분하다
+image: vllm/vllm-openai:v0.32.0@sha256:befccf0e7e4089aa23926bb6f887a85c0d46c2a99e6de5c5ffdf5cb7957c5b34
+cloud_type: SECURE
+# allowed_cuda_versions: 2026-11-06 ["12.9","13.0"] 을 주면 모든 GPU 가 "no instances" (RunPod 쪽 필터 문제로 보임) → 끔.
+#   드라이버가 낮아 cu129 이미지가 안 뜨면 기동 확인에서 걸러진다
+allowed_cuda_versions: []
+container_disk_gb: 80          # 가장 큰 27B-FP8 가중치 31GB + 이미지
+
+gpus:                          # 이름 → RunPod GPU 종류 (목록이면 앞에서부터, 실제 GPU 는 runpod_pods 에 남는다)
+  # 정확도 실험(P36): 48GB Ada 아무거나 — FP8 하드웨어 지원이 같아 점수는 GPU 와 무관.
+  # 2026-11-06 L40S Secure 재고 Low 로 "no instances" → RTX 6000 Ada 도 허용
+  ada48: [NVIDIA L40S, NVIDIA RTX 6000 Ada Generation]
+  # 속도 · 비용 실험(P37): GPU 하나로 고정
+  l40s: NVIDIA L40S            # 48GB, Ada (FP8 지원)
+  "4090": NVIDIA GeForce RTX 4090   # 24GB, Ada
+  # P39 NVFP4: Blackwell 만 FP4 를 하드웨어로 계산한다. 2026-11-07 재고 Medium · $0.72/h (가장 싼 32GB Blackwell)
+  # ("RTX PRO 4500 Blackwell Server Edition" 은 GraphQL 에는 있지만 REST 생성 API 가 받지 않는다 → 빼야 함)
+  pro4500: NVIDIA RTX PRO 4500 Blackwell
+
+vllm:                          # 모든 조합 공통 (조건을 같게)
+  max_model_len: 4096
+  max_num_seqs: 64
+  gpu_memory_utilization: 0.90
+  # thinking 끔: 실험 범위 밖이고, 켜면 출력이 10배 길어져 비용 · 시간이 커진다
+  default_chat_template_kwargs: '{"enable_thinking": false}'
+  reasoning_parser: qwen3
+  # Qwen3.5 는 이미지도 읽는 모델. 글자 문제만 풀게 해 이미지용 메모리 확보 · 측정을 건너뛴다
+  limit_mm_per_prompt: '{"image": 0, "video": 0}'
+
+# 실행 순서 · 예산 (scripts/quant_run.py). 한 번에 Pod 하나: 띄우기 → 평가 → 지우기 → 비용 알림
+budget_usd: 30                 # runpod-exp 전체 상한 (사용자 결정: P36 $15 → P38 $30). 넘을 것 같으면 멈춘다
+est_hours_per_combo: 0.75      # 예산 판단용 (기동 ~10분 + 평가)
+
+models:
+  q35-2b-bf16:  {hf_id: Qwen/Qwen3.5-2B, revision: 15852e8c16360a2fea060d615a32b45270f8a8fc, size_b: 2, precision: bf16, source: official, weight_gb: 4.55}
+  q35-2b-fp8:   {hf_id: Qwen/Qwen3.5-2B, revision: 15852e8c16360a2fea060d615a32b45270f8a8fc, size_b: 2, precision: fp8, source: online, quantization: fp8, weight_gb: 2.6}
+  q35-2b-awq:   {hf_id: cyankiwi/Qwen3.5-2B-AWQ-4bit, revision: 1dce6b2185f80493552999bc739e923db9f73240, size_b: 2, precision: awq, source: community, weight_gb: 2.5}
+  q35-4b-bf16:  {hf_id: Qwen/Qwen3.5-4B, revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a, size_b: 4, precision: bf16, source: official, weight_gb: 9.32}
+  q35-4b-fp8:   {hf_id: Qwen/Qwen3.5-4B, revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a, size_b: 4, precision: fp8, source: online, quantization: fp8, weight_gb: 5.0}
+  q35-4b-awq:   {hf_id: cyankiwi/Qwen3.5-4B-AWQ-4bit, revision: d3e78b50c727b1f34802f440ca84b25781625352, size_b: 4, precision: awq, source: community, weight_gb: 4.04}
+  q35-9b-bf16:  {hf_id: Qwen/Qwen3.5-9B, revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a, size_b: 9, precision: bf16, source: official, weight_gb: 19.31}
+  q35-9b-fp8:   {hf_id: Qwen/Qwen3.5-9B, revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a, size_b: 9, precision: fp8, source: online, quantization: fp8, weight_gb: 10.0}
+  q35-9b-awq:   {hf_id: cyankiwi/Qwen3.5-9B-AWQ-4bit, revision: e4d2d39cede8c5d1716d824cd843e2889c648083, size_b: 9, precision: awq, source: community, weight_gb: 9.07}
+  q35-27b-fp8:  {hf_id: Qwen/Qwen3.5-27B-FP8, revision: 97f5941bf617e31c5e237364a8602ce3f03a551a, size_b: 27, precision: fp8, source: official, weight_gb: 30.87}
+  q35-27b-awq:  {hf_id: cyankiwi/Qwen3.5-27B-AWQ-4bit, revision: 9d8d63632afafe90bdfcb70164d3e2a0955619f7, size_b: 27, precision: awq, source: community, weight_gb: 20.06}
+
+  # P38: 어려운 문항 · 다른 계열(Gemma 4) · MoE. 8bit vs 4bit 만 (bf16 ≈ FP8 은 P36 에서 확인). 2026-11-07 리비전 고정
+  # - Gemma 4 dense: E2B · E4B (Per-Layer Embedding, 실제 연산 2B · 4B) · 12B · 31B.
+  #   4bit = Google 공식 QAT(양자화를 고려해 학습한) W4A16 판, 8bit = 원본을 띄울 때 FP8 (31B 는 원본 62GB 라 RedHatAI FP8)
+  # - MoE: Qwen3.5-35B-A3B (공식 FP8 · 공식 GPTQ-Int4), Gemma 4-26B-A4B (RedHatAI FP8 · cyankiwi QAT-AWQ, Google 4bit 판 없음)
+  # - Gemma 는 이미지 · 오디오 입력이 있는 모델 → 둘 다 끔, reasoning parser 없음 (thinking 끔)
+  g4-e2b-fp8:   {hf_id: google/gemma-4-E2B-it, revision: 4adf15748de9e1a0097b6274cee9c15836c41c37, size_b: 2, precision: fp8, source: online, quantization: fp8, weight_gb: 5.1, family: gemma4, arch: dense, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-e2b-qat:   {hf_id: google/gemma-4-E2B-it-qat-w4a16-ct, revision: 971342c08f607aa7779983f6b5289778b5d271a7, size_b: 2, precision: qat, source: official, weight_gb: 8.3, family: gemma4, arch: dense, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-e4b-fp8:   {hf_id: google/gemma-4-E4B-it, revision: 4ecc2ba63bcac23ba4a767fc87025b1450f84c9c, size_b: 4, precision: fp8, source: online, quantization: fp8, weight_gb: 8.0, family: gemma4, arch: dense, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-e4b-qat:   {hf_id: google/gemma-4-E4B-it-qat-w4a16-ct, revision: 6cd26aaa2357fb2bad8c51699a7558a4d1a965bb, size_b: 4, precision: qat, source: official, weight_gb: 11.5, family: gemma4, arch: dense, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-12b-fp8:   {hf_id: google/gemma-4-12B-it, revision: 43c9d014b231474fa7212dbb48a762566c2b255d, size_b: 12, precision: fp8, source: online, quantization: fp8, weight_gb: 12.0, family: gemma4, arch: dense, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-12b-qat:   {hf_id: google/gemma-4-12B-it-qat-w4a16-ct, revision: 1d2c2d7f2466070e69d6fb3fd5ce9a7d75f2f6ee, size_b: 12, precision: qat, source: official, weight_gb: 10.3, family: gemma4, arch: dense, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-31b-fp8:   {hf_id: RedHatAI/gemma-4-31B-it-FP8-dynamic, revision: d4ab4f579dd3516f97d8a6a4c98d0653480bad15, size_b: 31, precision: fp8, source: community, weight_gb: 33.3, family: gemma4, arch: dense, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-31b-qat:   {hf_id: google/gemma-4-31B-it-qat-w4a16-ct, revision: 52f3f65bc7a02d555763bc923bd1d9094898219d, size_b: 31, precision: qat, source: official, weight_gb: 23.3, family: gemma4, arch: dense, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-26b-a4b-fp8: {hf_id: RedHatAI/gemma-4-26B-A4B-it-FP8-dynamic, revision: ed35d7abe5d940da41b4ff06eb482feb0be8cb44, size_b: 26, active_b: 4, precision: fp8, source: community, weight_gb: 28.6, family: gemma4, arch: moe, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-26b-a4b-awq: {hf_id: cyankiwi/gemma-4-26B-A4B-it-qat-AWQ-INT4, revision: 76373001e106330a6815f237ef00838c7fed9356, size_b: 26, active_b: 4, precision: awq, source: community, weight_gb: 17.2, family: gemma4, arch: moe, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  q35-35b-a3b-fp8:  {hf_id: Qwen/Qwen3.5-35B-A3B-FP8, revision: 9d1823d2dee688a6b25e77009dc727688c44936e, size_b: 35, active_b: 3, precision: fp8, source: official, weight_gb: 37.5, family: qwen3.5, arch: moe, vllm: {max_num_seqs: 32}}
+  q35-35b-a3b-gptq: {hf_id: Qwen/Qwen3.5-35B-A3B-GPTQ-Int4, revision: 3af5ca2972faf6de1fd6f4efc4d8d319ca751e8b, size_b: 35, active_b: 3, precision: gptq, source: official, weight_gb: 24.4, family: qwen3.5, arch: moe}
+
+  # P39 (예산 $30 안에서 범위 축소, 2026-11-07)
+  # - NVFP4: NVIDIA 공식 Gemma 4-26B-A4B NVFP4 (W4A4, Blackwell 에서 4bit 그대로 계산). 31B 는 예산 때문에 뺐다
+  # - KV 캐시: Gemma 4 12B QAT, 긴 문서(최대 16k) 를 위해 max_model_len 16384, KV 16bit vs 8bit(FP8)
+  g4-26b-a4b-nvfp4: {hf_id: nvidia/Gemma-4-26B-A4B-NVFP4, revision: a19cfe00be84568a6867111c9a68c9c44fdcffe6, size_b: 26, active_b: 4, precision: nvfp4, source: official, weight_gb: 18.8, family: gemma4, arch: moe, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}'}}
+  g4-12b-qat-kv16: {hf_id: google/gemma-4-12B-it-qat-w4a16-ct, revision: 1d2c2d7f2466070e69d6fb3fd5ce9a7d75f2f6ee, size_b: 12, precision: qat, source: official, weight_gb: 10.3, family: gemma4, arch: dense, kv: 16, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}', max_model_len: 16384}}
+  g4-12b-qat-kv8:  {hf_id: google/gemma-4-12B-it-qat-w4a16-ct, revision: 1d2c2d7f2466070e69d6fb3fd5ce9a7d75f2f6ee, size_b: 12, precision: qat, source: official, weight_gb: 10.3, family: gemma4, arch: dense, kv: 8, vllm: {reasoning_parser: null, limit_mm_per_prompt: '{"image": 0, "audio": 0}', max_model_len: 16384, kv_cache_dtype: fp8}}
+  # 1차에서 4090 에 안 들어갔던 27B 4bit 를 KV 8bit 로 다시 (예산이 남으면, 마지막 순서)
+  q35-27b-awq-kv8: {hf_id: cyankiwi/Qwen3.5-27B-AWQ-4bit, revision: 9d8d63632afafe90bdfcb70164d3e2a0955619f7, size_b: 27, precision: awq, source: community, weight_gb: 20.06, kv: 8, vllm: {kv_cache_dtype: fp8, max_num_seqs: 16, gpu_memory_utilization: 0.95}}

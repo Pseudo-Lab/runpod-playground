@@ -1,0 +1,1153 @@
+[
+  {
+    "name": "exp-q35-2b-bf16-ada48",
+    "gpu": "L40S",
+    "pods": 4,
+    "first_start": "2026-11-06 04:15:26.097128+00:00",
+    "hours": 0.455,
+    "boot_min": 5.8,
+    "cost_usd": 0.4594,
+    "source": "billing",
+    "requests": 3391,
+    "input_tokens": 409621,
+    "output_tokens": 249676,
+    "usd_per_1m_output": 1.84,
+    "usd_per_1m_tokens": 0.697,
+    "by_task": {
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 230270
+      },
+      "kmmlu": {
+        "requests": 2070,
+        "output_tokens": 19404
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-2b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 2,
+    "first_start": "2026-11-06 05:08:31.667932+00:00",
+    "hours": 0.22,
+    "boot_min": 3.2,
+    "cost_usd": 0.2615,
+    "source": "billing",
+    "requests": 8095,
+    "input_tokens": 1112012,
+    "output_tokens": 1594590,
+    "usd_per_1m_output": 0.164,
+    "usd_per_1m_tokens": 0.097,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 17043
+      },
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 217816
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 10450
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 32117
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1317162
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-2b-awq-ada48",
+    "gpu": "RTX 6000 Ada",
+    "pods": 2,
+    "first_start": "2026-11-06 05:15:38.360842+00:00",
+    "hours": 0.254,
+    "boot_min": 4.7,
+    "cost_usd": 0.2906,
+    "source": "billing",
+    "requests": 8095,
+    "input_tokens": 1112012,
+    "output_tokens": 1631600,
+    "usd_per_1m_output": 0.178,
+    "usd_per_1m_tokens": 0.106,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 23271
+      },
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 260059
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 14812
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 39162
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1294294
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-4b-bf16-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-06 05:26:48.634467+00:00",
+    "hours": 0.067,
+    "boot_min": 1.9,
+    "cost_usd": 0.0994,
+    "source": "billing",
+    "requests": 2355,
+    "input_tokens": 266950,
+    "output_tokens": 267737,
+    "usd_per_1m_output": 0.371,
+    "usd_per_1m_tokens": 0.186,
+    "by_task": {
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 265609
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 2127
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-q35-4b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 2,
+    "first_start": "2026-11-06 05:33:55.084576+00:00",
+    "hours": 0.44,
+    "boot_min": 7.8,
+    "cost_usd": 0.5063,
+    "source": "billing",
+    "requests": 8095,
+    "input_tokens": 1112012,
+    "output_tokens": 1434018,
+    "usd_per_1m_output": 0.353,
+    "usd_per_1m_tokens": 0.199,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 6960
+      },
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 267880
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 2185
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 4769
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1152222
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-4b-awq-ada48",
+    "gpu": "L40S",
+    "pods": 2,
+    "first_start": "2026-11-06 05:47:05.496025+00:00",
+    "hours": 0.659,
+    "boot_min": 5.7,
+    "cost_usd": 0.7345,
+    "source": "billing",
+    "requests": 8095,
+    "input_tokens": 1112012,
+    "output_tokens": 1529945,
+    "usd_per_1m_output": 0.48,
+    "usd_per_1m_tokens": 0.278,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 5697
+      },
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 287021
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 2072
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 4016
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1231137
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-9b-bf16-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-06 05:54:09.685204+00:00",
+    "hours": 0.101,
+    "boot_min": 2.9,
+    "cost_usd": 0.1326,
+    "source": "billing",
+    "requests": 2355,
+    "input_tokens": 266950,
+    "output_tokens": 244802,
+    "usd_per_1m_output": 0.542,
+    "usd_per_1m_tokens": 0.259,
+    "by_task": {
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 241868
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 2933
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-q35-9b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 2,
+    "first_start": "2026-11-06 06:03:16.654934+00:00",
+    "hours": 0.474,
+    "boot_min": 7.0,
+    "cost_usd": 0.5434,
+    "source": "billing",
+    "requests": 8095,
+    "input_tokens": 1112012,
+    "output_tokens": 1470718,
+    "usd_per_1m_output": 0.37,
+    "usd_per_1m_tokens": 0.21,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 5988
+      },
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 235424
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 2448
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 4014
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1222842
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-9b-awq-ada48",
+    "gpu": "L40S",
+    "pods": 2,
+    "first_start": "2026-11-06 06:11:22.087039+00:00",
+    "hours": 0.306,
+    "boot_min": 3.3,
+    "cost_usd": 0.3614,
+    "source": "billing",
+    "requests": 8095,
+    "input_tokens": 1112012,
+    "output_tokens": 1537354,
+    "usd_per_1m_output": 0.235,
+    "usd_per_1m_tokens": 0.136,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 12191
+      },
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 246567
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 2448
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 5400
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1270746
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-27b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 2,
+    "first_start": "2026-11-06 06:20:31.813009+00:00",
+    "hours": 1.393,
+    "boot_min": 5.1,
+    "cost_usd": 1.2832,
+    "source": "billing",
+    "requests": 7963,
+    "input_tokens": 1089677,
+    "output_tokens": 1042923,
+    "usd_per_1m_output": 1.23,
+    "usd_per_1m_tokens": 0.602,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 5814
+      },
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 239960
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 2070
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 3510
+      },
+      "math_hard": {
+        "requests": 1068,
+        "output_tokens": 791567
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-27b-awq-ada48",
+    "gpu": "L40S",
+    "pods": 3,
+    "first_start": "2026-11-06 06:32:45.203610+00:00",
+    "hours": 3.069,
+    "boot_min": 3.5,
+    "cost_usd": 3.3451,
+    "source": "estimate",
+    "requests": 8095,
+    "input_tokens": 1112012,
+    "output_tokens": 1265943,
+    "usd_per_1m_output": 2.642,
+    "usd_per_1m_tokens": 1.407,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 5568
+      },
+      "gsm8k": {
+        "requests": 1319,
+        "output_tokens": 255213
+      },
+      "kmmlu": {
+        "requests": 1035,
+        "output_tokens": 2070
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 3510
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 999580
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      }
+    }
+  },
+  {
+    "name": "exp-q35-9b-fp8-4090",
+    "gpu": "RTX 4090",
+    "pods": 1,
+    "first_start": "2026-11-06 10:19:12.594437+00:00",
+    "hours": 0.084,
+    "boot_min": 4.0,
+    "cost_usd": 0.0841,
+    "source": "billing",
+    "requests": 218,
+    "input_tokens": 15946,
+    "output_tokens": 55553,
+    "usd_per_1m_output": 1.515,
+    "usd_per_1m_tokens": 1.177,
+    "by_task": {
+      "c1": {
+        "requests": 8,
+        "output_tokens": 2048
+      },
+      "c16": {
+        "requests": 64,
+        "output_tokens": 16384
+      },
+      "c48": {
+        "requests": 144,
+        "output_tokens": 36864
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      },
+      "warmup": {
+        "requests": 1,
+        "output_tokens": 256
+      }
+    }
+  },
+  {
+    "name": "exp-q35-9b-awq-4090",
+    "gpu": "RTX 4090",
+    "pods": 1,
+    "first_start": "2026-11-06 10:26:19.394839+00:00",
+    "hours": 0.152,
+    "boot_min": 8.2,
+    "cost_usd": 0.1374,
+    "source": "billing",
+    "requests": 218,
+    "input_tokens": 15946,
+    "output_tokens": 55553,
+    "usd_per_1m_output": 2.474,
+    "usd_per_1m_tokens": 1.922,
+    "by_task": {
+      "c1": {
+        "requests": 8,
+        "output_tokens": 2048
+      },
+      "c16": {
+        "requests": 64,
+        "output_tokens": 16384
+      },
+      "c48": {
+        "requests": 144,
+        "output_tokens": 36864
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      },
+      "warmup": {
+        "requests": 1,
+        "output_tokens": 256
+      }
+    }
+  },
+  {
+    "name": "exp-q35-27b-awq-4090",
+    "gpu": "RTX 4090",
+    "pods": 2,
+    "first_start": "2026-11-06 10:37:26.186528+00:00",
+    "hours": 0.271,
+    "boot_min": null,
+    "cost_usd": 0.276,
+    "source": "billing",
+    "requests": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "usd_per_1m_output": null,
+    "usd_per_1m_tokens": null,
+    "by_task": {}
+  },
+  {
+    "name": "exp-q35-9b-fp8-l40s",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-06 11:00:45.582192+00:00",
+    "hours": 0.34,
+    "boot_min": 19.3,
+    "cost_usd": 0.3921,
+    "source": "billing",
+    "requests": 218,
+    "input_tokens": 15946,
+    "output_tokens": 55553,
+    "usd_per_1m_output": 7.059,
+    "usd_per_1m_tokens": 5.485,
+    "by_task": {
+      "c1": {
+        "requests": 8,
+        "output_tokens": 2048
+      },
+      "c16": {
+        "requests": 64,
+        "output_tokens": 16384
+      },
+      "c48": {
+        "requests": 144,
+        "output_tokens": 36864
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      },
+      "warmup": {
+        "requests": 1,
+        "output_tokens": 256
+      }
+    }
+  },
+  {
+    "name": "exp-q35-9b-awq-l40s",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-06 11:28:14.095583+00:00",
+    "hours": 0.323,
+    "boot_min": 19.0,
+    "cost_usd": 0.3769,
+    "source": "billing",
+    "requests": 218,
+    "input_tokens": 15946,
+    "output_tokens": 55553,
+    "usd_per_1m_output": 6.784,
+    "usd_per_1m_tokens": 5.271,
+    "by_task": {
+      "c1": {
+        "requests": 8,
+        "output_tokens": 2048
+      },
+      "c16": {
+        "requests": 64,
+        "output_tokens": 16384
+      },
+      "c48": {
+        "requests": 144,
+        "output_tokens": 36864
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      },
+      "warmup": {
+        "requests": 1,
+        "output_tokens": 256
+      }
+    }
+  },
+  {
+    "name": "exp-q35-27b-fp8-l40s",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-06 11:50:37.678560+00:00",
+    "hours": 0.118,
+    "boot_min": 3.5,
+    "cost_usd": 0.1396,
+    "source": "billing",
+    "requests": 218,
+    "input_tokens": 15946,
+    "output_tokens": 55553,
+    "usd_per_1m_output": 2.514,
+    "usd_per_1m_tokens": 1.953,
+    "by_task": {
+      "c1": {
+        "requests": 8,
+        "output_tokens": 2048
+      },
+      "c16": {
+        "requests": 64,
+        "output_tokens": 16384
+      },
+      "c48": {
+        "requests": 144,
+        "output_tokens": 36864
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      },
+      "warmup": {
+        "requests": 1,
+        "output_tokens": 256
+      }
+    }
+  },
+  {
+    "name": "exp-q35-27b-awq-l40s",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-06 12:03:47.443459+00:00",
+    "hours": 0.084,
+    "boot_min": 2.9,
+    "cost_usd": 0.1044,
+    "source": "billing",
+    "requests": 218,
+    "input_tokens": 15946,
+    "output_tokens": 55553,
+    "usd_per_1m_output": 1.879,
+    "usd_per_1m_tokens": 1.46,
+    "by_task": {
+      "c1": {
+        "requests": 8,
+        "output_tokens": 2048
+      },
+      "c16": {
+        "requests": 64,
+        "output_tokens": 16384
+      },
+      "c48": {
+        "requests": 144,
+        "output_tokens": 36864
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      },
+      "warmup": {
+        "requests": 1,
+        "output_tokens": 256
+      }
+    }
+  },
+  {
+    "name": "exp-g4-e2b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 08:20:52.245245+00:00",
+    "hours": 0.186,
+    "boot_min": 6.4,
+    "cost_usd": 0.2316,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 867463,
+    "output_tokens": 1590305,
+    "usd_per_1m_output": 0.146,
+    "usd_per_1m_tokens": 0.094,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 127410
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 125113
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1337781
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-e2b-qat-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 08:37:06.915002+00:00",
+    "hours": 0.17,
+    "boot_min": 4.5,
+    "cost_usd": 0.1946,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 867463,
+    "output_tokens": 1656936,
+    "usd_per_1m_output": 0.117,
+    "usd_per_1m_tokens": 0.077,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 133962
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 104599
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1418374
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-e4b-fp8-ada48",
+    "gpu": "RTX 6000 Ada",
+    "pods": 1,
+    "first_start": "2026-11-07 08:49:21.297790+00:00",
+    "hours": 0.254,
+    "boot_min": 9.2,
+    "cost_usd": 0.2711,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 867463,
+    "output_tokens": 1269782,
+    "usd_per_1m_output": 0.214,
+    "usd_per_1m_tokens": 0.127,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 10986
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 29089
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1229706
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-e4b-qat-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 09:07:37.310109+00:00",
+    "hours": 0.287,
+    "boot_min": 10.7,
+    "cost_usd": 0.326,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 867463,
+    "output_tokens": 1261685,
+    "usd_per_1m_output": 0.258,
+    "usd_per_1m_tokens": 0.153,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 6324
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 18000
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1237360
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-12b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 09:26:52.715208+00:00",
+    "hours": 0.272,
+    "boot_min": 3.8,
+    "cost_usd": 0.302,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 890423,
+    "output_tokens": 885999,
+    "usd_per_1m_output": 0.341,
+    "usd_per_1m_tokens": 0.17,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 7543
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 5940
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 872515
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-12b-qat-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 09:45:13.093236+00:00",
+    "hours": 0.254,
+    "boot_min": 4.6,
+    "cost_usd": 0.2812,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 890423,
+    "output_tokens": 886199,
+    "usd_per_1m_output": 0.317,
+    "usd_per_1m_tokens": 0.158,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 6497
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 5581
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 874120
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-26b-a4b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 10:02:28.881541+00:00",
+    "hours": 0.255,
+    "boot_min": 3.7,
+    "cost_usd": 0.2869,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 890423,
+    "output_tokens": 911365,
+    "usd_per_1m_output": 0.315,
+    "usd_per_1m_tokens": 0.159,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 7646
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 5627
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 898091
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-q35-35b-a3b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 10:13:43.777641+00:00",
+    "hours": 0.425,
+    "boot_min": 3.3,
+    "cost_usd": 0.4624,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 845062,
+    "output_tokens": 1143867,
+    "usd_per_1m_output": 0.404,
+    "usd_per_1m_tokens": 0.232,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 69021
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 22474
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1052371
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-26b-a4b-awq-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 10:20:50.956019+00:00",
+    "hours": 0.323,
+    "boot_min": 10.1,
+    "cost_usd": 0.3777,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 890423,
+    "output_tokens": 940439,
+    "usd_per_1m_output": 0.402,
+    "usd_per_1m_tokens": 0.206,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 7679
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 6385
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 926374
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-q35-35b-a3b-gptq-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 10:41:15.083607+00:00",
+    "hours": 0.306,
+    "boot_min": 3.7,
+    "cost_usd": 0.3385,
+    "source": "billing",
+    "requests": 5740,
+    "input_tokens": 845062,
+    "output_tokens": 1230326,
+    "usd_per_1m_output": 0.275,
+    "usd_per_1m_tokens": 0.163,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 110154
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 41941
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 1078230
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-31b-fp8-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 10:43:16.375325+00:00",
+    "hours": 1.768,
+    "boot_min": 2.7,
+    "cost_usd": 1.4184,
+    "source": "billing",
+    "requests": 5514,
+    "input_tokens": 853713,
+    "output_tokens": 487364,
+    "usd_per_1m_output": 2.91,
+    "usd_per_1m_tokens": 1.058,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 8557
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 7053
+      },
+      "math_hard": {
+        "requests": 974,
+        "output_tokens": 471753
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-12b-qat-kv16-4090",
+    "gpu": "RTX 4090",
+    "pods": 1,
+    "first_start": "2026-11-07 12:12:00.167090+00:00",
+    "hours": 0.0,
+    "boot_min": null,
+    "cost_usd": 0.0,
+    "source": "estimate",
+    "requests": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "usd_per_1m_output": null,
+    "usd_per_1m_tokens": null,
+    "by_task": {}
+  },
+  {
+    "name": "exp-g4-26b-a4b-nvfp4-pro4500",
+    "gpu": "RTX PRO 4500",
+    "pods": 1,
+    "first_start": "2026-11-07 12:14:02.153003+00:00",
+    "hours": 0.307,
+    "boot_min": 9.6,
+    "cost_usd": 0.2207,
+    "source": "estimate",
+    "requests": 5958,
+    "input_tokens": 906493,
+    "output_tokens": 991503,
+    "usd_per_1m_output": 0.223,
+    "usd_per_1m_tokens": 0.116,
+    "by_task": {
+      "c1": {
+        "requests": 8,
+        "output_tokens": 2048
+      },
+      "c16": {
+        "requests": 64,
+        "output_tokens": 16384
+      },
+      "c48": {
+        "requests": 144,
+        "output_tokens": 36864
+      },
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 8330
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 5906
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 921713
+      },
+      "ready": {
+        "requests": 2,
+        "output_tokens": 2
+      },
+      "warmup": {
+        "requests": 1,
+        "output_tokens": 256
+      }
+    }
+  },
+  {
+    "name": "exp-g4-31b-qat-ada48",
+    "gpu": "L40S",
+    "pods": 1,
+    "first_start": "2026-11-07 12:32:25.893129+00:00",
+    "hours": 0.558,
+    "boot_min": 3.1,
+    "cost_usd": 0.608,
+    "source": "estimate",
+    "requests": 5740,
+    "input_tokens": 890423,
+    "output_tokens": 745135,
+    "usd_per_1m_output": 0.816,
+    "usd_per_1m_tokens": 0.372,
+    "by_task": {
+      "fin": {
+        "requests": 2784,
+        "output_tokens": 8689
+      },
+      "kmmlu_hard": {
+        "requests": 1755,
+        "output_tokens": 5849
+      },
+      "math_hard": {
+        "requests": 1200,
+        "output_tokens": 730596
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      }
+    }
+  },
+  {
+    "name": "exp-g4-26b-a4b-awq-pro4500",
+    "gpu": "RTX PRO 4500",
+    "pods": 1,
+    "first_start": "2026-11-07 12:34:27.518826+00:00",
+    "hours": 0.118,
+    "boot_min": 6.5,
+    "cost_usd": 0.0852,
+    "source": "estimate",
+    "requests": 218,
+    "input_tokens": 16070,
+    "output_tokens": 55553,
+    "usd_per_1m_output": 1.534,
+    "usd_per_1m_tokens": 1.19,
+    "by_task": {
+      "c1": {
+        "requests": 8,
+        "output_tokens": 2048
+      },
+      "c16": {
+        "requests": 64,
+        "output_tokens": 16384
+      },
+      "c48": {
+        "requests": 144,
+        "output_tokens": 36864
+      },
+      "ready": {
+        "requests": 1,
+        "output_tokens": 1
+      },
+      "warmup": {
+        "requests": 1,
+        "output_tokens": 256
+      }
+    }
+  }
+]

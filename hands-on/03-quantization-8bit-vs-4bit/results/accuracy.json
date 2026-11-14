@@ -1,0 +1,905 @@
+{
+  "combos": [
+    {
+      "name": "exp-q35-27b-awq-ada48",
+      "vllm": {
+        "weights_gib": 17.83,
+        "kv_gib": 18.99,
+        "kv_tokens": 135168.0,
+        "download_s": 21.954241,
+        "load_s": 28.375556,
+        "init_s": 101.62
+      },
+      "size_b": 27,
+      "precision": "awq",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 96.82,
+        "truncated": 8,
+        "mean_output_tokens": 193.5
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 68.21,
+        "truncated": 0,
+        "mean_output_tokens": 2.0
+      }
+    },
+    {
+      "name": "exp-q35-27b-fp8-ada48",
+      "vllm": {
+        "weights_gib": 27.94,
+        "kv_gib": 8.98,
+        "kv_tokens": 63829.0,
+        "download_s": 19.689392,
+        "load_s": 28.160812,
+        "init_s": 110.73
+      },
+      "size_b": 27,
+      "precision": "fp8",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 97.04,
+        "truncated": 6,
+        "mean_output_tokens": 181.9
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 67.83,
+        "truncated": 0,
+        "mean_output_tokens": 2.0
+      }
+    },
+    {
+      "name": "exp-q35-2b-awq-ada48",
+      "vllm": {
+        "weights_gib": 1.72,
+        "kv_gib": 36.83,
+        "kv_tokens": 1730560.0,
+        "download_s": 5.730817,
+        "load_s": 9.807311,
+        "init_s": 73.37
+      },
+      "size_b": 2,
+      "precision": "awq",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 71.65,
+        "truncated": 30,
+        "mean_output_tokens": 197.2
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 31.5,
+        "truncated": 88,
+        "mean_output_tokens": 14.3
+      }
+    },
+    {
+      "name": "exp-q35-2b-bf16-ada48",
+      "vllm": {
+        "weights_gib": 3.56,
+        "kv_gib": 34.97,
+        "kv_tokens": 1643373.0,
+        "download_s": 8.265329,
+        "load_s": 12.29191,
+        "init_s": 70.55
+      },
+      "size_b": 2,
+      "precision": "bf16",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 73.39,
+        "truncated": 26,
+        "mean_output_tokens": 174.6
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 35.36,
+        "truncated": 100,
+        "mean_output_tokens": 15.2
+      }
+    },
+    {
+      "name": "exp-q35-2b-fp8-ada48",
+      "vllm": {
+        "weights_gib": 2.4,
+        "kv_gib": 35.95,
+        "kv_tokens": 1689600.0,
+        "download_s": 10.374911,
+        "load_s": 16.253186,
+        "init_s": 122.27
+      },
+      "size_b": 2,
+      "precision": "fp8",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 73.24,
+        "truncated": 18,
+        "mean_output_tokens": 165.1
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 36.04,
+        "truncated": 61,
+        "mean_output_tokens": 10.1
+      }
+    },
+    {
+      "name": "exp-q35-4b-awq-ada48",
+      "vllm": {
+        "weights_gib": 3.2,
+        "kv_gib": 35.04,
+        "kv_tokens": 636050.0,
+        "download_s": 43.753535,
+        "load_s": 48.521644,
+        "init_s": 90.39
+      },
+      "size_b": 4,
+      "precision": "awq",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 92.8,
+        "truncated": 15,
+        "mean_output_tokens": 217.6
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 46.67,
+        "truncated": 0,
+        "mean_output_tokens": 2.0
+      }
+    },
+    {
+      "name": "exp-q35-4b-bf16-ada48",
+      "vllm": {
+        "weights_gib": 7.94,
+        "kv_gib": 30.35,
+        "kv_tokens": 550912.0,
+        "download_s": 15.052237,
+        "load_s": 19.568947,
+        "init_s": 76.34
+      },
+      "size_b": 4,
+      "precision": "bf16",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 91.66,
+        "truncated": 11,
+        "mean_output_tokens": 201.4
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 50.24,
+        "truncated": 0,
+        "mean_output_tokens": 2.1
+      }
+    },
+    {
+      "name": "exp-q35-4b-fp8-ada48",
+      "vllm": {
+        "weights_gib": 4.71,
+        "kv_gib": 33.38,
+        "kv_tokens": 605915.0,
+        "download_s": 32.643262,
+        "load_s": 39.160657,
+        "init_s": 114.5
+      },
+      "size_b": 4,
+      "precision": "fp8",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 92.27,
+        "truncated": 15,
+        "mean_output_tokens": 203.1
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 51.11,
+        "truncated": 0,
+        "mean_output_tokens": 2.1
+      }
+    },
+    {
+      "name": "exp-q35-9b-awq-ada48",
+      "vllm": {
+        "weights_gib": 7.49,
+        "kv_gib": 30.03,
+        "kv_tokens": 545060.0,
+        "download_s": 11.043121,
+        "load_s": 16.438448,
+        "init_s": 88.48
+      },
+      "size_b": 9,
+      "precision": "awq",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 93.78,
+        "truncated": 11,
+        "mean_output_tokens": 186.9
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 56.04,
+        "truncated": 3,
+        "mean_output_tokens": 2.4
+      }
+    },
+    {
+      "name": "exp-q35-9b-bf16-ada48",
+      "vllm": {
+        "weights_gib": 16.71,
+        "kv_gib": 20.86,
+        "kv_tokens": 378587.0,
+        "download_s": 63.059135,
+        "load_s": 69.278344,
+        "init_s": 85.76
+      },
+      "size_b": 9,
+      "precision": "bf16",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 93.78,
+        "truncated": 7,
+        "mean_output_tokens": 183.4
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 57.49,
+        "truncated": 6,
+        "mean_output_tokens": 2.8
+      }
+    },
+    {
+      "name": "exp-q35-9b-fp8-ada48",
+      "vllm": {
+        "weights_gib": 10.28,
+        "kv_gib": 27.08,
+        "kv_tokens": 491520.0,
+        "download_s": 72.167366,
+        "load_s": 79.189792,
+        "init_s": 106.65
+      },
+      "size_b": 9,
+      "precision": "fp8",
+      "gpu": "ada48",
+      "gsm8k": {
+        "n": 1319,
+        "errors": 0,
+        "acc": 93.48,
+        "truncated": 9,
+        "mean_output_tokens": 178.5
+      },
+      "kmmlu": {
+        "n": 1035,
+        "errors": 0,
+        "acc": 56.71,
+        "truncated": 3,
+        "mean_output_tokens": 2.4
+      }
+    }
+  ],
+  "drops": [
+    {
+      "size_b": 2,
+      "gpu": "ada48",
+      "from": "exp-q35-2b-bf16-ada48",
+      "to": "exp-q35-2b-fp8-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 73.39,
+      "acc_b": 73.24,
+      "diff_pp": -0.15,
+      "ci95_pp": [
+        -2.13,
+        1.83
+      ],
+      "only_a": 90,
+      "only_b": 88,
+      "p_mcnemar": 0.9403
+    },
+    {
+      "size_b": 2,
+      "gpu": "ada48",
+      "from": "exp-q35-2b-bf16-ada48",
+      "to": "exp-q35-2b-fp8-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 35.36,
+      "acc_b": 36.04,
+      "diff_pp": 0.68,
+      "ci95_pp": [
+        -1.19,
+        2.54
+      ],
+      "only_a": 45,
+      "only_b": 52,
+      "p_mcnemar": 0.5426
+    },
+    {
+      "size_b": 2,
+      "gpu": "ada48",
+      "from": "exp-q35-2b-fp8-ada48",
+      "to": "exp-q35-2b-awq-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 73.24,
+      "acc_b": 71.65,
+      "diff_pp": -1.59,
+      "ci95_pp": [
+        -4.05,
+        0.86
+      ],
+      "only_a": 147,
+      "only_b": 126,
+      "p_mcnemar": 0.226
+    },
+    {
+      "size_b": 2,
+      "gpu": "ada48",
+      "from": "exp-q35-2b-fp8-ada48",
+      "to": "exp-q35-2b-awq-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 36.04,
+      "acc_b": 31.5,
+      "diff_pp": -4.54,
+      "ci95_pp": [
+        -7.21,
+        -1.87
+      ],
+      "only_a": 124,
+      "only_b": 77,
+      "p_mcnemar": 0.0011
+    },
+    {
+      "size_b": 2,
+      "gpu": "ada48",
+      "from": "exp-q35-2b-bf16-ada48",
+      "to": "exp-q35-2b-awq-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 73.39,
+      "acc_b": 71.65,
+      "diff_pp": -1.74,
+      "ci95_pp": [
+        -4.22,
+        0.74
+      ],
+      "only_a": 151,
+      "only_b": 128,
+      "p_mcnemar": 0.1877
+    },
+    {
+      "size_b": 2,
+      "gpu": "ada48",
+      "from": "exp-q35-2b-bf16-ada48",
+      "to": "exp-q35-2b-awq-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 35.36,
+      "acc_b": 31.5,
+      "diff_pp": -3.86,
+      "ci95_pp": [
+        -6.42,
+        -1.31
+      ],
+      "only_a": 112,
+      "only_b": 72,
+      "p_mcnemar": 0.0039
+    },
+    {
+      "size_b": 4,
+      "gpu": "ada48",
+      "from": "exp-q35-4b-bf16-ada48",
+      "to": "exp-q35-4b-fp8-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 91.66,
+      "acc_b": 92.27,
+      "diff_pp": 0.61,
+      "ci95_pp": [
+        -0.4,
+        1.61
+      ],
+      "only_a": 19,
+      "only_b": 27,
+      "p_mcnemar": 0.302
+    },
+    {
+      "size_b": 4,
+      "gpu": "ada48",
+      "from": "exp-q35-4b-bf16-ada48",
+      "to": "exp-q35-4b-fp8-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 50.24,
+      "acc_b": 51.11,
+      "diff_pp": 0.87,
+      "ci95_pp": [
+        -0.77,
+        2.51
+      ],
+      "only_a": 33,
+      "only_b": 42,
+      "p_mcnemar": 0.3557
+    },
+    {
+      "size_b": 4,
+      "gpu": "ada48",
+      "from": "exp-q35-4b-fp8-ada48",
+      "to": "exp-q35-4b-awq-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 92.27,
+      "acc_b": 92.8,
+      "diff_pp": 0.53,
+      "ci95_pp": [
+        -0.67,
+        1.73
+      ],
+      "only_a": 29,
+      "only_b": 36,
+      "p_mcnemar": 0.457
+    },
+    {
+      "size_b": 4,
+      "gpu": "ada48",
+      "from": "exp-q35-4b-fp8-ada48",
+      "to": "exp-q35-4b-awq-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 51.11,
+      "acc_b": 46.67,
+      "diff_pp": -4.44,
+      "ci95_pp": [
+        -6.83,
+        -2.06
+      ],
+      "only_a": 103,
+      "only_b": 57,
+      "p_mcnemar": 0.0003
+    },
+    {
+      "size_b": 4,
+      "gpu": "ada48",
+      "from": "exp-q35-4b-bf16-ada48",
+      "to": "exp-q35-4b-awq-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 91.66,
+      "acc_b": 92.8,
+      "diff_pp": 1.14,
+      "ci95_pp": [
+        -0.04,
+        2.32
+      ],
+      "only_a": 24,
+      "only_b": 39,
+      "p_mcnemar": 0.0769
+    },
+    {
+      "size_b": 4,
+      "gpu": "ada48",
+      "from": "exp-q35-4b-bf16-ada48",
+      "to": "exp-q35-4b-awq-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 50.24,
+      "acc_b": 46.67,
+      "diff_pp": -3.57,
+      "ci95_pp": [
+        -5.78,
+        -1.37
+      ],
+      "only_a": 87,
+      "only_b": 50,
+      "p_mcnemar": 0.002
+    },
+    {
+      "size_b": 9,
+      "gpu": "ada48",
+      "from": "exp-q35-9b-bf16-ada48",
+      "to": "exp-q35-9b-fp8-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 93.78,
+      "acc_b": 93.48,
+      "diff_pp": -0.3,
+      "ci95_pp": [
+        -1.29,
+        0.68
+      ],
+      "only_a": 24,
+      "only_b": 20,
+      "p_mcnemar": 0.6516
+    },
+    {
+      "size_b": 9,
+      "gpu": "ada48",
+      "from": "exp-q35-9b-bf16-ada48",
+      "to": "exp-q35-9b-fp8-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 57.49,
+      "acc_b": 56.71,
+      "diff_pp": -0.77,
+      "ci95_pp": [
+        -2.14,
+        0.59
+      ],
+      "only_a": 30,
+      "only_b": 22,
+      "p_mcnemar": 0.3317
+    },
+    {
+      "size_b": 9,
+      "gpu": "ada48",
+      "from": "exp-q35-9b-fp8-ada48",
+      "to": "exp-q35-9b-awq-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 93.48,
+      "acc_b": 93.78,
+      "diff_pp": 0.3,
+      "ci95_pp": [
+        -0.75,
+        1.35
+      ],
+      "only_a": 23,
+      "only_b": 27,
+      "p_mcnemar": 0.6718
+    },
+    {
+      "size_b": 9,
+      "gpu": "ada48",
+      "from": "exp-q35-9b-fp8-ada48",
+      "to": "exp-q35-9b-awq-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 56.71,
+      "acc_b": 56.04,
+      "diff_pp": -0.68,
+      "ci95_pp": [
+        -2.84,
+        1.49
+      ],
+      "only_a": 69,
+      "only_b": 62,
+      "p_mcnemar": 0.6003
+    },
+    {
+      "size_b": 9,
+      "gpu": "ada48",
+      "from": "exp-q35-9b-bf16-ada48",
+      "to": "exp-q35-9b-awq-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 93.78,
+      "acc_b": 93.78,
+      "diff_pp": 0.0,
+      "ci95_pp": [
+        -1.09,
+        1.09
+      ],
+      "only_a": 27,
+      "only_b": 27,
+      "p_mcnemar": 1.0
+    },
+    {
+      "size_b": 9,
+      "gpu": "ada48",
+      "from": "exp-q35-9b-bf16-ada48",
+      "to": "exp-q35-9b-awq-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 57.49,
+      "acc_b": 56.04,
+      "diff_pp": -1.45,
+      "ci95_pp": [
+        -3.6,
+        0.7
+      ],
+      "only_a": 72,
+      "only_b": 57,
+      "p_mcnemar": 0.2176
+    },
+    {
+      "size_b": 27,
+      "gpu": "ada48",
+      "from": "exp-q35-27b-fp8-ada48",
+      "to": "exp-q35-27b-awq-ada48",
+      "task": "gsm8k",
+      "n": 1319,
+      "acc_a": 97.04,
+      "acc_b": 96.82,
+      "diff_pp": -0.23,
+      "ci95_pp": [
+        -0.8,
+        0.35
+      ],
+      "only_a": 9,
+      "only_b": 6,
+      "p_mcnemar": 0.6072
+    },
+    {
+      "size_b": 27,
+      "gpu": "ada48",
+      "from": "exp-q35-27b-fp8-ada48",
+      "to": "exp-q35-27b-awq-ada48",
+      "task": "kmmlu",
+      "n": 1035,
+      "acc_a": 67.83,
+      "acc_b": 68.21,
+      "diff_pp": 0.39,
+      "ci95_pp": [
+        -1.01,
+        1.78
+      ],
+      "only_a": 25,
+      "only_b": 29,
+      "p_mcnemar": 0.6835
+    }
+  ],
+  "same_memory": [
+    {
+      "small": "exp-q35-9b-bf16-ada48",
+      "big": "exp-q35-27b-awq-ada48",
+      "task": "gsm8k",
+      "small_gb": 17.94,
+      "big_gb": 19.14,
+      "match": true,
+      "n": 1319,
+      "acc_a": 93.78,
+      "acc_b": 96.82,
+      "diff_pp": 3.03,
+      "ci95_pp": [
+        1.87,
+        4.19
+      ],
+      "only_a": 11,
+      "only_b": 51,
+      "p_mcnemar": 0.0
+    },
+    {
+      "small": "exp-q35-9b-bf16-ada48",
+      "big": "exp-q35-27b-awq-ada48",
+      "task": "kmmlu",
+      "small_gb": 17.94,
+      "big_gb": 19.14,
+      "match": true,
+      "n": 1035,
+      "acc_a": 57.49,
+      "acc_b": 68.21,
+      "diff_pp": 10.72,
+      "ci95_pp": [
+        7.66,
+        13.79
+      ],
+      "only_a": 81,
+      "only_b": 192,
+      "p_mcnemar": 0.0
+    },
+    {
+      "small": "exp-q35-9b-fp8-ada48",
+      "big": "exp-q35-27b-awq-ada48",
+      "task": "gsm8k",
+      "small_gb": 11.04,
+      "big_gb": 19.14,
+      "match": false,
+      "n": 1319,
+      "acc_a": 93.48,
+      "acc_b": 96.82,
+      "diff_pp": 3.34,
+      "ci95_pp": [
+        2.18,
+        4.49
+      ],
+      "only_a": 9,
+      "only_b": 53,
+      "p_mcnemar": 0.0
+    },
+    {
+      "small": "exp-q35-9b-fp8-ada48",
+      "big": "exp-q35-27b-awq-ada48",
+      "task": "kmmlu",
+      "small_gb": 11.04,
+      "big_gb": 19.14,
+      "match": false,
+      "n": 1035,
+      "acc_a": 56.71,
+      "acc_b": 68.21,
+      "diff_pp": 11.5,
+      "ci95_pp": [
+        8.43,
+        14.56
+      ],
+      "only_a": 78,
+      "only_b": 197,
+      "p_mcnemar": 0.0
+    },
+    {
+      "small": "exp-q35-2b-bf16-ada48",
+      "big": "exp-q35-4b-awq-ada48",
+      "task": "gsm8k",
+      "small_gb": 3.82,
+      "big_gb": 3.44,
+      "match": true,
+      "n": 1319,
+      "acc_a": 73.39,
+      "acc_b": 92.8,
+      "diff_pp": 19.41,
+      "ci95_pp": [
+        17.06,
+        21.76
+      ],
+      "only_a": 22,
+      "only_b": 278,
+      "p_mcnemar": 0.0
+    },
+    {
+      "small": "exp-q35-2b-bf16-ada48",
+      "big": "exp-q35-4b-awq-ada48",
+      "task": "kmmlu",
+      "small_gb": 3.82,
+      "big_gb": 3.44,
+      "match": true,
+      "n": 1035,
+      "acc_a": 35.36,
+      "acc_b": 46.67,
+      "diff_pp": 11.3,
+      "ci95_pp": [
+        7.53,
+        15.08
+      ],
+      "only_a": 147,
+      "only_b": 264,
+      "p_mcnemar": 0.0
+    },
+    {
+      "small": "exp-q35-2b-fp8-ada48",
+      "big": "exp-q35-4b-awq-ada48",
+      "task": "gsm8k",
+      "small_gb": 2.58,
+      "big_gb": 3.44,
+      "match": false,
+      "n": 1319,
+      "acc_a": 73.24,
+      "acc_b": 92.8,
+      "diff_pp": 19.56,
+      "ci95_pp": [
+        17.17,
+        21.95
+      ],
+      "only_a": 25,
+      "only_b": 283,
+      "p_mcnemar": 0.0
+    },
+    {
+      "small": "exp-q35-2b-fp8-ada48",
+      "big": "exp-q35-4b-awq-ada48",
+      "task": "kmmlu",
+      "small_gb": 2.58,
+      "big_gb": 3.44,
+      "match": false,
+      "n": 1035,
+      "acc_a": 36.04,
+      "acc_b": 46.67,
+      "diff_pp": 10.63,
+      "ci95_pp": [
+        6.88,
+        14.38
+      ],
+      "only_a": 147,
+      "only_b": 257,
+      "p_mcnemar": 0.0
+    },
+    {
+      "small": "exp-q35-4b-bf16-ada48",
+      "big": "exp-q35-9b-awq-ada48",
+      "task": "gsm8k",
+      "small_gb": 8.53,
+      "big_gb": 8.04,
+      "match": true,
+      "n": 1319,
+      "acc_a": 91.66,
+      "acc_b": 93.78,
+      "diff_pp": 2.12,
+      "ci95_pp": [
+        0.85,
+        3.4
+      ],
+      "only_a": 23,
+      "only_b": 51,
+      "p_mcnemar": 0.0015
+    },
+    {
+      "small": "exp-q35-4b-bf16-ada48",
+      "big": "exp-q35-9b-awq-ada48",
+      "task": "kmmlu",
+      "small_gb": 8.53,
+      "big_gb": 8.04,
+      "match": true,
+      "n": 1035,
+      "acc_a": 50.24,
+      "acc_b": 56.04,
+      "diff_pp": 5.8,
+      "ci95_pp": [
+        2.8,
+        8.8
+      ],
+      "only_a": 97,
+      "only_b": 157,
+      "p_mcnemar": 0.0002
+    },
+    {
+      "small": "exp-q35-4b-fp8-ada48",
+      "big": "exp-q35-9b-awq-ada48",
+      "task": "gsm8k",
+      "small_gb": 5.06,
+      "big_gb": 8.04,
+      "match": false,
+      "n": 1319,
+      "acc_a": 92.27,
+      "acc_b": 93.78,
+      "diff_pp": 1.52,
+      "ci95_pp": [
+        0.24,
+        2.79
+      ],
+      "only_a": 27,
+      "only_b": 47,
+      "p_mcnemar": 0.0265
+    },
+    {
+      "small": "exp-q35-4b-fp8-ada48",
+      "big": "exp-q35-9b-awq-ada48",
+      "task": "kmmlu",
+      "small_gb": 5.06,
+      "big_gb": 8.04,
+      "match": false,
+      "n": 1035,
+      "acc_a": 51.11,
+      "acc_b": 56.04,
+      "diff_pp": 4.93,
+      "ci95_pp": [
+        1.83,
+        8.02
+      ],
+      "only_a": 109,
+      "only_b": 160,
+      "p_mcnemar": 0.0022
+    }
+  ],
+  "measured_memory": true
+}
