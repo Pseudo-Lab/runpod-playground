@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPU 한 장으로 동시 요청을 얼마나 처리할 수 있을까 - 1차 실험</title>
+<style>
+  :root {
+    color-scheme: light;
+    --plane: #f9f9f7;
+    --surface: #fcfcfb;
+    --ink: #0b0b0b;
+    --ink-2: #52514e;
+    --muted: #6f6d68;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11, 11, 11, 0.10);
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --series-3: #1baf7a;
+    --series-4: #eda100;
+    --tint: #eef4fc;
+    font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #2b2b29; }
+  #stage { position: fixed; top: 0; left: 0; width: 1280px; height: 720px; transform-origin: 0 0; }
+  .slide {
+    position: absolute; inset: 0; display: none; background: var(--surface); color: var(--ink);
+    padding: 52px 64px 48px; overflow: hidden;
+  }
+  .slide.active { display: flex; flex-direction: column; }
+  .eyebrow { font-size: 17px; font-weight: 600; color: var(--series-1); margin: 0 0 8px; }
+  h2 { font-size: 36px; line-height: 1.28; margin: 0 0 26px; letter-spacing: -0.01em; font-weight: 700; }
+  p { margin: 0; }
+  .footer { position: absolute; left: 64px; right: 64px; bottom: 18px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+  .body { flex: 1; min-height: 0; display: flex; gap: 36px; }
+  .col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+  .note { font-size: 20px; line-height: 1.5; color: var(--ink-2); }
+  .note strong, li strong { color: var(--ink); }
+  ul { margin: 0; padding-left: 22px; font-size: 21px; line-height: 1.5; color: var(--ink-2); }
+  li + li { margin-top: 10px; }
+  .card { background: var(--plane); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; }
+  .card h3 { font-size: 21px; margin: 0 0 8px; }
+  .card p { font-size: 18.5px; line-height: 1.5; color: var(--ink-2); }
+  .verdict { display: inline-block; font-size: 15px; font-weight: 600; margin-top: 8px; color: var(--ink); background: var(--tint); padding: 3px 10px; border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 20.5px; }
+  th, td { text-align: left; padding: 12px 12px; border-bottom: 1px solid var(--grid); }
+  th { color: var(--muted); font-size: 15.5px; font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.key td { background: var(--tint); font-weight: 600; }
+  .chart-title { font-size: 19px; font-weight: 600; margin: 0; }
+  .chart-sub { font-size: 15px; color: var(--muted); margin: 2px 0 6px; }
+  .legend { display: flex; gap: 18px; font-size: 15.5px; color: var(--ink-2); margin-bottom: 4px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  svg text { font-family: inherit; }
+  .takeaway { margin-top: auto; font-size: 21px; line-height: 1.45; padding: 14px 20px; background: var(--tint); border-radius: 10px; }
+  .title-slide { justify-content: center; }
+  .title-slide h1 { font-size: 62px; line-height: 1.2; margin: 0 0 24px; letter-spacing: -0.02em; }
+  .title-slide .sub { font-size: 26px; color: var(--ink-2); }
+  .title-slide .meta { font-size: 19px; color: var(--muted); margin-top: 44px; }
+  .stats { display: flex; gap: 18px; }
+  .stat { flex: 1; background: var(--plane); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+  .stat b { display: block; font-size: 38px; font-weight: 700; letter-spacing: -0.01em; }
+  .stat span { font-size: 16.5px; color: var(--ink-2); }
+  .timeline { display: flex; height: 62px; gap: 2px; margin: 34px 0 0; }
+  .timeline div { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 600; }
+  .brace { position: relative; height: 40px; font-size: 18px; color: var(--ink); }
+  .brace span { position: absolute; top: 12px; text-align: center; border-top: 2px solid var(--axis); padding-top: 4px; }
+  #tip { position: fixed; display: none; background: #1a1a19; color: #fff; font-size: 14px; line-height: 1.5; padding: 8px 12px; border-radius: 6px; pointer-events: none; z-index: 10; white-space: nowrap; }
+  #hint { position: fixed; right: 14px; top: 10px; color: #c3c2b7; font: 12px system-ui, sans-serif; }
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { background: #fff; height: auto; }
+    #stage { position: static; transform: none !important; width: auto; height: auto; }
+    .slide { position: relative; display: flex !important; flex-direction: column; width: 1280px; height: 720px; page-break-after: always; break-after: page; }
+    #hint, #tip { display: none !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+
+<section class="slide title-slide">
+  <h1>GPU 한 장으로<br>동시 요청을 얼마나 처리할 수 있을까?</h1>
+  <p class="sub">RTX 5090에서 한국어 LLM 서빙의 한계와 병목 측정</p>
+  <p class="meta">1차 실험 · Kanana 1.5 8B · vLLM · RunPod · 2026년 11월</p>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">목적과 핵심 질문</p>
+  <h2>GPU 한 장의 서빙 한계와 구간별 소요 시간 파악</h2>
+  <div class="body">
+    <div class="col">
+      <div class="card"><h3>질문 1. 동시 요청 수를 늘려도 GPU가 처리하는 양이 거의 늘지 않는 지점은 어디인가?</h3><p>서버가 동시에 처리하는 요청 수를 1~256으로 늘려 측정했다.</p></div>
+      <div class="card"><h3>질문 2. 답변이 눈에 띄게 느려지기 시작하는 동시 요청 수는 몇인가?</h3><p>답변이 끝날 때까지 걸린 시간(latency)을 동시 요청 수별로 비교했다.</p></div>
+      <div class="card"><h3>질문 3. 답변 하나를 만드는 동안 어느 단계가 가장 오래 걸리고, 동시 요청이 늘면 어느 단계가 느려지는가?</h3><p>대기열(queue), 입력 처리(prefill), 답변 생성(decode)으로 나눠 확인했다.</p></div>
+    </div>
+  </div>
+  <div class="footer"><span>GPU 한 장으로 동시 요청을 얼마나 처리할 수 있을까?</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">실험 설계</p>
+  <h2>동시 요청 수만 변경, 나머지 조건 고정</h2>
+  <div class="body">
+    <div class="col">
+      <table>
+        <tr><th style="width:130px">GPU</th><td>RTX 5090 1장 (32GB)</td></tr>
+        <tr><th>플랫폼</th><td>RunPod, 시간당 GPU $1.19</td></tr>
+        <tr><th>모델</th><td>Kanana 1.5 8B Instruct 2505 (BF16)</td></tr>
+        <tr><th>서빙</th><td>vLLM 0.26.0, 기본 설정</td></tr>
+        <tr><th>데이터</th><td>한국어 ShareGPT 6,014건</td></tr>
+      </table>
+    </div>
+    <div class="col">
+      <table>
+        <tr><th style="width:130px">도구</th><td>vllm bench serve, 채팅 API</td></tr>
+        <tr><th>요청 방식</th><td>지정한 동시 수를 항상 유지</td></tr>
+        <tr><th>동시 요청</th><td>1, 2, 4 … 128, 256 (9단계)</td></tr>
+        <tr><th>반복</th><td>단계별 3회, 총 27회</td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="takeaway">vLLM 기본 설정을 썼고, 토큰 선택 기능(FlashInfer 샘플러)만 기본값과 다르게 설정했다.</p>
+  <div class="footer"><span>GPU 한 장으로 동시 요청을 얼마나 처리할 수 있을까?</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">무엇을 쟀나</p>
+  <h2>답변 완료까지의 단계별 소요 시간 측정</h2>
+  <div class="timeline">
+    <div style="flex:6;background:#898781">그 외</div>
+    <div style="flex:14;background:var(--series-3);text-align:center;line-height:1.25">대기열<br>(queue)</div>
+    <div style="flex:18;background:var(--series-2);text-align:center;line-height:1.25">입력 처리<br>(prefill)</div>
+    <div style="flex:62;background:var(--series-1)">답변 생성 (decode)</div>
+  </div>
+  <div class="brace">
+    <span style="left:0;width:37.6%">TTFT: 첫 토큰이 나올 때까지</span>
+    <span style="left:38.1%;width:61.9%">TPOT × (나머지 토큰 수)</span>
+  </div>
+  <div class="body" style="margin-top:30px">
+    <div class="col"><ul>
+      <li><strong>TTFT</strong> 첫 토큰이 나올 때까지</li>
+      <li><strong>TPOT</strong> 토큰 하나를 만드는 시간</li>
+    </ul></div>
+    <div class="col"><ul>
+      <li><strong>latency</strong> 답변이 끝날 때까지 걸린 시간</li>
+      <li><strong>throughput</strong> GPU가 1초에 처리하는 양</li>
+    </ul></div>
+  </div>
+  <p class="takeaway">사용자가 느끼는 속도와 그 원인이 되는 단계를 함께 봤다. 그림의 단계 폭은 설명용이다.</p>
+  <div class="footer"><span>GPU 한 장으로 동시 요청을 얼마나 처리할 수 있을까?</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">결과 1</p>
+  <h2>동시 요청 128~256 사이에서 처리량 증가 정체, 답변 시간 증가</h2>
+  <div class="body">
+    <div class="col" style="gap:0">
+      <p class="chart-title">GPU가 1초에 생성한 토큰 수</p>
+      <p class="chart-sub">3회 평균</p>
+      <div id="chart-throughput"></div>
+    </div>
+    <div class="col" style="gap:0">
+      <p class="chart-title">답변이 끝날 때까지 걸린 시간 (latency, 초)</p>
+      <div class="legend"><span><i style="background:var(--series-1)"></i>중간값 (p50)</span><span><i style="background:var(--series-2)"></i>느린 쪽 5% 기준 (p95)</span></div>
+      <div id="chart-latency"></div>
+    </div>
+  </div>
+  <p class="takeaway">64까지는 답변 시간이 거의 그대로다(중간값 3.5초 → 4.6초). 128 → 256은 처리량 +7%, 답변 시간은 약 2배다.</p>
+  <div class="footer"><span>GPU 한 장으로 동시 요청을 얼마나 처리할 수 있을까?</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">결과 2</p>
+  <h2>전체 시간의 약 98%가 답변 생성(decode) 단계</h2>
+  <div class="body">
+    <div class="col" style="flex:1.7;gap:0">
+      <p class="chart-title">답변 하나당 평균 시간 (초)</p>
+      <div class="legend"><span><i style="background:var(--series-1)"></i>답변 생성 (decode)</span><span><i style="background:var(--series-2)"></i>입력 처리 (prefill)</span><span><i style="background:var(--series-3)"></i>대기열 (queue)</span><span><i style="background:var(--series-4)"></i>그 외</span></div>
+      <div id="chart-phases"></div>
+    </div>
+    <div class="col">
+      <table>
+        <tr><th class="num">동시</th><th class="num">메모리(KV) 사용률</th><th class="num">토큰당 시간</th></tr>
+        <tr><td class="num">64</td><td class="num">23.6%</td><td class="num">15.1ms</td></tr>
+        <tr><td class="num">128</td><td class="num">45.0%</td><td class="num">21.7ms</td></tr>
+        <tr class="key"><td class="num">256</td><td class="num">88.9%</td><td class="num">42.3ms</td></tr>
+      </table>
+      <p class="note">대기열과 입력 처리는 최대 0.07초, 0.11초다. 서버가 여러 요청을 한 묶음으로 처리해 <strong>요청마다 GPU를 나눠 쓰느라</strong> 답변 생성이 느려진다.</p>
+    </div>
+  </div>
+  <p class="takeaway">느려지는 원인은 GPU 연산이고, 동시 256에서는 메모리(KV 캐시)도 최대 99.9%까지 찼다.</p>
+  <div class="footer"><span>GPU 한 장으로 동시 요청을 얼마나 처리할 수 있을까?</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">결론</p>
+  <h2>RTX 5090 한 장, 동시 64건까지 체감 유지</h2>
+  <div class="body">
+    <div class="col" style="flex:1.1">
+      <table>
+        <tr><th>동시 요청</th><th>관찰</th></tr>
+        <tr class="key"><td>64까지</td><td>답변 시간 중간값 약 4.6초, 체감 거의 유지</td></tr>
+        <tr><td>128</td><td>중간값 약 6.8초, 느린 쪽 5% 기준 약 16.9초</td></tr>
+        <tr><td>256</td><td>실패 없음, 중간값 약 13.1초, 느린 쪽 약 32.9초</td></tr>
+      </table>
+      <ul style="font-size:19px;margin-top:6px">
+        <li>질문 1: 동시 128~256 사이, 초당 약 17건에서 처리량이 거의 늘지 않았다.</li>
+        <li>질문 2: 답변 시간 중간값은 64까지 3.5초 → 4.6초, 128에서 6.8초, 256에서 13.1초였다.</li>
+        <li>질문 3: 답변 생성(decode)이 약 98%이고 3.70초 → 14.20초로 가장 많이 늘었다.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>이 결과의 한계</h3>
+        <ul style="font-size:18px">
+          <li>동시 수를 고정해 대기열 지연이 덜 드러남</li>
+          <li>부하 도구가 GPU와 같은 Pod에서 실행됨</li>
+          <li>단일 턴, 시스템 프롬프트 없는 요청</li>
+          <li>측정 범위는 LLM 서버까지</li>
+          <li>FlashInfer 샘플러를 끈 조건</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="takeaway">GPU가 처리할 수 있는 양은 초당 약 17건(약 5,900토큰)이고, 줄여야 할 단계는 답변 생성(decode)이다.</p>
+  <div class="footer"><span>GPU 한 장으로 동시 요청을 얼마나 처리할 수 있을까?</span><span class="pg"></span></div>
+</section>
+
+</div>
+<div id="tip"></div>
+<div id="hint">← → 이동</div>
+
+<script>
+const conc = [1, 2, 4, 8, 16, 32, 64, 128, 256];
+const data = {
+  out: [100, 189, 371, 675, 1282, 2423, 3927, 5514, 5863],
+  rps: [0.27, 0.50, 0.99, 1.82, 3.56, 6.94, 11.56, 16.13, 17.19],
+  p50: [3.51, 3.70, 3.72, 3.73, 3.73, 3.91, 4.62, 6.75, 13.08],
+  p95: [8.09, 8.57, 8.81, 9.60, 10.04, 10.16, 11.91, 16.91, 32.87],
+  decode: [3.70, 3.90, 3.95, 4.14, 4.21, 4.35, 5.09, 7.33, 14.20],
+  prefill: [0.02, 0.02, 0.02, 0.02, 0.03, 0.04, 0.05, 0.07, 0.11],
+  queue: [0, 0, 0, 0, 0, 0, 0, 0.01, 0.07],
+  other: [0.03, 0.04, 0.04, 0.03, 0.02, 0.02, 0.03, 0.05, 0.09],
+};
+const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+const tip = document.getElementById('tip');
+const NS = 'http://www.w3.org/2000/svg';
+
+function el(name, attrs, parent, text) {
+  const node = document.createElementNS(NS, name);
+  for (const key in attrs) node.setAttribute(key, attrs[key]);
+  if (text !== undefined) node.textContent = text;
+  if (parent) parent.appendChild(node);
+  return node;
+}
+
+function showTip(event, html) {
+  tip.innerHTML = html;
+  tip.style.display = 'block';
+  const x = Math.min(event.clientX + 14, window.innerWidth - tip.offsetWidth - 8);
+  tip.style.left = x + 'px';
+  tip.style.top = Math.max(event.clientY - tip.offsetHeight - 10, 8) + 'px';
+}
+const hideTip = () => { tip.style.display = 'none'; };
+
+function frame(target, width, height, yMax, yStep, yFmt) {
+  const margin = { top: 16, right: 18, bottom: 46, left: 62 };
+  const svg = el('svg', { width, height, viewBox: `0 0 ${width} ${height}`, role: 'img' }, target);
+  const plotW = width - margin.left - margin.right;
+  const plotH = height - margin.top - margin.bottom;
+  const y = (value) => margin.top + plotH * (1 - value / yMax);
+  const x = (index) => margin.left + plotW * (index + 0.5) / conc.length;
+  for (let value = 0; value <= yMax + 1e-9; value += yStep) {
+    el('line', { x1: margin.left, x2: width - margin.right, y1: y(value), y2: y(value), stroke: css(value === 0 ? '--axis' : '--grid'), 'stroke-width': 1 }, svg);
+    el('text', { x: margin.left - 10, y: y(value) + 5, 'text-anchor': 'end', 'font-size': 14, fill: css('--muted') }, svg, yFmt(value));
+  }
+  conc.forEach((c, i) => el('text', { x: x(i), y: height - margin.bottom + 22, 'text-anchor': 'middle', 'font-size': 14, fill: css('--muted') }, svg, c));
+  el('text', { x: margin.left + plotW / 2, y: height - 6, 'text-anchor': 'middle', 'font-size': 14, fill: css('--muted') }, svg, '동시 요청 수 (2배 간격)');
+  return { svg, x, y, margin, plotH, plotW, step: plotW / conc.length };
+}
+
+function hover(chart, tooltip) {
+  const guide = el('line', { y1: chart.margin.top, y2: chart.margin.top + chart.plotH, stroke: css('--axis'), 'stroke-width': 1, visibility: 'hidden' }, chart.svg);
+  conc.forEach((c, i) => {
+    const hit = el('rect', { x: chart.x(i) - chart.step / 2, y: chart.margin.top, width: chart.step, height: chart.plotH, fill: 'transparent' }, chart.svg);
+    hit.addEventListener('mousemove', (event) => {
+      guide.setAttribute('x1', chart.x(i)); guide.setAttribute('x2', chart.x(i)); guide.setAttribute('visibility', 'visible');
+      showTip(event, tooltip(i));
+    });
+    hit.addEventListener('mouseleave', () => { guide.setAttribute('visibility', 'hidden'); hideTip(); });
+  });
+}
+
+function lineChart(id, series, yMax, yStep, yFmt, tooltip) {
+  const chart = frame(document.getElementById(id), 556, 322, yMax, yStep, yFmt);
+  series.forEach((s) => {
+    const points = s.values.map((v, i) => `${chart.x(i)},${chart.y(v)}`).join(' ');
+    el('polyline', { points, fill: 'none', stroke: s.color, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, chart.svg);
+    s.values.forEach((v, i) => el('circle', { cx: chart.x(i), cy: chart.y(v), r: 4, fill: s.color, stroke: css('--surface'), 'stroke-width': 2 }, chart.svg));
+    (s.labels || []).forEach(([i, text, dx, dy]) => el('text', { x: chart.x(i) + dx, y: chart.y(s.values[i]) + dy, 'text-anchor': 'middle', 'font-size': 15, 'font-weight': 600, fill: css('--ink') }, chart.svg, text));
+  });
+  hover(chart, tooltip);
+}
+
+function stackedChart(id) {
+  const chart = frame(document.getElementById(id), 720, 322, 15, 3, (v) => v);
+  const parts = [['decode', '--series-1'], ['prefill', '--series-2'], ['queue', '--series-3'], ['other', '--series-4']];
+  const barW = Math.min(46, chart.step * 0.62);
+  conc.forEach((c, i) => {
+    let base = 0;
+    const left = chart.x(i) - barW / 2;
+    parts.forEach(([key, color], index) => {
+      const value = data[key][i];
+      if (value <= 0) return;
+      const top = chart.y(base + value);
+      const bottom = chart.y(base);
+      const gap = bottom - top > 4 && index > 0 ? 2 : 0;
+      el('rect', { x: left, y: top, width: barW, height: Math.max(bottom - top - gap, 0.8), rx: index === 0 && bottom - top > 8 ? 3 : 0, fill: css(color) }, chart.svg);
+      base += value;
+    });
+    if ([0, 6, 8].includes(i)) el('text', { x: chart.x(i), y: chart.y(base) - 8, 'text-anchor': 'middle', 'font-size': 15, 'font-weight': 600, fill: css('--ink') }, chart.svg, base.toFixed(2) + '초');
+  });
+  hover(chart, (i) => `동시 ${conc[i]}<br>답변 생성 ${data.decode[i].toFixed(2)}초<br>입력 처리 ${data.prefill[i].toFixed(2)}초<br>대기열 ${data.queue[i].toFixed(2)}초<br>그 외 ${data.other[i].toFixed(2)}초`);
+}
+
+lineChart('chart-throughput',
+  [{ color: css('--series-1'), values: data.out, labels: [[6, '3,927', -30, -6], [8, '5,863', -8, -13]] }],
+  7000, 1000, (v) => v.toLocaleString(),
+  (i) => `동시 ${conc[i]}<br>생성 ${data.out[i].toLocaleString()} 토큰/초<br>${data.rps[i]} 요청/초`);
+lineChart('chart-latency',
+  [{ color: css('--series-2'), values: data.p95, labels: [[8, '32.9초', -12, -9]] },
+   { color: css('--series-1'), values: data.p50, labels: [[8, '13.1초', 8, 30]] }],
+  35, 5, (v) => v,
+  (i) => `동시 ${conc[i]}<br>p50 ${data.p50[i]}초<br>p95 ${data.p95[i]}초`);
+stackedChart('chart-phases');
+
+const slides = [...document.querySelectorAll('.slide')];
+slides.forEach((slide, i) => { const pg = slide.querySelector('.pg'); if (pg) pg.textContent = `${i + 1} / ${slides.length}`; });
+let current = Math.min(Math.max((parseInt(location.hash.slice(1), 10) || 1) - 1, 0), slides.length - 1);
+
+function show(index) {
+  current = Math.min(Math.max(index, 0), slides.length - 1);
+  slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+  history.replaceState(null, '', '#' + (current + 1));
+  hideTip();
+}
+function fit() {
+  const stage = document.getElementById('stage');
+  const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+  stage.style.transform = `translate(${(window.innerWidth - 1280 * scale) / 2}px, ${(window.innerHeight - 720 * scale) / 2}px) scale(${scale})`;
+}
+document.addEventListener('keydown', (event) => {
+  if (['ArrowRight', 'PageDown', ' '].includes(event.key)) { event.preventDefault(); show(current + 1); }
+  if (['ArrowLeft', 'PageUp'].includes(event.key)) { event.preventDefault(); show(current - 1); }
+});
+window.addEventListener('resize', fit);
+fit();
+show(current);
+</script>
+</body>
+</html>

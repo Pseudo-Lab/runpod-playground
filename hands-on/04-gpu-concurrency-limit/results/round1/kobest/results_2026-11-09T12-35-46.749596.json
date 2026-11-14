@@ -1,0 +1,481 @@
+{
+  "results": {
+    "kobest_boolq": {
+      "name": "kobest_boolq",
+      "alias": "kobest_boolq",
+      "sample_len": 1404,
+      "acc,none": 0.896011396011396,
+      "acc_stderr,none": 0.008149309370364004,
+      "f1,none": 0.8959429824561403,
+      "f1_stderr,none": "N/A"
+    },
+    "kobest_copa": {
+      "name": "kobest_copa",
+      "alias": "kobest_copa",
+      "sample_len": 1000,
+      "acc,none": 0.761,
+      "acc_stderr,none": 0.013493000446937704,
+      "f1,none": 0.7607394452558837,
+      "f1_stderr,none": "N/A"
+    },
+    "kobest_hellaswag": {
+      "name": "kobest_hellaswag",
+      "alias": "kobest_hellaswag",
+      "sample_len": 500,
+      "acc,none": 0.434,
+      "acc_stderr,none": 0.02218721580302901,
+      "f1,none": 0.43192340556008824,
+      "f1_stderr,none": "N/A",
+      "acc_norm,none": 0.502,
+      "acc_norm_stderr,none": 0.022382894986483586
+    },
+    "kobest_sentineg": {
+      "name": "kobest_sentineg",
+      "alias": "kobest_sentineg",
+      "sample_len": 397,
+      "acc,none": 0.743073047858942,
+      "acc_stderr,none": 0.021956999609001868,
+      "f1,none": 0.7368605739238927,
+      "f1_stderr,none": "N/A"
+    },
+    "kobest_wic": {
+      "name": "kobest_wic",
+      "alias": "kobest_wic",
+      "sample_len": 1260,
+      "acc,none": 0.6023809523809524,
+      "acc_stderr,none": 0.013792923920246692,
+      "f1,none": 0.5211338763304681,
+      "f1_stderr,none": "N/A"
+    }
+  },
+  "group_subtasks": {},
+  "configs": {
+    "kobest_boolq": {
+      "task": "kobest_boolq",
+      "dataset_path": "skt/kobest_v1",
+      "dataset_name": "boolq",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "{{paragraph}} 질문: {{question}} 답변: ",
+      "doc_to_target": "{{label}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "아니오",
+        "예"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "{{paragraph}} 질문: {{question}} 답변: ",
+        "doc_to_choice": [
+          "아니오",
+          "예"
+        ],
+        "doc_to_target": "{{label}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "f1",
+          "aggregation": "def macro_f1_score(items):\n    from sklearn.metrics import f1_score\n\n    unzipped_list = list(zip(*items))\n    golds = unzipped_list[0]\n    preds = unzipped_list[1]\n    fscore = f1_score(golds, preds, average=\"macro\")\n    return fscore\n",
+          "average": "macro",
+          "hf_evaluate": true,
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "model": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "base_url": "http://localhost:8000/v1/completions",
+        "num_concurrent": 32,
+        "max_retries": 3,
+        "tokenized_requests": true,
+        "tokenizer": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "tokenizer_backend": "huggingface",
+        "max_length": 8192,
+        "config_source": "/opt/lm-eval-env/lib/python3.12/site-packages/lm_eval/tasks/kobest/kobest_boolq.yaml"
+      }
+    },
+    "kobest_copa": {
+      "task": "kobest_copa",
+      "dataset_path": "skt/kobest_v1",
+      "dataset_name": "copa",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "def copa_doc_to_text(doc: dict) -> str:\n    connector = {\"원인\": \" 왜냐하면\", \"결과\": \" 그래서\"}[doc[\"question\"].strip()]\n    return f\"\"\"{doc[\"premise\"]} {connector}\"\"\"\n",
+      "doc_to_target": "def copa_doc_to_target(doc: dict) -> str:\n    correct_choice = doc[\"alternative_1\"] if doc[\"label\"] == 0 else doc[\"alternative_2\"]\n    return f\"\"\"{correct_choice}\"\"\"\n",
+      "unsafe_code": false,
+      "doc_to_choice": "def copa_doc_to_choice(doc: dict) -> list:\n    return [f\"\"\"{doc[\"alternative_1\"]}\"\"\", f\"\"\"{doc[\"alternative_2\"]}\"\"\"]\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "<function copa_doc_to_text at 0x7a8e5efb6ca0>",
+        "doc_to_choice": "<function copa_doc_to_choice at 0x7a8e5efb68e0>",
+        "doc_to_target": "<function copa_doc_to_target at 0x7a8e5efb6a20>",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "f1",
+          "aggregation": "def macro_f1_score(items):\n    from sklearn.metrics import f1_score\n\n    unzipped_list = list(zip(*items))\n    golds = unzipped_list[0]\n    preds = unzipped_list[1]\n    fscore = f1_score(golds, preds, average=\"macro\")\n    return fscore\n",
+          "average": "macro",
+          "hf_evaluate": true,
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "model": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "base_url": "http://localhost:8000/v1/completions",
+        "num_concurrent": 32,
+        "max_retries": 3,
+        "tokenized_requests": true,
+        "tokenizer": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "tokenizer_backend": "huggingface",
+        "max_length": 8192,
+        "config_source": "/opt/lm-eval-env/lib/python3.12/site-packages/lm_eval/tasks/kobest/kobest_copa.yaml"
+      }
+    },
+    "kobest_hellaswag": {
+      "task": "kobest_hellaswag",
+      "dataset_path": "skt/kobest_v1",
+      "dataset_name": "hellaswag",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "process_docs": "def hellaswag_process_doc(doc: Dataset) -> Dataset:\n    def preprocessor(dataset):\n        return {\n            \"query\": f\"\"\"문장: {dataset[\"context\"]}\"\"\",\n            \"choices\": [\n                dataset[\"ending_1\"],\n                dataset[\"ending_2\"],\n                dataset[\"ending_3\"],\n                dataset[\"ending_4\"],\n            ],\n            \"gold\": int(dataset[\"label\"]),\n        }\n\n    return doc.map(preprocessor)\n",
+      "doc_to_text": "{{query}}",
+      "doc_to_target": "{{label}}",
+      "unsafe_code": false,
+      "doc_to_choice": "choices",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": "<function hellaswag_process_doc at 0x7a8e5efb6b60>",
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "{{query}}",
+        "doc_to_choice": "choices",
+        "doc_to_target": "{{label}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "f1",
+          "aggregation": "def macro_f1_score(items):\n    from sklearn.metrics import f1_score\n\n    unzipped_list = list(zip(*items))\n    golds = unzipped_list[0]\n    preds = unzipped_list[1]\n    fscore = f1_score(golds, preds, average=\"macro\")\n    return fscore\n",
+          "average": "macro",
+          "hf_evaluate": true,
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "model": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "base_url": "http://localhost:8000/v1/completions",
+        "num_concurrent": 32,
+        "max_retries": 3,
+        "tokenized_requests": true,
+        "tokenizer": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "tokenizer_backend": "huggingface",
+        "max_length": 8192,
+        "config_source": "/opt/lm-eval-env/lib/python3.12/site-packages/lm_eval/tasks/kobest/kobest_hellaswag.yaml"
+      }
+    },
+    "kobest_sentineg": {
+      "task": "kobest_sentineg",
+      "dataset_path": "skt/kobest_v1",
+      "dataset_name": "sentineg",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "def sentineg_doc_to_text(doc: dict):\n    return f\"\"\"문장: {doc[\"sentence\"]} 긍부정:\"\"\"\n",
+      "doc_to_target": "{{label}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "부정",
+        "긍정"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "<function sentineg_doc_to_text at 0x7a8e5efb67a0>",
+        "doc_to_choice": [
+          "부정",
+          "긍정"
+        ],
+        "doc_to_target": "{{label}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "f1",
+          "aggregation": "def macro_f1_score(items):\n    from sklearn.metrics import f1_score\n\n    unzipped_list = list(zip(*items))\n    golds = unzipped_list[0]\n    preds = unzipped_list[1]\n    fscore = f1_score(golds, preds, average=\"macro\")\n    return fscore\n",
+          "average": "macro",
+          "hf_evaluate": true,
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "model": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "base_url": "http://localhost:8000/v1/completions",
+        "num_concurrent": 32,
+        "max_retries": 3,
+        "tokenized_requests": true,
+        "tokenizer": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "tokenizer_backend": "huggingface",
+        "max_length": 8192,
+        "config_source": "/opt/lm-eval-env/lib/python3.12/site-packages/lm_eval/tasks/kobest/kobest_sentineg.yaml"
+      }
+    },
+    "kobest_wic": {
+      "task": "kobest_wic",
+      "dataset_path": "skt/kobest_v1",
+      "dataset_name": "wic",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "def wic_doc_to_text(doc: dict) -> str:\n    return f\"\"\"문장1: {doc[\"context_1\"]} 문장2: {doc[\"context_2\"]} 두 문장에서 {doc[\"word\"]}가 같은 뜻으로 쓰였나?\"\"\"\n",
+      "doc_to_target": "{{label}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "아니오",
+        "예"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "<function wic_doc_to_text at 0x7a8e5efb6980>",
+        "doc_to_choice": [
+          "아니오",
+          "예"
+        ],
+        "doc_to_target": "{{label}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "f1",
+          "aggregation": "def macro_f1_score(items):\n    from sklearn.metrics import f1_score\n\n    unzipped_list = list(zip(*items))\n    golds = unzipped_list[0]\n    preds = unzipped_list[1]\n    fscore = f1_score(golds, preds, average=\"macro\")\n    return fscore\n",
+          "average": "macro",
+          "hf_evaluate": true,
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "model": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "base_url": "http://localhost:8000/v1/completions",
+        "num_concurrent": 32,
+        "max_retries": 3,
+        "tokenized_requests": true,
+        "tokenizer": "kakaocorp/kanana-1.5-8b-instruct-2505",
+        "tokenizer_backend": "huggingface",
+        "max_length": 8192,
+        "config_source": "/opt/lm-eval-env/lib/python3.12/site-packages/lm_eval/tasks/kobest/kobest_wic.yaml"
+      }
+    }
+  },
+  "versions": {
+    "kobest_boolq": 1.0,
+    "kobest_copa": 1.0,
+    "kobest_hellaswag": 1.0,
+    "kobest_sentineg": 1.0,
+    "kobest_wic": 1.0
+  },
+  "n-shot": {
+    "kobest_boolq": 0,
+    "kobest_copa": 0,
+    "kobest_hellaswag": 0,
+    "kobest_sentineg": 0,
+    "kobest_wic": 0
+  },
+  "higher_is_better": {
+    "kobest_boolq": {
+      "acc": true,
+      "f1": true
+    },
+    "kobest_copa": {
+      "acc": true,
+      "f1": true
+    },
+    "kobest_hellaswag": {
+      "acc": true,
+      "acc_norm": true,
+      "f1": true
+    },
+    "kobest_sentineg": {
+      "acc": true,
+      "f1": true
+    },
+    "kobest_wic": {
+      "acc": true,
+      "f1": true
+    }
+  },
+  "n-samples": {
+    "kobest_boolq": {
+      "original": 1404,
+      "effective": 1404
+    },
+    "kobest_copa": {
+      "original": 1000,
+      "effective": 1000
+    },
+    "kobest_hellaswag": {
+      "original": 500,
+      "effective": 500
+    },
+    "kobest_sentineg": {
+      "original": 397,
+      "effective": 397
+    },
+    "kobest_wic": {
+      "original": 1260,
+      "effective": 1260
+    }
+  },
+  "config": {
+    "model": "local-completions",
+    "model_args": {
+      "model": "kakaocorp/kanana-1.5-8b-instruct-2505",
+      "base_url": "http://localhost:8000/v1/completions",
+      "num_concurrent": 32,
+      "max_retries": 3,
+      "tokenized_requests": true,
+      "tokenizer": "kakaocorp/kanana-1.5-8b-instruct-2505",
+      "tokenizer_backend": "huggingface",
+      "max_length": 8192
+    },
+    "batch_size": 1,
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": {},
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": null,
+  "date": 1794227636.1158226,
+  "pretty_env_info": "N/A (torch not installed)",
+  "transformers_version": "5.22.2",
+  "lm_eval_version": "0.4.13",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<|end_of_text|>",
+    "128001"
+  ],
+  "tokenizer_eos_token": [
+    "<|eot_id|>",
+    "128009"
+  ],
+  "tokenizer_bos_token": [
+    "<|begin_of_text|>",
+    "128000"
+  ],
+  "eot_token_id": 128009,
+  "max_length": 8191,
+  "task_hashes": {},
+  "model_source": "local-completions",
+  "model_name": "kakaocorp/kanana-1.5-8b-instruct-2505",
+  "model_name_sanitized": "kakaocorp__kanana-1.5-8b-instruct-2505",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": true,
+  "chat_template": "{# version=v3-llama3.1 #}{%- macro append_new_param_info(param_declaration, comment_info, examples_info, depth) -%}\n    {%- set offset = \"\" -%}\n    {%- if depth >= 1 -%}\n        {%- set offset = \"    \" * depth -%}\n    {%- endif -%}\n    {%- if comment_info != \"<|NONE|>\" -%}\n        {{ \"\\n\" + offset + comment_info }}\n        {%- if examples_info | length > 0 -%}\n            {# Append each example info #}\n            {%- for example in examples_info -%}\n                {{ \"\\n\" + offset + \"// \" + example|string|replace(\"'\", '\"') }}\n            {%- endfor -%}\n        {%- endif -%}\n    {%- endif -%}\n    {{ \"\\n\" + offset + param_declaration }}\n{%- endmacro -%}\n\n{%- macro convert_data_type(param_type) -%}\n    {%- if param_type == \"integer\" or param_type == \"float\" -%}\n        {{ \"number\" }}\n    {%- else -%}\n        {{ param_type }}\n    {%- endif -%}\n{%- endmacro -%}\n\n{%- macro get_param_type(param) -%}\n    {%- set param_type = \"any\" -%}\n\n    {%- if \"type\" in param -%}\n        {%- set raw_param_type = param[\"type\"] -%}\n        {%- if raw_param_type is iterable and raw_param_type is not string -%}\n            {%- set param_type = raw_param_type | join(\" | \") -%}\n        {%- else -%}\n            {%- set param_type = raw_param_type -%}\n        {%- endif -%}\n        {{ convert_data_type(param_type) }}\n    {%- elif \"oneOf\" in param -%}\n        {%- set one_of_types = param[\"oneOf\"]|selectattr(\"type\", \"defined\")|list -%}\n        {%- set one_of_types = one_of_types|map(attribute=\"type\")|unique|list -%}\n        {{ convert_data_type(one_of_types | join(\" | \")) }}\n    {%- endif -%}\n{%- endmacro -%}\n\n{%- macro get_format_param(param) -%}\n    {%- if \"format\" in param -%}\n        {{ param[\"format\"] }}\n    {%- elif \"oneOf\" in param -%}\n        {%- set formats = [] -%}\n        {%- for item in param[\"oneOf\"] -%}\n            {%- if \"format\" in item -%}\n                {%- if item[\"format\"] == param[\"oneOf\"][-1][\"format\"] -%}\n                    {{ item[\"format\"] }}\n                {%- else -%}\n                    {{ item[\"format\"] + \" or \"}}\n                {%- endif -%}\n            {%- endif -%}\n        {%- endfor -%}\n    {%- else -%}\n        {{ \"<|NONE|>\" }}\n    {%- endif -%}\n{%- endmacro -%}\n\n{%- macro get_param_info(param) -%}\n    {%- set param_type = param.get(\"type\", \"any\") -%}\n    {%- set format_param = get_format_param(param) -%}\n\n    {%- if \"description\" in param or \"default\" in param or format_param != \"<|NONE|>\" or param[\"maximum\"] or param[\"minimum\"] or param[\"maxLength\"] or param[\"minLength\"] -%}\n        {{ \"//\" }}\n        {%- if \"description\" in param -%}\n            {%- set desc = param[\"description\"] -%}\n            {%- if not desc.endswith(\".\") -%}\n                {%- set desc = desc + \".\" -%}\n            {%- endif -%}\n            {{ \" \" + desc }}\n        {%- endif -%}\n\n        {%- if \"default\" in param -%}\n            {%- set default_value = param[\"default\"] -%}\n            {%- if param_type == \"string\" -%}\n                {%- set default_value = '\"' ~ default_value ~ '\"' -%}\n            {%- endif -%}\n            {{ \" Default=\" ~ default_value ~ \".\" }}\n        {%- endif -%}\n\n        {%- set format_param = get_format_param(param) -%}\n        {%- if format_param != \"<|NONE|>\" -%}\n            {{ \" Format=\" ~ format_param }}\n        {%- endif -%}\n\n        {%- for field, field_name in [(\"maximum\", \"Maximum\"), (\"minimum\", \"Minimum\"), (\"maxLength\", \"Maximum length\"), (\"minLength\", \"Minimum length\")] -%}\n            {%- if field in param -%}\n                {{ \" \" + field_name ~ \"=\" ~ param[field] }}\n            {%- endif -%}\n        {%- endfor -%}\n    {%- else -%}\n        {{ \"<|NONE|>\"}}\n    {%- endif -%}\n{%- endmacro -%}\n\n{%- macro get_enum_option_str(enum_options) -%}\n    {%- for v in enum_options -%}\n        {%- if v is string -%}\n            {{ '\"' + v + '\"' }}\n        {%- else -%}\n            {{ v }}\n        {%- endif -%}\n        {%- if enum_options|length > 0 and v != enum_options[-1] -%}\n            {{ \" | \" }}\n        {%- endif -%}\n    {%- endfor -%}\n{%- endmacro -%}\n\n{%- macro get_array_typescript(param_name, param_dic, depth) -%}\n    {%- set offset = '' -%}\n    {%- if depth >= 1 -%}\n        {%- set offset = \"    \" * depth -%}\n    {%- endif -%}\n    {%- set items_info = param_dic.get('items', {}) -%}\n\n    {%- if items_info|length == 0 -%}\n        {%- if param_name -%}\n            {{ \"\\n\" + offset + param_name + \": []\" }}\n        {%- else -%}\n            {{ \"\\n\" + offset + \"[]\" }}\n        {%- endif -%}\n    {%- else -%}\n        {%- set array_type = get_param_type(items_info) -%}\n        {%- if array_type == 'object' -%}\n            {%- if param_name -%}\n                {{ \"\\n\" + offset + param_name + \": {\" }}\n            {%- else -%}\n                {{ \"\\n\" + offset + \"{\" }}\n            {%- endif -%}\n            {{ get_parameter_typescript(items_info.get('properties', {}), items_info.get('required', []), depth + 1) -}}\n            {{- \"\\n\" + offset + \"}[]\" }}\n        {%- elif array_type == 'array' -%}\n            {%- set item_info = get_array_typescript(None, items_info, depth + 1) -%}\n            {%- if not param_name -%}\n                {{ \"\\n\" + item_info + \"[]\" }}\n            {%- else -%}\n                {{ \"\\n\" + offset + param_name + \": \" + item_info|trim + \"[]\" }}\n            {%- endif -%}\n        {%- else -%}\n            {%- if 'enum' in items_info -%}\n                {%- set item_type = get_enum_option_str(items_info['enum']) -%}\n                {%- if param_name is none -%}\n                    {{ \"(\" + item_type + \")[]\"}}\n                {%- else -%}\n                    {{ \"\\n\" + offset + param_name + \": (\" + item_type + \")[]\" }}\n                {%- endif -%}\n            {%- else -%}\n                {%- if param_name is none -%}\n                    {{ \"\\n\" + array_type + \"[]\" }}\n                {%- else -%}\n                    {{ \"\\n\" + offset + param_name + \": \" + array_type + \"[],\" }}\n                {%- endif -%}\n            {%- endif -%}\n        {%- endif -%}\n    {%- endif -%}\n{%- endmacro -%}\n\n{%- macro get_parameter_typescript(properties, required_params, depth=0) -%}\n    {%- set res = \"\" -%}\n    {%- for param_name, param in properties.items() -%}\n        {%- if param is mapping -%}\n            {%- set comment_info = get_param_info(param) -%}\n            {# Param Examples #}\n            {%- set examples_info = [] -%}\n            {%- if \"examples\" in param -%}\n                {%- set examples_info = [\"Example \" + param_name + \":\"] -%}\n                {%- set examples_info = examples_info + param[\"examples\"] -%}\n            {%- endif -%}\n\n            {# Param Name declaration #}\n            {%- set param_declaration = param_name -%}\n            {%- if required_params is iterable and param_name not in required_params -%}\n                {%- set param_declaration = param_declaration + \"?\" -%}\n            {%- endif -%}\n\n            {%- set param_type = get_param_type(param) -%}\n\n            {# Handle indentation based on depth #}\n            {%- set offset = \"\" -%}\n            {%- if depth >= 1 -%}\n                {%- set offset = \"    \" * depth -%}\n            {%- endif -%}\n\n            {%- if param_type == \"object\" -%}\n                {%- if comment_info != \"<|NONE|>\" -%}\n                    {{ \"\\n\" + offset + comment_info }}\n                {%- endif -%}\n                {%- if examples_info|length > 0 -%}\n                    {%- for example in examples_info -%}\n                        {{ \"\\n\" + offset + \"// \" + example|string|replace(\"'\", '\"') }}\n                    {%- endfor -%}\n                {%- endif -%}\n                {%- set param_declaration = param_declaration + \": {\" -%}\n                {{ \"\\n\" + offset + param_declaration -}}\n                {{- get_parameter_typescript(param.get(\"properties\", {}), param.get(\"required\", []), depth + 1) -}}\n                {{- \"\\n\" + offset + \"},\" }}\n            {%- elif param_type == \"array\" -%}\n                {%- set item_info = param.get(\"items\", {}) -%}\n                {%- if \"type\" not in item_info -%}\n                    {%- set param_declaration = param_declaration + \": [],\" -%}\n                    {{ append_new_param_info(param_declaration, comment_info, examples_info, depth) }}\n                {%- else -%}\n                    {%- if comment_info != \"<|NONE|>\" -%}\n                        {{ \"\\n\" + offset + comment_info }}\n                    {%- endif -%}\n                    {%- if examples_info|length > 0 -%}\n                        {%- for example in examples_info -%}\n                            {{ \"\\n\" + offset + \"// \" + example|string|replace(\"'\", '\"') }}\n                        {%- endfor -%}\n                    {%- endif -%}\n                    {%- set array_declaration = get_array_typescript(param_declaration, param, depth) -%}\n                    {%- if not array_declaration.endswith(\",\") -%}\n                        {%- set array_declaration = array_declaration + \",\" -%}\n                    {%- endif -%}\n                    {{ array_declaration}}\n                {%- endif -%}\n            {%- else -%}\n                {%- if \"enum\" in param -%}\n                    {%- set param_type = get_enum_option_str(param[\"enum\"]) -%}\n                {%- endif -%}\n                {%- if \"nullable\" in param and param[\"nullable\"] -%}\n                    {%- set param_type = param_type + \" | null\" -%}\n                {%- endif -%}\n                {%- set param_declaration = param_declaration + \": \" + param_type + \",\" -%}\n                {{ append_new_param_info(param_declaration, comment_info, examples_info, depth) }}\n            {%- endif -%}\n        {%- endif -%}\n    {%- endfor -%}\n{%- endmacro -%}\n\n{%- macro generate_schema_from_functions(functions, namespace='functions') -%}\n    {{ \"// Supported function definitions that should be called when necessary.\\n\" -}}\n    {{- \"namespace \" + namespace + \" {\\n\\n\" -}}\n\n    {%- for function in functions -%}\n        {%- if function.get(\"function\") -%}\n            {%- set function = function.get(\"function\") -%}\n        {%- endif -%}\n\n        {%- set function_name = function.get(\"name\") -%}\n        {%- if function_name -%}\n            {%- set description = function.get('description', '') -%}\n            {%- set parameters = function.get('parameters', {}) -%}\n            {{- \"// \" + description + \"\\n\" -}}\n            {{- \"type \" + function_name -}}\n            {%- if parameters and parameters.get(\"properties\") -%}\n                {{- \" = (_: {\" -}}\n                {%- set required_params = parameters.get(\"required\", []) -%}\n                {{ get_parameter_typescript(parameters.get(\"properties\"), required_params, 0) -}}\n                {{- \"\\n}) => any;\\n\\n\" }}\n            {%- else -%}\n                {{ \" = () => any;\\n\\n\" }}\n            {%- endif -%}\n        {%- endif -%}\n    {%- endfor -%}\n    {{ \"} // namespace \" + namespace }}\n{%- endmacro -%}\n{%- if not tools is defined -%}\n    {%- set tools = none -%}\n{%- endif -%}\n\n{%- set has_code_interpreter = tools | selectattr(\"type\", \"equalto\", \"code_interpreter\") | list | length > 0 -%}\n{%- if has_code_interpreter -%}\n    {%- set tools = tools | rejectattr(\"type\", \"equalto\", \"code_interpreter\") | list -%}\n{%- endif -%}\n\n{#- System message + builtin tools #}\n{{- bos_token + \"<|start_header_id|>system<|end_header_id|>\\n\\n\" }}\n{%- if has_code_interpreter %}\n    {{- \"Environment: ipython\\n\\n\" }}\n{%- else -%}\n    {{ \"\\n\"}}\n{%- endif %}\n{%- if tools %}\n    {{- \"\\nYou have access to the following functions:\\n\\n\" }}\n    {%- for t in tools %}\n        {%- if \"type\" in t -%}\n            {{ \"Use the function '\" + t[\"function\"][\"name\"] + \"' to '\" + t[\"function\"][\"description\"] + \"'\\n\" + t[\"function\"] | tojson() }}\n        {%- else -%}\n            {{ \"Use the function '\" + t[\"name\"] + \"' to '\" + t[\"description\"] + \"'\\n\" + t | tojson }}\n        {%- endif -%}\n        {{- \"\\n\\n\" }}\n    {%- endfor %}\n    {{- '\\nThink very carefully before calling functions.\\nIf a you choose to call a function ONLY reply in the following format:\\n<{start_tag}={function_name}>{parameters}{end_tag}\\nwhere\\n\\nstart_tag => `<function`\\nparameters => a JSON dict with the function argument name as key and function argument value as value.\\nend_tag => `</function>`\\n\\nHere is an example,\\n<function=example_function_name>{\"example_name\": \"example_value\"}</function>\\n\\nReminder:\\n- If looking for real time information use relevant functions before falling back to brave_search\\n- Function calls MUST follow the specified format, start with <function= and end with </function>\\n- Required parameters MUST be specified\\n- Only call one function at a time\\n- Put the entire function call reply on one line\\n\\n' -}}\n{%- endif %}\n{{- \"<|eot_id|>\" -}}\n\n{%- for message in messages -%}\n    {%- if message['role'] == 'user' or message['role'] == 'system' -%}\n        {{ '<|start_header_id|>' + message['role'] + '<|end_header_id|>\\n\\n' + message['content'] + '<|eot_id|>' }}\n    {%- elif message['role'] == 'tool' -%}\n        {{ '<|start_header_id|>ipython<|end_header_id|>\\n\\n' + message['content'] + '<|eot_id|>' }}\n    {%- else -%}\n        {%- if (message['content'] and message['content']|length > 0) or ('tool_calls' in message and message['tool_calls'] and message['tool_calls']|length > 0) -%}\n            {{ '<|start_header_id|>' + message['role'] + '<|end_header_id|>\\n\\n'}}\n        {%- endif -%}\n        {%- if message['content'] and message['content']|length > 0 -%}\n            {{ message['content'] }}\n        {%- endif -%}\n        {%- if 'tool_calls' in message and message['tool_calls'] and message['tool_calls']|length > 0 -%}\n            {%- for tool_call in message['tool_calls'] -%}\n                {%- if tool_call[\"function\"][\"name\"] == \"python\" -%}\n                    {{ '<|python_tag|>' + tool_call['function']['arguments'] }}\n                {%- else -%}\n                    {{ '<function=' + tool_call['function']['name'] + '>' + tool_call['function']['arguments'] + '</function>' }}\n                {%- endif -%}\n            {%- endfor -%}\n            {{ '<|eom_id|>' }}\n        {%- elif message['content'] and message['content']|length > 0 -%}\n            {{ '<|eot_id|>' }}\n        {%- endif -%}\n    {%- endif -%}\n{%- endfor -%}\n{%- if add_generation_prompt -%}\n    {{ '<|start_header_id|>assistant<|end_header_id|>\\n\\n' }}\n{%- endif -%}\n",
+  "chat_template_sha": "42745fb34df3e367eb6ba9e11e18475bef40f4f51270484a5cab7a42db6e6ebc",
+  "total_evaluation_time_seconds": "119.4306356869638"
+}
